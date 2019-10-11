@@ -39,7 +39,11 @@
 <meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
 <meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
 <meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
-<meta property="og:updated_time" content="2019-09-29T03:21:49.317Z">
+<meta property="og:image" content="http://www.pianshen.com/images/978/589ec9d5dfbd6d34e3b83b2d0b70908a.png">
+<meta property="og:image" content="http://www.pianshen.com/images/894/419ebf4edcc546969c2df6d56c25a51e.png">
+<meta property="og:image" content="http://www.pianshen.com/images/25/02c9070bed4f4c345dd88f746fa9b001.png">
+<meta property="og:image" content="http://www.pianshen.com/source?id=843087910">
+<meta property="og:updated_time" content="2019-10-11T01:20:43.876Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="django---drf">
 <meta name="twitter:description" content="DRF梳理(不断更新….) REST是一种软件架构设计风格，不是标准，也不是技术实现，只是提供了一组设计原则和约束条件，是目前最流行的API 设计规范，用于web数据接口的设计。2000年，由Roy Fielding在他的博士论文中提出，Roy Fielding是HTTP规范的主要编写者之一。 　　RESTful参考链接： 　　　　RESTful API 最佳实践 - 阮一峰 　　　　我所认为的R">
@@ -323,6 +327,148 @@
 <p>　　　　　　- 类的继承</p>
 <p>　　　　　　- 方法重写</p>
 <p>　　　　　　- super()</p>
+<h2 id="Django-–-DRF-中的-视图-详解"><a href="#Django-–-DRF-中的-视图-详解" class="headerlink" title="Django – DRF 中的 视图 详解"></a>Django – DRF 中的 视图 详解</h2><p>技术标签： <a href="http://www.pianshen.com/tag/DRF/" target="_blank" rel="noopener">DRF</a>  <a href="http://www.pianshen.com/tag/视图/" target="_blank" rel="noopener">视图</a>  <a href="http://www.pianshen.com/tag/Django/" target="_blank" rel="noopener">Django</a>  <a href="http://www.pianshen.com/tag/基类/" target="_blank" rel="noopener">基类</a>  <a href="http://www.pianshen.com/tag/可扩展类/" target="_blank" rel="noopener">可扩展类</a></p>
+<h2 id="两个基类的介绍"><a href="#两个基类的介绍" class="headerlink" title="两个基类的介绍"></a>两个基类的介绍</h2><p>Ⅰ. <strong>APIView</strong><br> 介绍：<br> <code>APIView</code>是REST framework提供的所有视图的基类，继承自Django的View父类。</p>
+<p><strong>APIView与View的不同之处在于</strong>：</p>
+<ul>
+<li>传入到视图方法中的是REST framework的Request对象，而不是Django的HttpRequeset对象；</li>
+<li>视图方法可以返回REST framework的Response对象，视图会为响应数据设置（render）符合前端要求的格式；</li>
+<li>任何APIException异常都会被捕获到，并且处理成合适的响应信息；</li>
+<li>在进行dispatch()分发前，会对请求进行身份认证、权限检查、流量控制。</li>
+</ul>
+<hr>
+<p>  案例一：完成所有书籍的展示查询 </p>
+<p>继承于APIView，代码实现如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#  views.py 部分代码</span><br><span class="line">from rest_framework.views import APIView</span><br><span class="line">from rest_framework.response import Response</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class BookInfoAPIView(APIView):</span><br><span class="line">    books = BookInfo.objects.all()</span><br><span class="line">    serializer = BookInfoModelSerializer</span><br><span class="line"></span><br><span class="line">    def get(self, request):</span><br><span class="line">        s = self.serializer(self.books, many=True)</span><br><span class="line">        return Response(s.data)</span><br><span class="line"></span><br><span class="line">12345678910111213</span><br><span class="line">#  urls.py 中的 url</span><br><span class="line">url(r&apos;books/&apos;, views.BookInfoAPIView.as_view())</span><br><span class="line">12</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Ⅱ. <strong>GenericAPIView</strong></p>
+<p>介绍：<br> 继承自<strong>APIView</strong>，增加了对于列表视图和详情视图可能用到的通用支持方法。通常使用时，可搭配一个或多个Mixin扩展类。</p>
+<p><strong>支持定义的属性</strong>：</p>
+<ol>
+<li>列表视图与详情视图通用：</li>
+</ol>
+<ul>
+<li>queryset 列表视图的查询集</li>
+<li>serializer_class 视图使用的序列化器</li>
+</ul>
+<ol>
+<li>列表视图使用：</li>
+</ol>
+<ul>
+<li>pagination_class 分页控制类</li>
+<li>filter_backends 过滤控制后端</li>
+</ul>
+<ol>
+<li>详情页视图使用：</li>
+</ol>
+<ul>
+<li>lookup_field：查询单一数据库对象时使用的条件字段，默认为’pk’</li>
+<li>lookup_url_kwarg   ：查询单一数据时URL中的参数关键字名称，默认与look_field相同。</li>
+</ul>
+<p><strong>提供的方法：</strong></p>
+<p><strong>列表视图与详情视图通用</strong>:</p>
+<ul>
+<li>get_queryset : 获取视图对应的查询集，是列表视图和详细视图获取数据的基础；默认返回的是<code>queryset</code> 的属性，可重写</li>
+<li>get_serializer_class : 获取序列化器类，默认返回的是<code>serializer_class</code>，可重写；</li>
+<li>get_serializer(self, args, *kwargs) :<br> 获取序列化器对象，这一步相对于APIView来说，就免去了创建序列化对象；</li>
+</ul>
+<p><strong>详情视图使用</strong>:</p>
+<p><em>get_object(self)</em> :  返回详情视图所需的模型类数据对象，默认使用lookup_field参数来过滤queryset。 在试图中可以调用该方法获取详情信息的模型类对象。</p>
+<p>若详情访问的模型类对象不存在，会返回404。</p>
+<p>该方法会默认使用APIView提供的check_object_permissions方法检查当前对象是否有权限被访问。</p>
+<hr>
+<p>案例二：需求：查询某个书籍的具体信息</p>
+<p>继承GenericAPIView实现的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#  views.py 部分代码</span><br><span class="line">class BookInfoAPIView(GenericAPIView):</span><br><span class="line">    # 定义视图的查询集</span><br><span class="line">    queryset = BookInfo.objects.all()</span><br><span class="line">    # 指定视图对应的序列化器</span><br><span class="line">    serializer_class = BookInfoModelSerializer</span><br><span class="line"></span><br><span class="line">    def get(self, request, pk):</span><br><span class="line">        # 需求：　查询某个书籍的详细信息</span><br><span class="line">        book = self.get_object()</span><br><span class="line">        # 获取序列化对象</span><br><span class="line">        ser = self.get_serializer(book)</span><br><span class="line"></span><br><span class="line">        return Response(ser.data)</span><br><span class="line">1234567891011121314</span><br><span class="line">#  urls.py 中的 url</span><br><span class="line">url(r&apos;books/(?P&lt;pk&gt;\d+)/$&apos;, views.BookInfoAPIView.as_view())</span><br><span class="line">12</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="扩展类"><a href="#扩展类" class="headerlink" title="扩展类"></a>扩展类</h2><p>Ⅲ . 五个扩展类</p>
+<ol>
+<li><strong>ListModelMixin</strong>: 快速实现列表视图，返回200状态码。<br> 该Mixin的list方法会对数据进行过滤和分页。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 查询所有书籍的信息</span><br><span class="line">class BookInfoAPIView(ListModelMixin, GenericAPIView):</span><br><span class="line">    # 定义视图的查询集</span><br><span class="line">    queryset = BookInfo.objects.all()</span><br><span class="line">    # 指定视图对应的序列化器</span><br><span class="line">    serializer_class = BookInfoModelSerializer</span><br><span class="line"></span><br><span class="line">    def get(self, request):</span><br><span class="line">        return self.list(request)</span><br><span class="line">123456789</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>CreateModelMixin</strong>： 快速实现创建资源的视图，成功返回201状态码。<br> 如果序列化器对前端发送的数据验证失败，返回400错误。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#  创建数据 </span><br><span class="line">class BookInfoAPIView(CreateModelMixin, GenericAPIView):</span><br><span class="line">    # 定义视图的查询集</span><br><span class="line">    queryset = BookInfo.objects.all()</span><br><span class="line">    # 指定视图对应的序列化器</span><br><span class="line">    serializer_class = BookInfoModelSerializer</span><br><span class="line"></span><br><span class="line">    def post(self, request):</span><br><span class="line">        return self.create(request)</span><br><span class="line">123456789</span><br><span class="line"># urls.py</span><br><span class="line">url(r&apos;books/&apos;, views.BookInfoAPIView.as_view())</span><br><span class="line">12</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>RetrieveModelMixin</strong>：  可以快速实现返回一个存在的数据对象。<br> 如果存在，返回200， 否则返回404。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class BookInfoAPIView(RetrieveModelMixin, GenericAPIView):</span><br><span class="line">    # 定义视图的查询集</span><br><span class="line">    queryset = BookInfo.objects.all()</span><br><span class="line">    # 指定视图对应的序列化器</span><br><span class="line">    serializer_class = BookInfoModelSerializer</span><br><span class="line"></span><br><span class="line">    def get(self, request, pk):</span><br><span class="line">        return self.retrieve(request)</span><br><span class="line"></span><br><span class="line">123456789</span><br><span class="line"># urls.py</span><br><span class="line">url(r&apos;books/(?P&lt;pk&gt;\d+)/$&apos;, views.BookInfoAPIView.as_view())</span><br><span class="line">12</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>UpdateModelMixin</strong>:  更新视图扩展类，提供update(request, <em>args, *</em>kwargs)方法，可以快速实现更新一个存在的数据对象。<br> 同时也提供partial_update(request, <em>args, *</em>kwargs)方法，可以实现局部更新。<br> 成功返回200，序列化器校验数据失败时，返回400错误。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class BookInfoAPIView(UpdateModelMixin, GenericAPIView):</span><br><span class="line">    # 定义视图的查询集</span><br><span class="line">    queryset = BookInfo.objects.all()</span><br><span class="line">    # 指定视图对应的序列化器</span><br><span class="line">    serializer_class = BookInfoModelSerializer</span><br><span class="line"></span><br><span class="line">    def put(self, request, pk):</span><br><span class="line">        book = self.get_object()</span><br><span class="line"></span><br><span class="line">        return self.update(request, book)</span><br><span class="line">12345678910</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>DestroyModelMixin</strong>:  删除视图扩展类，提供destroy(request, <em>args, *</em>kwargs)方法，可以快速实现删除一个存在的数据对象。<br> 成功返回204，不存在返回404。</li>
+</ol>
+<hr>
+<h2 id="视图集"><a href="#视图集" class="headerlink" title="视图集"></a>视图集</h2><p>Ⅳ . ViewSet 视图集</p>
+<p><strong>常用视图集的父类</strong>：</p>
+<p>1） ViewSet<br> 继承自APIView，作用也与APIView基本类似，提供了身份认证、权限校验、流量管理等。</p>
+<p>在ViewSet中，没有提供任何动作action方法，需要我们自己实现action方法。</p>
+<p>2）GenericViewSet<br> 继承自GenericAPIView，作用也与GenericAPIVIew类似，提供了get_object、get_queryset等方法便于列表视图与详情信息视图的开发。</p>
+<p>3）<strong>ModelViewSet</strong><br> 继承自GenericAPIVIew，同时包括了ListModelMixin、RetrieveModelMixin、CreateModelMixin、UpdateModelMixin、DestoryModelMixin。</p>
+<p>4）<strong>ReadOnlyModelViewSet</strong><br> 继承自GenericAPIVIew，同时包括了ListModelMixin、RetrieveModelMixin</p>
+<p><strong>action属性</strong>：<br> 比如：</p>
+<blockquote>
+<p>urlpatterns = [<br> url(r’^books/ $ ‘, views.BookInfoViewSet.as_view({‘get’: ‘list’})),<br> url(r’^books/latest/$ ‘, views.BookInfoViewSet.as_view({‘get’: ‘latest’})),<br> url(r’^books/(?P\d+)/$ ‘, views.BookInfoViewSet.as_view({‘get’: ‘retrieve’})),<br> url(r’^books/(?P\d+)/read/$’ , views.BookInfoViewSet.as_view({‘put’: ‘read’})),<br> ]</p>
+</blockquote>
+<p>在视图集中，我们可以通过action对象属性来获取当前请求视图集时的action动作是哪个</p>
+<p>现在以<strong>ModelViewSet</strong> 做代码案例演示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class BookInfoAPIView(ModelViewSet):</span><br><span class="line">    # 定义视图的查询集</span><br><span class="line">    queryset = BookInfo.objects.all()</span><br><span class="line">    # 指定视图对应的序列化器</span><br><span class="line">    serializer_class = BookInfoModelSerializer</span><br><span class="line">12345</span><br><span class="line"># url.py中的urlatterns配置</span><br><span class="line">url(r&apos;books/(?P&lt;pk&gt;\d+)/$&apos;, views.BookInfoAPIView.as_view(&#123;&apos;get&apos;: &apos;retrieve&apos;&#125;)),</span><br><span class="line">url(r&apos;books/&apos;, views.BookInfoAPIView.as_view(&#123;&apos;get&apos;: &apos;list&apos;&#125;))</span><br><span class="line">123</span><br></pre></td></tr></table></figure>
+
+<p>在继承了ModelViewSet之后，我们只要在路由中配置的时候，说明什么请求对应什么action，就可以很简单的完成视图函数的关于数据库的简单的增删改查。</p>
+<hr>
+<p>Ⅴ . 路由router</p>
+<p>上面的方式定义路由，相对来说，还是比较繁琐的，我们现在可以使用更简单的。</p>
+<p>REST framework提供了两个router：</p>
+<ul>
+<li>SimpleRouter</li>
+<li>DefaultRouter</li>
+</ul>
+<p>DefaultRouter与SimpleRouter的区别是，DefaultRouter会多附带一个默认的API根视图，返回一个包含所有列表视图的超链接响应数据。</p>
+<p><strong>使用方法：</strong></p>
+<p>（1）：创建router对象，并注册视图集</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from rest_framework import routers</span><br><span class="line"></span><br><span class="line">router = routers.SimpleRouter()</span><br><span class="line">router.register(r&apos;books&apos;, BookInfoAPIView, base_name=&apos;book&apos;)</span><br><span class="line">1234</span><br></pre></td></tr></table></figure>
+
+<p>register(prefix, viewset, base_name)</p>
+<ul>
+<li>prefix 该视图集的路由前缀</li>
+<li>viewset 视图集</li>
+<li>base_name 路由名称的前缀</li>
+</ul>
+<p>（2）：添加路由数据到urlpatterns中<br> 有下面两种方式都可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    ...</span><br><span class="line">]</span><br><span class="line">urlpatterns += router.urls</span><br><span class="line">1234</span><br><span class="line">urlpatterns = [</span><br><span class="line">    ...</span><br><span class="line">    url(r&apos;^&apos;, include(router.urls))</span><br><span class="line">]</span><br><span class="line">1234</span><br></pre></td></tr></table></figure>
+
+<p><strong>路由router形成URL的方式</strong>：<br> <img src="http://www.pianshen.com/images/978/589ec9d5dfbd6d34e3b83b2d0b70908a.png" alt="在这里插入图片描述"></p>
+<p><img src="http://www.pianshen.com/images/894/419ebf4edcc546969c2df6d56c25a51e.png" alt="在这里插入图片描述"></p>
+<hr>
+<p>Ⅵ . 视图集中定义附加action动作</p>
+<p>虽然ModelViewSet给我们提供了很简单的定义视图函数的方法，但是，并不能满足咱们的所有需求，所以我们得需要自己定义action动作。</p>
+<p>添加自定义动作需要使用<code>rest_framework.decorators.action</code>装饰器。</p>
+<p>以action装饰器装饰的方法名会作为action动作名，与list、retrieve等同。</p>
+<p>action装饰器可以接收两个参数：</p>
+<ol>
+<li>methods: 该action支持的请求方式，列表传递</li>
+<li>detail: 表示是action中要处理的是否是视图资源的对象（即是否通过url路径获取主键）</li>
+</ol>
+<p>detail参数：</p>
+<ul>
+<li>True 表示使用通过URL获取的主键对应的数据对象</li>
+<li>False 表示不使用URL获取主键</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class BookInfoAPIView(ModelViewSet):</span><br><span class="line">    # 定义视图的查询集</span><br><span class="line">    queryset = BookInfo.objects.all()</span><br><span class="line">    # 指定视图对应的序列化器</span><br><span class="line">    serializer_class = BookInfoModelSerializer</span><br><span class="line"></span><br><span class="line">    # 自定义action动作</span><br><span class="line">    @action(methods=[&apos;get&apos;], detail=False)</span><br><span class="line">    def latest(self, request):</span><br><span class="line">        # 本action是获取最新的书</span><br><span class="line">        book = BookInfo.objects.latest(&apos;id&apos;)</span><br><span class="line">        ser = self.get_serializer(book)</span><br><span class="line">        return Response(ser.data)</span><br><span class="line">12345678910111213</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="视图关系一览"><a href="#视图关系一览" class="headerlink" title="视图关系一览"></a>视图关系一览</h2><p>​    Ⅶ. 视图函数继承关系</p>
+<p>这个是从pycharm直接导出的，可以根据图示将视图之间的继承关系梳理清楚。<br> <img src="http://www.pianshen.com/images/25/02c9070bed4f4c345dd88f746fa9b001.png" alt="在这里插入图片描述"></p>
+<p>原文地址：<img src="http://www.pianshen.com/source?id=843087910" alt="img"></p>
 
       
 
