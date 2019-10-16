@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://anthonywang68.site">
-  <title>Archives | Anthony Wang&#39;summary</title>
+  <title>数据库--存储过程 | Anthony Wang&#39;summary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是一个基于Hexo搭建的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Anthony Wang&#39;summary">
-<meta property="og:url" content="https://anthonywang68.site/archives/page/9/index.html">
+  <meta name="description" content="维基百科： 储存程序 (Stored Procedure)，又可称预储程序或者存储过程，是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象，它可以视为数据库中的一种函数或子程序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库--存储过程">
+<meta property="og:url" content="https://anthonywang68.site/2019/10/16/数据库-存储过程/index.html">
 <meta property="og:site_name" content="Anthony Wang&#39;summary">
-<meta property="og:description" content="这是一个基于Hexo搭建的博客">
+<meta property="og:description" content="维基百科： 储存程序 (Stored Procedure)，又可称预储程序或者存储过程，是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象，它可以视为数据库中的一种函数或子程序。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-16T08:31:58.791Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anthony Wang&#39;summary">
-<meta name="twitter:description" content="这是一个基于Hexo搭建的博客">
+<meta name="twitter:title" content="数据库--存储过程">
+<meta name="twitter:description" content="维基百科： 储存程序 (Stored Procedure)，又可称预储程序或者存储过程，是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象，它可以视为数据库中的一种函数或子程序。">
   
     <link rel="alternative" href="/atom.xml" title="Anthony Wang&#39;summary" type="application/atom+xml">
   
@@ -151,79 +152,163 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数据库-存储过程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/05/部署/" class="archive-article-date">
-  	<time datetime="2019-09-05T11:48:35.528Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/05/部署/">部署</a>
+    <h1 class="article-title" itemprop="name">
+      数据库--存储过程
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/04/go-1/" class="archive-article-date">
-  	<time datetime="2019-09-04T12:08:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-04</time>
+        
+        <a href="/2019/10/16/数据库-存储过程/" class="archive-article-date">
+  	<time datetime="2019-10-16T08:28:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/04/go-1/">go</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>维基百科：</p>
+<pre><code>储存程序 (Stored Procedure)，又可称预储程序或者存储过程，是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象，它可以视为数据库中的一种函数或子程序。</code></pre><hr>
+   <a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
-          
+<h3 id="通过上面给出的解释，我们可以大概的知道，存储过程就是一段SQL语句的预编译集合、一段程序代码。"><a href="#通过上面给出的解释，我们可以大概的知道，存储过程就是一段SQL语句的预编译集合、一段程序代码。" class="headerlink" title="通过上面给出的解释，我们可以大概的知道，存储过程就是一段SQL语句的预编译集合、一段程序代码。"></a>通过上面给出的解释，我们可以大概的知道，存储过程就是一段SQL语句的预编译集合、一段程序代码。</h3><h2 id="其实说白了-存储过程就是存储在数据库中的一个程序，该程序内包含了一些SQL语句的集合，主要是完成某一个SQL语句操作。可以被重复调用。"><a href="#其实说白了-存储过程就是存储在数据库中的一个程序，该程序内包含了一些SQL语句的集合，主要是完成某一个SQL语句操作。可以被重复调用。" class="headerlink" title="其实说白了:存储过程就是存储在数据库中的一个程序，该程序内包含了一些SQL语句的集合，主要是完成某一个SQL语句操作。可以被重复调用。"></a>其实说白了:<strong>存储过程就是存储在数据库中的一个程序，该程序内包含了一些SQL语句的集合，主要是完成某一个SQL语句操作</strong>。可以被重复调用。</h2><h3 id="这就类似于C语言中的函数，存储过程的名称就是函数名，存储过程内部的语句就是函数体，同样的可以被重复调用。"><a href="#这就类似于C语言中的函数，存储过程的名称就是函数名，存储过程内部的语句就是函数体，同样的可以被重复调用。" class="headerlink" title="这就类似于C语言中的函数，存储过程的名称就是函数名，存储过程内部的语句就是函数体，同样的可以被重复调用。"></a>这就类似于C语言中的函数，存储过程的名称就是函数名，存储过程内部的语句就是函数体，同样的可以被重复调用。</h3><pre><code>我个人的理解就是，“存储过程”这个词可以把他分割出来理解，即：存储（动词） + 过程（名词）；翻译过来可以是：所存储的一个过程。其中这个“过程”就是完成某一个工作的过程。所以可以把“存储过程”理解成存储在数据库中的一个过程（函数），这个过程（函数）就是用来完成某一项工作的。
 
+ 知道什么是“存储过程”后，那么我们该明白它到底有什么好处，为什么要使用它。</code></pre><p>存储过程的优点：</p>
+<p>1、重复使用。存储过程可以重复使用，从而可以减少数据库开发人员的工作量。<br>2、减少网络流量。存储过程位于服务器上，调用的时候只需要传递存储过程的名称以及参数就可以了，因此降低了网络传输的数据量。<br>3、安全性。参数化的存储过程可以防止SQL注入式攻击，而且可以将Grant、Deny以及Revoke权限应用于存储过程。<br>4、效率高。由于数据库执行动作时，是先编译后执行的。然而存储过程是一个编译过的代码块，所以执行效率要比T-SQL语句高。<br>存储过程的缺点：</p>
+<p>1、调试麻烦。<br>2、移植性差。不同数据库支持的语言不一样，其存储过程的编写规则也不一样，所以存储过程无法移植到另一类数据库。<br>3、重新编译问题。因为后端代码是运行前编译的，如果带有引用关系的对象发生改变时，受影响的存储过程、包将需要重新编译（不过也可以设置成运行时刻自动编译）。<br>4、不能大量使用。如果在一个程序系统中大量的使用存储过程，到程序交付使用的时候随着用户需求的增加会导致数据结构的变化，接着就是系统的相关问题了，最后如果用户想维护该系统可以说是非常难、而且代价是空前的，维护起来更麻烦。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://anthonywang68.site/2019/10/16/数据库-存储过程/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/10/11/py-魔术方法汇总/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">py 魔术方法汇总</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/8/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><span class="page-number current">9</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -247,8 +332,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
