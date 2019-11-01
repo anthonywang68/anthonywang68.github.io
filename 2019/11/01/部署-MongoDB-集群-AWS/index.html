@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://anthonywang68.site">
-  <title>Anthony Wang&#39;summary</title>
+  <title>部署 MongoDB 集群 | Anthony Wang&#39;summary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是一个基于Hexo搭建的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Anthony Wang&#39;summary">
-<meta property="og:url" content="https://anthonywang68.site/page/9/index.html">
+  <meta name="description" content="开始前进入su模式，关闭防火墙systemctl stop firewalld.service   重启生效：systemctl disable firewalld.service以下配置文件中id除非是0.0.0.0的，其他都需要根据自身情况来修改">
+<meta property="og:type" content="article">
+<meta property="og:title" content="部署 MongoDB 集群">
+<meta property="og:url" content="https://anthonywang68.site/2019/11/01/部署-MongoDB-集群-AWS/index.html">
 <meta property="og:site_name" content="Anthony Wang&#39;summary">
-<meta property="og:description" content="这是一个基于Hexo搭建的博客">
+<meta property="og:description" content="开始前进入su模式，关闭防火墙systemctl stop firewalld.service   重启生效：systemctl disable firewalld.service以下配置文件中id除非是0.0.0.0的，其他都需要根据自身情况来修改">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-01T13:43:44.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anthony Wang&#39;summary">
-<meta name="twitter:description" content="这是一个基于Hexo搭建的博客">
+<meta name="twitter:title" content="部署 MongoDB 集群">
+<meta name="twitter:description" content="开始前进入su模式，关闭防火墙systemctl stop firewalld.service   重启生效：systemctl disable firewalld.service以下配置文件中id除非是0.0.0.0的，其他都需要根据自身情况来修改">
   
     <link rel="alternative" href="/atom.xml" title="Anthony Wang&#39;summary" type="application/atom+xml">
   
@@ -151,34 +152,124 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-部署-MongoDB-集群-AWS" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/06/python/">python</a>
+    <h1 class="article-title" itemprop="name">
+      部署 MongoDB 集群
     </h1>
   
 
         
-        <a href="/2019/09/06/python/" class="archive-article-date">
-  	<time datetime="2019-09-06T00:47:25.041Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
+        <a href="/2019/11/01/部署-MongoDB-集群-AWS/" class="archive-article-date">
+  	<time datetime="2019-11-01T13:31:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Python-基本数据类型"><a href="#Python-基本数据类型" class="headerlink" title="Python 基本数据类型"></a>Python 基本数据类型</h1>
-        
-          <a class="article-more-a" href="/2019/09/06/python/#more">more >></a>
-        
+        <p>开始前进入su模式，关闭防火墙systemctl stop firewalld.service   重启生效：systemctl disable firewalld.service<br>以下配置文件中id除非是0.0.0.0的，其他都需要根据自身情况来修改</p>
+<a id="more"></a>
+
+<p>下载：mongodb： curl -O <a href="https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.6.tgz" target="_blank" rel="noopener">https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.6.tgz</a></p>
+<p>解压：tar -xzvf mongodb-linux-x86_64-3.4.6.tgz -C /data/local/</p>
+<p>改名：mv mongodb-linux-x86_64-3.4.6 mongodb</p>
+<p>分别在三个机器创建以下文件<br>    mkdir -p /data/local/mongodb/conf<br>    mkdir -p /data/local/mongodb/mongos/log<br>    mkdir -p /data/local/mongodb/config/data<br>    mkdir -p /data/local/mongodb/config/log<br>    mkdir -p /data/local/mongodb/shard1/data<br>    mkdir -p /data/local/mongodb/shard1/log<br>    mkdir -p /data/local/mongodb/shard2/data<br>    mkdir -p /data/local/mongodb/shard2/log<br>    mkdir -p /data/local/mongodb/shard3/data<br>    mkdir -p /data/local/mongodb/shard3/log</p>
+<p>配置环境变量</p>
+<pre><code># 内容
+export MONGODB_HOME=/dev/local/mongodb
+export PATH=$MONGODB_HOME/bin:$PATH
+# 使立即生效    
+source /etc/profile</code></pre><p>2、config server配置服务器</p>
+<pre><code>添加配置文件
+    命令：vi /data/local/mongodb/conf/config.conf
+配置文件内容如下</code></pre><p>pidfilepath = /data/local/mongodb/config/log/configsrv.pid<br>dbpath = /data/local/mongodb/config/data<br>logpath = /data/local/mongodb/config/log/congigsrv.log<br>logappend = true<br> bind_ip = 0.0.0.0<br>port = 21000<br>fork = true</p>
+<p>#declare this is a config db of a cluster;<br>configsvr = true</p>
+<p>#副本集名称<br>replSet=configs</p>
+<p>#设置最大连接数<br>maxConns=20000<br>            注：必须关闭防火墙</p>
+<p>启动三台服务器的config server</p>
+<pre><code>命令：mongod -f /data/local/mongodb/conf/config.conf
+    注：如果全局变量没执行可以到bin目录下 ./mongod -f /data/local/mongodb/conf/config.conf</code></pre><p>登录任意一台配置服务器，初始化配置副本集</p>
+<pre><code>命令：mongo --port 21000</code></pre><p>设置config变量命令如下</p>
+<p>config = {<br>…    _id : “configs”,<br>…     members : [<br>…         {_id : 0, host : “10.3.15.199:21000” },<br>…         {_id : 1, host : “10.3.15.198:21000” },<br>…         {_id : 2, host : “10.3.15.197:21000” }<br>…     ]<br>… }<br>               初始化副本集命令：rs.initiate(config)</p>
+<p>3、配置分片副本集(三台机)<br>vi /data/local/mongodb/conf/shard1.conf<br>第一个刀片副本集文件内容如下：</p>
+<p>pidfilepath = /data/local/mongodb/shard1/log/shard1.pid<br>dbpath = /data/local/mongodb/shard1/data<br>logpath = /data/local/mongodb/shard1/log/shard1.log<br>logappend = true</p>
+<p>bind_ip = 0.0.0.0<br>port = 27001<br>fork = true</p>
+<p>#打开web监控<br>httpinterface=true<br>rest=true</p>
+<p>#副本集名称<br>replSet=shard1</p>
+<p>#declare this is a shard db of a cluster;<br>shardsvr = true</p>
+<p>#设置最大连接数<br>maxConns=20000</p>
+<pre><code>启动三台机器服务器命令：./mongod -f /data/local/mongodb/conf/shard1.conf</code></pre><p>登陆非arbiterOnly: true ID的任意机器启动以下命令 (如以下id中24.175不能启动)</p>
+<p>命令：mongo –port 27001</p>
+<p>命令：use admin</p>
+<p>命令：</p>
+<p>config = {<br>…    _id : “shard1”,<br>…     members : [<br>…         {_id : 0, host : “10.3.15.199:27001” },<br>…         {_id : 1, host : “10.3.15.198:27001” },<br>…         {_id : 2, host : “10.3.15.197:27001” , arbiterOnly: true }<br>…     ]<br>… }</p>
+<p>初始化副本集命令：rs.initiate(config);</p>
+<p>打开第二个刀片副本集conf：vi /data/local/mongodb/conf/shard2.conf<br>第二个刀片副本集配置文件如下：</p>
+<p>pidfilepath = /data/local/mongodb/shard2/log/shard2.pid<br>dbpath = /data/local/mongodb/shard2/data<br>logpath = /data/local/mongodb/shard2/log/shard2.log<br>logappend = true</p>
+<p>bind_ip = 0.0.0.0<br>port = 27002<br>fork = true</p>
+<p>#打开web监控<br>httpinterface=true<br>rest=true</p>
+<p>#副本集名称<br>replSet=shard2</p>
+<p>#declare this is a shard db of a cluster;<br>shardsvr = true</p>
+<p>#设置最大连接数<br>maxConns=20000</p>
+<pre><code>启动三个服务器：./mongod -f /data/local/mongodb/conf/shard2.conf</code></pre><p>登陆非arbiterOnly: true的任意机子初始化初始化副本</p>
+<p>命令：mongo –port 27002<br>命令：use admin<br>命令：<br>config = {<br>…    _id : “shard2”,<br>…     members : [<br>…         {_id : 0, host : “10.3.15.199:27002”  , arbiterOnly: true },<br>…         {_id : 1, host : “10.3.15.198:27002” },<br>…         {_id : 2, host : “10.3.15.197:27002” }<br>…     ]<br>… }</p>
+<p>命令：rs.initiate(config);</p>
+<p>设置第三个刀片副本集<br>命令：vi /data/local/mongodb/conf/shard3.conf<br>第三个副本集配置文件内容<br>pidfilepath = /data/local/mongodb/shard3/log/shard3.pid<br>dbpath = /data/local/mongodb/shard3/data<br>logpath = /data/local/mongodb/shard3/log/shard3.log<br>logappend = true</p>
+<p>bind_ip = 0.0.0.0<br>port = 27003<br>fork = true</p>
+<p>#打开web监控<br>httpinterface=true<br>rest=true</p>
+<p>#副本集名称<br>replSet=shard3</p>
+<p>#declare this is a shard db of a cluster;<br>shardsvr = true</p>
+<p>#设置最大连接数<br>maxConns=20000</p>
+<pre><code>启动三台服务器：./mongod -f /data/local/mongodb/conf/shard3.conf</code></pre><p>登陆非arbiterOnly: true  ID的机子初始化副本集</p>
+<p>命令：mongo –port 27003<br>命令：use admin<br>命令：<br>config = {<br>…    _id : “shard3”,<br>…     members : [<br>…         {_id : 0, host : “10.3.15.199:27003” },<br>…         {_id : 1, host : “10.3.15.198:27003” , arbiterOnly: true},<br>…         {_id : 2, host : “10.3.15.197:27003” }<br>…     ]<br>… }<br>初始化命令：rs.initiate(config);</p>
+<p>4、配置路由服务器 mongos</p>
+<p>三台机打开：vi /data/local/mongodb/conf/mongos.conf</p>
+<p>配置文件内容：<br>pidfilepath = /data/local/mongodb/mongos/log/mongos.pid<br>logpath = /data/local/mongodb/mongos/log/mongos.log<br>logappend = true</p>
+<p>bind_ip = 0.0.0.0<br>port = 20000<br>fork = true</p>
+<p>#监听的配置服务器,只能有1个或者3个 configs为配置服务器的副本集名字<br>configdb = configs/10.2.5.99:21000,10.2.5.98:21000,10.2.5.97:21000</p>
+<p>#设置最大连接数<br>maxConns=20000</p>
+<p>启动三台服务器的mongos server命令： ./mongos -f /data/local/mongodb/conf/mongos.conf</p>
+<p>5、启动分片<br>登陆任意一台mongos<br>命令：mongo –port 20000<br>命令：use  admin<br>配置文件内容：<br>sh.addShard(“shard1/10.3.15.199:27001,10.2.5.99:27001,10.3.15.199:27001”)<br>sh.addShard(“shard2/10.3.15.198:27002,10.2.5.98:27002,10.3.15.198:27002”)<br>sh.addShard(“shard3/10.3.15.197:27003,10.2.5.97:27003,10.3.15.197:27003”)<br>查看状态命令：sh.status()</p>
+<p>启动分片方法<br>db.runCommand( { enablesharding :”MongoFile”});             注：其中 MongoFile为库名，table为表名<br>db.runCommand( { shardcollection : “MongoFile.table”,key : {id: 1} } )</p>
+<p>—搭建成功—</p>
+<pre><code>测试方法</code></pre><p>1.进入mongoDB<br>    命令为：mongo –port 20000</p>
+<p>2.新建数据库且分片<br>命令：use 502<br>switched to db 502<br>命令：sh.enableSharding(“502”)</p>
+<p>3.创建索引<br>命令：db.table1.ensureIndex({“id”:1})</p>
+<p>4.表分片<br>命令：sh.shardCollection(“502.table1”,{“id”:1})<br>查看表状态：<br>    <pre name="code" class="plain">mongos> sh.status()</pre></p>
+<p>5.存储数据<br>命令：for(var i=1;i<=1000000;i++){<br>...  db.table1.save({"id":i,"x":Math.random(),"name":"xubo","time":"20150819","ops":"testinserttimes"});<br>...  }<br>WriteResult({ "nInserted" : 1 })</=1000000;i++){<br></p>
+<p>6.查看每个分片数据总数<br>命令： db.table1.stats()</p>
+<p>往库插数据<br>for (var i = 1; i <= 10000; i++) db.table1.save({id:i,"test1":"testval1"});< p>
+<p>启动mongodb服务<br>mongod -f /data/local/mongodb/conf/config.conf<br>mongod -f /data/local/mongodb/conf/shard1.conf<br>mongod -f /data/local/mongodb/conf/shard2.conf<br>mongod -f /data/local/mongodb/conf/shard3.conf<br>mongos -f /data/local/mongodb/conf/mongos.conf</p>
+<p>关闭mongodb服务<br>./mongo --port 20000<br>use admin<br>db.shutdownServer()</p>
+</=></p>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -187,16 +278,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/06/python/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://anthonywang68.site/2019/11/01/部署-MongoDB-集群-AWS/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/16/数据库-存储过程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据库--存储过程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -216,142 +366,14 @@
 
 
 
-
-  
-    <article id="post-部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/05/部署/">部署</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/05/部署/" class="archive-article-date">
-  	<time datetime="2019-09-05T11:48:35.528Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>nginx </p>
-        
-          <a class="article-more-a" href="/2019/09/05/部署/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/05/部署/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-go-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/04/go-1/">go</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/04/go-1/" class="archive-article-date">
-  	<time datetime="2019-09-04T12:08:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Gin框架学习"><a href="#Gin框架学习" class="headerlink" title="Gin框架学习"></a>Gin框架学习</h2><p>Go世界里最流行的Web框架，<a href="https://github.com/gin-gonic/gin" target="_blank" rel="noopener">Github</a>上有<code>24K+</code>star。 基于<a href="https://github.com/julienschmidt/httprouter" target="_blank" rel="noopener">httprouter</a>开发的Web框架。 <a href="https://gin-gonic.com/zh-cn/docs/" target="_blank" rel="noopener">中文文档</a>齐全，简单易用的轻量级框架。</p>
-        
-          <a class="article-more-a" href="/2019/09/04/go-1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/04/go-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -374,8 +396,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
