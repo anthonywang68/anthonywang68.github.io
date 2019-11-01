@@ -6,18 +6,88 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://anthonywang68.site">
-  <title>Anthony Wang&#39;summary</title>
+  <title>ansible-summary,持续更新ing.... | Anthony Wang&#39;summary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是一个基于Hexo搭建的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Anthony Wang&#39;summary">
-<meta property="og:url" content="https://anthonywang68.site/page/2/index.html">
+  <meta name="description" content="ansible, 基于Python开发，集合了众多运维工具（puppet、cfengine、chef、func、fabric）的优点，实现了批量系统配置、批量程序部署、批量运行命令等功能。可以用来自动化部署应用、配置、编排 task(持续 交付、无宕机更新等)，采用 paramiko 协议库（fabric 也使用这个），通过 SSH 或者 ZeroMQ 等连 接主机。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ansible-summary,持续更新ing....">
+<meta property="og:url" content="https://anthonywang68.site/2019/11/01/ansible-summary-持续更新ing/index.html">
 <meta property="og:site_name" content="Anthony Wang&#39;summary">
-<meta property="og:description" content="这是一个基于Hexo搭建的博客">
+<meta property="og:description" content="ansible, 基于Python开发，集合了众多运维工具（puppet、cfengine、chef、func、fabric）的优点，实现了批量系统配置、批量程序部署、批量运行命令等功能。可以用来自动化部署应用、配置、编排 task(持续 交付、无宕机更新等)，采用 paramiko 协议库（fabric 也使用这个），通过 SSH 或者 ZeroMQ 等连 接主机。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219164159581-1984160617.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219164558839-1651017350.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219164702283-1867135517.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219165353581-1810027826.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219165705405-219426988.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219170349005-297666812.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219170756844-1747549747.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219171624990-562887017.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219171943213-1290192203.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219172502519-272443978.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219172745239-1649232585.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219172905532-2034219709.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219174656571-268823215.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219175134146-1073085304.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219175831396-1799170457.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219195320197-1847768777.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190220173357642-593468790.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219200117425-1659573876.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219200524221-1841421686.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219203514470-1397903041.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219220221200-573417813.png">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190220211307301-7450317.png">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190222163141178-229480208.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190222163509598-1672939706.png">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190222164343407-900634013.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190222164439131-791065770.png">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:updated_time" content="2019-11-01T14:13:14.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anthony Wang&#39;summary">
-<meta name="twitter:description" content="这是一个基于Hexo搭建的博客">
+<meta name="twitter:title" content="ansible-summary,持续更新ing....">
+<meta name="twitter:description" content="ansible, 基于Python开发，集合了众多运维工具（puppet、cfengine、chef、func、fabric）的优点，实现了批量系统配置、批量程序部署、批量运行命令等功能。可以用来自动化部署应用、配置、编排 task(持续 交付、无宕机更新等)，采用 paramiko 协议库（fabric 也使用这个），通过 SSH 或者 ZeroMQ 等连 接主机。">
+<meta name="twitter:image" content="https://common.cnblogs.com/images/copycode.gif">
   
     <link rel="alternative" href="/atom.xml" title="Anthony Wang&#39;summary" type="application/atom+xml">
   
@@ -151,42 +221,460 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-git-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-ansible-summary-持续更新ing" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/10/git-summary/">git--summary</a>
+    <h1 class="article-title" itemprop="name">
+      ansible-summary,持续更新ing....
     </h1>
   
 
         
-        <a href="/2019/10/10/git-summary/" class="archive-article-date">
-  	<time datetime="2019-10-10T07:23:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
+        <a href="/2019/11/01/ansible-summary-持续更新ing/" class="archive-article-date">
+  	<time datetime="2019-11-01T13:53:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。</p>
-<blockquote>
+        <p>ansible, 基于Python开发，集合了众多运维工具（puppet、cfengine、chef、func、fabric）的优点，实现了批量系统配置、批量程序部署、批量运行命令等功能。可以用来自动化部署应用、配置、编排 task(持续 交付、无宕机更新等)，采用 paramiko 协议库（fabric 也使用这个），通过 SSH 或者 ZeroMQ 等连 接主机。 </p>
+<a id="more"></a>
+
+<h6 id="1、准备工作："><a href="#1、准备工作：" class="headerlink" title="1、准备工作："></a>1、准备工作：</h6><p>　　准备四台干净的虚拟机，如下：</p>
+<p>　　192.168.133.129（主控节点，下面三个为被控节点）</p>
+<p>　　192.168.133.130</p>
+<p>　　192.168.133.131</p>
+<p>　　192.168.133.132</p>
+<h6 id="2、安装ansible（只有主控节点安装，即地址为192-168-133-129的服务器安装）"><a href="#2、安装ansible（只有主控节点安装，即地址为192-168-133-129的服务器安装）" class="headerlink" title="2、安装ansible（只有主控节点安装，即地址为192.168.133.129的服务器安装）"></a>2、安装ansible（只有主控节点安装，即地址为192.168.133.129的服务器安装）</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`wget ``-``O ``/``etc``/``yum.repos.d``/``epel.repo http:``/``/``mirrors.aliyun.com``/``repo``/``epel``-``7.repo`     `# 下载epel源，因为ansible需要从epel源下载`</span><br></pre></td></tr></table></figure>
+
+<p>　　查看ansible安装后生成的文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`rpm ``-``ql ansible |more``/``etc``/``ansible``/``etc``/``ansible``/``ansible.cfg      ``# 配置文件``/``etc``/``ansible``/``hosts         ``# 主要文件``/``etc``/``ansible``/``roles`</span><br></pre></td></tr></table></figure>
+
+<p>　　hosts文件详解：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># This is the default ansible &apos;hosts&apos; file.</span><br><span class="line">#</span><br><span class="line"># It should live in /etc/ansible/hosts</span><br><span class="line">#</span><br><span class="line">#   - Comments begin with the &apos;#&apos; character # 用#来表示注释</span><br><span class="line">#   - Blank lines are ignored # 空白行被忽略</span><br><span class="line">#   - Groups of hosts are delimited by [header] elements # 主机组 需要在【】下面</span><br><span class="line">#   - You can enter hostnames or ip addresses #可以写主机名或者ip地址</span><br><span class="line">#   - A hostname/ip can be a member of multiple groups # 一台主机可以在多个组里面</span><br><span class="line"># ......</span><br><span class="line"># www[001:006].example.com   # 表示从www001到www006的机器# ......</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h6 id="3、ansible与saltstack对比"><a href="#3、ansible与saltstack对比" class="headerlink" title="3、ansible与saltstack对比"></a>3、ansible与saltstack对比</h6><p>　　相同点：</p>
+<p>　　　　都是为了同时在多台机器上执行相同的命令；</p>
+<p>　　　　都是python开发；</p>
+<p>　　不同点：</p>
+<p>　　　　agent（salt 控制节点需要安装salt-master，被控节点需要安装salt-minion，而ansible不需要，它通过ssh来连接并控制被控节点）</p>
+<p>　　　　配置（salt配置麻烦，ansible基本不用配置）</p>
+<p>　　　　学习路线（salt比较陡峭，ansible比较平缓）</p>
+<p>　　　　第三方工具（salt比较少）</p>
+<p>　　　　开源社区的对接（salt比较少）</p>
+<p>　　　　现有用户（salt还是比ansible少一些）</p>
+<p>　　　　二次开发扩展的能力（ansible比较差，尤其是2.0以后）</p>
+<p>　　　　大规模并发（200以内一样，200以上salt会好一些，当然我们也可以对ansible做一些配置使其在200以上追上salt）</p>
+<p>　　　　Windows的支持（salt会好很多）</p>
+<h6 id="4、ansible-连接并控制被控节点"><a href="#4、ansible-连接并控制被控节点" class="headerlink" title="4、ansible 连接并控制被控节点"></a>4、ansible 连接并控制被控节点</h6><p>　　ssh 的认证方式</p>
+<p>　　　　- 密码连接：即 ssh <a href="mailto:root@192.168.xx.xx" target="_blank" rel="noopener">root@192.168.xx.xx</a>，回车然后输入密码</p>
+<p>　　　　- 秘钥连接</p>
+<p>　　ssh 秘钥登录方式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ssh``-``keygen        ``# 用来生成ssh的密钥对，一路回车`</span><br></pre></td></tr></table></figure>
+
+<h6 id="5、ansible的命令格式"><a href="#5、ansible的命令格式" class="headerlink" title="5、ansible的命令格式"></a>5、ansible的命令格式</h6><p>　　我们之前ping命令可以测试主机之间是否相通，ansible也为我们提供了一个ping模块，先来看一下ansible都为我们提供了哪些命令，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ansible ``-``h     ``# 查看ansible的命令格式，为 ansible  [options] ，部分命令格式如下：`</span><br></pre></td></tr></table></figure>
+
+<p>　　使用ansible为我们提供的ping模块：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219164159581-1984160617.png" alt="img"></p>
+<p>　　这是因为我们没有配置ansible的配置文件，提示主机列表为空，我们修改ansible的配置文件 /etc/ansible/hosts 如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219164558839-1651017350.png" alt="img"></p>
+<p>　　此时，再次执行ansible的ping命令，结果如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219164702283-1867135517.png" alt="img"></p>
+<p>　　当我们在hosts文件中再加入主机192.168.133.131，然后执行ping命令，结果如下，思考这是为什么？</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219165353581-1810027826.png" alt="img"></p>
+<p>　　出现上面结果表示我们没有复制秘钥到主机192.168.133.131，因此，要安装以上方式复制秘钥（ssh-copy-id 192.168.133.131），也可以通过密码的方式登录（每次都要输密码，较麻烦且不安全），如下：</p>
+<p> <img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219165705405-219426988.png" alt="img"></p>
+<p>　　按照上面方式，再将秘钥复制到被控节点192.168.133.132，且将该主机地址写入ansible的hosts文件。</p>
+<p>　　上面我们知道如何使用ansible的ping模块测试某一台被控节点，那么如何执行一条命令测试所有被控节点，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219170349005-297666812.png" alt="img"></p>
+<p> 　也可以测试其中两台，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219170756844-1747549747.png" alt="img"></p>
+<h6 id="6、主机分组"><a href="#6、主机分组" class="headerlink" title="6、主机分组"></a>6、主机分组</h6><p>　　实际开发中，我们可以按照功能将以上被控节点分组，将分组信息写入ansible的hosts文件，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219171624990-562887017.png" alt="img"></p>
+<p>　　接下来就可以对组进行操作了，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219171943213-1290192203.png" alt="img"></p>
+<p>　　多个组的操作，并集关系，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219172502519-272443978.png" alt="img"></p>
+<p>　　多个组的操作，交集的关系，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219172745239-1649232585.png" alt="img"></p>
+<p>　　多个组的操作，差集的关系，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219172905532-2034219709.png" alt="img"></p>
+<p>　　上面我们知道ansible有不同模块，还有模块参数，那么如何查看模块的参数，如下命令可查看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ansible``-``doc ``-``h       ``# 查看模块的帮助信息，查看结果如下：`</span><br></pre></td></tr></table></figure>
+
+<p>　　注意：系统自带的ping走的是ICMP协议，而ansible的ping不是ICMP协议，如下可知：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219174656571-268823215.png" alt="img"></p>
+<h6 id="7、命令相关模块（command，shell，script）"><a href="#7、命令相关模块（command，shell，script）" class="headerlink" title="7、命令相关模块（command，shell，script）"></a>7、命令相关模块（command，shell，script）</h6><p>7.1、command模块</p>
+<p> 　ansible的默认模块就是命令（command）模块，使用命令ansible -h 可查看，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219175134146-1073085304.png" alt="img"></p>
+<p>　　查看command模块的帮助信息，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219175831396-1799170457.png" alt="img"></p>
+<p>　　示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible web -a &apos;ls /&apos;       # 在web组下的主机上执行查看根目录下文件的命令``[root@localhost ~]``# ansible web -a &apos;pwd&apos;       # 在web组下的主机上执行查看当前目录的命令``[root@localhost ~]``# ansible web -a &apos;chdir=/tmp pwd&apos;      # 切换目录执行命令，使用场景是编译安装时使用``[root@localhost ~]``# ansible web -a &apos;creates=/tmp pwd&apos;    # 用来判断/tmp目录是否存在，存在就不执行操作``[root@localhost ~]``# ansible web -a &apos;creates=/data pwd&apos;   # 因为data不存在，所有才会执行pwd命令``[root@localhost ~]``# ansible web -a &apos;removes=/tmp pwd&apos;   # 用来判断tmp目录是否存在，存在就执行操作``[root@localhost ~]``# ansible web -a &apos;removes=/data pwd&apos;   # 因为data不存在，所有才不会执行``[root@localhost ~]``# ansible web -a &apos;useradd liu&apos;       # 为 web 组内的主机添加用户 liu`</span><br></pre></td></tr></table></figure>
+
+<p>　　去web组下的主机上查看用户liu是否创建成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# tail -1 /etc/passwd   ``liu:x:``1000``:``1000``::``/``home``/``liu:``/``bin``/``bash``[root@localhost ~]``# tail -1 /etc/shadow``liu:!!:``17946``:``0``:``99999``:``7``:::``[root@localhost ~]``# id liu``uid``=``1000``(liu) gid``=``1000``(liu) groups``=``1000``(liu) [root@localhost ~]``# echo &apos;123&apos; | passwd --stdin liu  # 为新创建的用户liu设置密码`</span><br></pre></td></tr></table></figure>
+
+<p>　　既然命令 echo ‘123’ | passwd –stdin liu 可以为用户设置密码，那么我们能否通过ansible为web组的主机上新建用户批量设置密码，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219195320197-1847768777.png" alt="img"></p>
+<p>　　结果是行不通的，查看说明找原因，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190220173357642-593468790.png" alt="img"></p>
+<p>7.2、shell模块</p>
+<p>　　首先查看shell模块的帮助文档，如下：</p>
+<p> <img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219200117425-1659573876.png" alt="img"></p>
+<p>　　示例一：使用shell模块解决上面提到的利用ansible批量修改web组下主机上用户liu的密码，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219200524221-1841421686.png" alt="img"></p>
+<p>　　示例二：批量在远程主机上执行脚本</p>
+<p><a href="https://www.cnblogs.com/li-li/p/10399299.html#" target="_blank" rel="noopener">+ View Code</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ansible ``192.168``.``133.130` `-``m shell ``-``a ``&apos;bash a.sh&apos;`  `# 执行远程文件方式一``ansible ``192.168``.``133.130` `-``m shell ``-``a ``&apos;/root/a.sh&apos;` `# 执行远程文件方式二，文件必须有执行权限（添加执行权限命令为 chmod +x a.sh）``ansible ``192.168``.``133.130` `-``m shell ``-``a ``&apos;/root/a.py&apos;` `# 执行远端的Python脚本，文件也必须有执行权限`</span><br></pre></td></tr></table></figure>
+
+<p>7.3、script模块</p>
+<p>　　上面学到的shell脚本是远端有脚本，我们通过ansible去执行远端的脚本，但是如果远端没有脚本该怎么办呢？接下来学习script脚本。</p>
+<p>　　查看script模块的帮助信息，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219203514470-1397903041.png" alt="img"></p>
+<p>　　示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ansible web ``-``m script ``-``a ``&apos;/root/m.sh&apos;`   `# 执行管控机上的文件``ansible web ``-``m script ``-``a ``&apos;removes=/root/a.sh /root/m.sh&apos;`    `# 用来判断被管控机上是不是存在文件/root/a.sh，如果存在，就执行管控机上的文件/root/m.sh，不存在就不执行``ansible web ``-``m script ``-``a ``&apos;creates=/root/a.sh /root/m.sh&apos;`    `# 用来判断被管控机上是不是存在文件/root/a.sh，如果存在，就不执行管控机上的文件/root/m.sh，反之就执行`</span><br></pre></td></tr></table></figure>
+
+<h6 id="8、文件相关模块（copy，file，fetch）"><a href="#8、文件相关模块（copy，file，fetch）" class="headerlink" title="8、文件相关模块（copy，file，fetch）"></a>8、文件相关模块（copy，file，fetch）</h6><p>8.1、copy模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible-doc -s copy   # 查看copy模块的帮助文档，有如下参数：`</span><br></pre></td></tr></table></figure>
+
+<p>　　示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ansible db ``-``m copy ``-``a ``&apos;src=/root/m.sh dest=/tmp/a.sh&apos;`  `# 复制本地文件的到远程主机，注意：复制到远程主机后权限发生了改变，即文件的属主、属组、同组用户都没有了x权限，这是linux的一个安全机制！``ansible db ``-``m copy ``-``a ``&apos;src=/root/m.sh dest=/tmp/a.sh mode=755&apos;`  `# 修改文件在远程机的权限``ansible web ``-``m copy ``-``a ``&apos;src=/root/m.sh dest=/tmp/a.sh mode=755 owner=liu&apos;`  `# 修改文件在远程机的属主``ansible web ``-``m copy ``-``a ``&apos;src=/etc/init.d dest=/tmp/ mode=755 owner=liu&apos;` `# 复制本地目录到远程主机，如果改变文件的属性，则文件夹内的文件也会被改变``ansible web ``-``m copy ``-``a ``&apos;src=/etc/init.d/ dest=/tmp/ mode=755 owner=liu&apos;` `# 复制本地目录内的所有文件到远程主机``ansible web ``-``m copy ``-``a ``&quot;content=&apos;大弦嘈嘈如急雨，小弦切切如私语\n&apos; dest=/tmp/b.txt&quot;` `# 直接将文本内容注入到远程主机的文件中`</span><br></pre></td></tr></table></figure>
+
+<p>8.2、file模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible-doc -s file   # 查看file模块的帮助文档`</span><br></pre></td></tr></table></figure>
+
+<p>　　补充知识点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">inode     # 硬盘的地址</span><br><span class="line">id     # 获取到的是内存的地址</span><br><span class="line">ln -s a.py b.py     # 为a.py创建软连接</span><br><span class="line">ln  a.py c.py       # 为a.py创建硬链接</span><br><span class="line"># 当 源文件变化时，软连接和硬链接文件都会跟着变化，即a.py变化时，b.py和c.py都会跟着变化</span><br><span class="line">ansible db ``-``m ``file` `-``a ``&apos;path=/lzmly2 state=directory&apos;` `# 在远程机器上创建文件夹``ansible db ``-``m ``file` `-``a ``&apos;path=/root/q.txt state=touch&apos;` `# 用来在远程机器上创建文件``ansible db ``-``m ``file` `-``a ``&apos;path=/tmp/f src=/etc/fstab state=link&apos;` `# 创建软连接src是源地址，path是目标地址``ansible db ``-``m ``file` `-``a ``&apos;path=/tmp/f state=absent&apos;` `# 用来删除文件或者文件夹</span><br></pre></td></tr></table></figure>
+
+<p>8.3、fetch模块</p>
+<p>　　查看fetch模块的帮助文档，如下图：</p>
+<p> <img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190219220221200-573417813.png" alt="img"></p>
+<p>　　示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ansible web ``-``m fetch ``-``a ``&apos;src=/var/log/cron dest=/tmp&apos;`  `# 下载被控节点的文件，每台机器创建一个文件夹，并保留原来的目录结构`</span><br></pre></td></tr></table></figure>
+
+<p>那么你是否知道ansible一共有多少模块呢？可以用以下命令查看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible-doc -l|wc -l     # 统计ansible有多少模块``2080`</span><br></pre></td></tr></table></figure>
+
+<h6 id="1、yum模块"><a href="#1、yum模块" class="headerlink" title="1、yum模块"></a>1、yum模块</h6><p>　　请先自行回顾以下yum是什么？yum和rpm（redhat package manager）的区别是什么？</p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> yum源配置文件中部分内容</p>
+<p> 　回顾yum相关知识：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum list                    # 查看所有已经安装和可以安装的程序包</span><br><span class="line">yum list|grep pip            # 查看 pip 相关程序包</span><br><span class="line">yum grouplist                 # 查看包组信息，包含已经安装和未安装的包组信息</span><br><span class="line">yum groupinstall &quot;包组名&quot;      # 安装包组</span><br><span class="line">rpm -q 包名                    # 查看是否已经安装了某包，如wget</span><br></pre></td></tr></table></figure>
+
+<p>　　查看ansible提供的yum模块的帮助信息：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ansible-doc -s yum     # 查看帮助信息，部分参数如下</span><br><span class="line">disablerepo                            # 禁用源</span><br><span class="line">enablerepo                             # 启用源</span><br><span class="line">name                                   # 包名</span><br><span class="line">state                                  # Whether to install (`present&apos; or `installed&apos;, `latest&apos;), or remove (`absent&apos; or `removed&apos;) a package.</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ansible web ``-``m yum ``-``a ``&apos;name=wget&apos;`           `# 安装wget``ansible web ``-``m yum ``-``a ``&apos;name=python2-pip&apos;`        `# 安装python2-pip``ansible web ``-``m yum ``-``a ``&apos;name=wget state=absent&apos;`     `# 卸载软件包``ansible web ``-``m yum ``-``a ``&apos;name=&quot;@Development Tools&quot;&apos;`   `# 安装包组，注意带“@”符号`</span><br></pre></td></tr></table></figure>
+
+<h6 id="2、pip模块"><a href="#2、pip模块" class="headerlink" title="2、pip模块"></a>2、pip模块</h6><p>　　回顾pip相关知识：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip install 包名                       # 安装python包，如flask</span><br><span class="line">pip freeze &gt; requirements.txt         # 将python的环境打包到文件中</span><br><span class="line">pip install -r requirements.txt       # 安装文件中的包</span><br><span class="line">pip list                              # 查看所有的已安装成功的包</span><br></pre></td></tr></table></figure>
+
+<p>　　查看ansible提供的pip模块的帮助信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible-doc -s pip  # 查看帮助信息，部分参数如下：``chdir``name                   ``# 包名``requirements               ``# 指定文件，安装文件中所有的包``virtualenv`</span><br></pre></td></tr></table></figure>
+
+<p>　　示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ansible web ``-``m pip ``-``a ``&apos;name=flask&apos;`      `# 安装flask模块`</span><br></pre></td></tr></table></figure>
+
+<h6 id="3、service模块"><a href="#3、service模块" class="headerlink" title="3、service模块"></a>3、service模块</h6><p>　　回顾linux关于查看进程和端口号、开启服务等相关知识：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep nginx              # 查看nginx进程</span><br><span class="line">ss -tnlp                       # 查看端口信息</span><br><span class="line">systemctl start nginx           # centos7 设置开机自启动nginx</span><br><span class="line">service nginx start              # centos6 设置开机自启动nginx</span><br><span class="line">systemctl enabled nginx          # centos7 开机自启动nginx</span><br><span class="line">chkconfig nginx on                # centos6开机自启动nginx</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　查看ansible提供的service模块帮助文档：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible-doc -s service     # 查看service模块帮助文档，部分参数如下：``name      ``# 服务名``state     ``# 状态，有started，stopped，restarted，reloaded enabled    # 设置开机自启动`</span><br></pre></td></tr></table></figure>
+
+<p>　　示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ansible web ``-``m service ``-``a ``&apos;name=nginx state=started&apos;`     `# 启动nginx``ansible web ``-``m service ``-``a ``&apos;name=nginx state=stopped&apos;`    `# 关闭nginx`</span><br></pre></td></tr></table></figure>
+
+<h6 id="4、cron模块"><a href="#4、cron模块" class="headerlink" title="4、cron模块"></a>4、cron模块</h6><p>　　回顾linux定时任务相关知识：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">*  *  *  *  *  job </span><br><span class="line">分 时 日 月 周 任务</span><br><span class="line">0 */2 *  * *  job           # 每隔两个小时</span><br><span class="line">0 12,13 * * * job           # 12点和13点</span><br><span class="line">0 12-17 * * * job           # 12点到17点</span><br><span class="line">0 12-17/2 * * 1,3,6,0       # 周1,周3,周6,周7 的 12点到17点每隔两个小时，注意：0和7都代表周日</span><br><span class="line">crontab -e                  # 编辑计划任务，进入编辑模式</span><br><span class="line">crontab -l                  # 查看计划任务</span><br><span class="line">crontab -r                  # 删除计划任务</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　查看ansible的cron模块帮助文档：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible-doc -s cron     # 查看cron模块，部分参数如下：``day           ``# 天``disabled         ``# 禁用``hour         ``# 小时``job          ``# 任务``minute        ``# 分钟``month        ``# 月``name        ``# 任务名字``weekday        ``# 周`</span><br></pre></td></tr></table></figure>
+
+<p>　　示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ansible db ``-``m cron ``-``a ``&apos;minute=26 job=&quot;touch /tmp/xzmly.txt&quot; name=touchfile&apos;`    `# 新建一个计划任务``ansible db ``-``m cron ``-``a ``&apos;name=touchfile state=absent&apos;`       `# 删除一个计划任务``ansible db ``-``m cron ``-``a ``&apos;minute=26 job=&quot;touch /tmp/xzmly.txt&quot; name=touchfile disabled=yes&apos;` `# 禁用计划任务,以#开始表示禁用`</span><br></pre></td></tr></table></figure>
+
+<h6 id="5、user模块"><a href="#5、user模块" class="headerlink" title="5、user模块"></a>5、user模块</h6><p>　　回顾linux用户和用户组的相关知识：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">用户:</span><br><span class="line">    管理员  root  0</span><br><span class="line">    普通用户</span><br><span class="line">        系统用户  不能登录  1-999 centos7            1-499 centos6</span><br><span class="line">        登录用户  可以登录  1000-65535 centos7       500-65535 centos6</span><br><span class="line">用户组:</span><br><span class="line">    管理员组 root 0</span><br><span class="line">    系统用户组  1-999 centos7                1-499 centos6</span><br><span class="line">    登录用户组  1000-65535 centos7           500-65535 centos6 </span><br><span class="line">    </span><br><span class="line"> -d  指定用户的家目录</span><br><span class="line"> -g  指定用户的组</span><br><span class="line"> -G  执行用户的附加组</span><br><span class="line"> -s  指定登录后使用的shell</span><br><span class="line"> -r  创建一个系统组</span><br><span class="line"> useradd -r wusir                               # 创建系统用户,从999开始倒序</span><br><span class="line"> useradd -s /sbin/nologin alexsb                # 创建的是普通用户,从1000开始升序</span><br><span class="line"> useradd -d /opt/alexsb2 alexsb2                # 创建用户时指定用户的家目录</span><br><span class="line"> useradd -u 3000 alexsb6                        # 创建用户并指定用户的uid</span><br><span class="line"> userdel alex                                   # 删除用户</span><br><span class="line"> userdel -r alexsb2                             # 删除用户并删除用户的家目录</span><br><span class="line"> </span><br><span class="line"> groupadd yuchao                                # 创建用户组</span><br><span class="line"> groupdel yuchao                                # 删除用户组</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　查看ansible的user模块帮助文档：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible-doc -s user    # 查看user模块的帮助文档，部分参数如下：``group              ``# 组``groups           ``# 附加组``home         ``# 家目录``name         ``# 用户名``password       ``# 密码``remove    ``# This only affects `state=absent&apos;, it attempts to remove directories associated with. 即仅当state=absent时有影响，删除用户的同时删除用户家目录``shell      ``# 用户登录后使用的shell``system       ``# 创建一个系统用户``uid         ``# 用来指定用户的id``state       ``# 状态`</span><br></pre></td></tr></table></figure>
+
+<p>　　示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ansible db ``-``m user ``-``a ``&apos;name=wulaoshi uid=4000 home=/opt/wulaoshi groups=root shell=/sbin/nologin&apos;`         `# 创建一个用户,并指定用户的id,用户的家目录,用户的附加组,用户的shell``ansible db ``-``m user ``-``a ``&apos;name=wulaoshi state=absent&apos;`         `# 删除用户但是不删除用户的家目录``ansible db ``-``m user ``-``a ``&apos;name=wulaoshi3 state=absent remove=yes&apos;`    `# 删除用户并删除用户的家目录`</span><br></pre></td></tr></table></figure>
+
+<h6 id="6、group模块"><a href="#6、group模块" class="headerlink" title="6、group模块"></a>6、group模块</h6><p>　　查看ansible的group模块帮助文档：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible-doc -s group       # 查看group的帮助文档，部分参数如下:``gid       ``# 组的id``name      ``# 组名``system     ``# 系统组``state      ``# 状态`</span><br></pre></td></tr></table></figure>
+
+<p>　　示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ansible db ``-``m group ``-``a ``&apos;name=wulaoshi system=yes&apos;`     `# 创建系统组``ansible db ``-``m group ``-``a ``&apos;name=wulaoshi state=absent&apos;`     `# 删除组`</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.cnblogs.com/li-li/p/10408089.html#main" target="_blank" rel="noopener">回到顶部</a></p>
+<h4 id="二、ansible剧本"><a href="#二、ansible剧本" class="headerlink" title="二、ansible剧本"></a>二、ansible剧本</h4><p>　　首先用我们现有的ansible知识解决如下需求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">管控机通过ansible为web组的被管控机作如下操作：</span><br><span class="line">创建一个用户组alex10</span><br><span class="line">创建一个用户wusir10</span><br><span class="line">把/etc/fstab文件复制到远程主机（即被管控机）上/tmp/f</span><br><span class="line">安装nginx,并启动,设置开机自启动</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> 解决方法</p>
+<p>　　思考：观察上面的解决方法，你有没有发现什么问题？如何解决？</p>
+<p>　　没错，就是有很多重复的部分，而且想要再执行一遍就要再运行一遍命令！那么我们是不是可以写一个脚本来一次性执行，且想要什么时候执行就什么时候执行，问题又来了，如何写？用什么语言写？答案就是用yaml语言来写！</p>
+<h6 id="1、yaml"><a href="#1、yaml" class="headerlink" title="1、yaml"></a>1、yaml</h6><p>　　我们见过的用来写配置文件的语言有xml，还有uwsgi的配置文件后缀是.ini，而接下来要学习使用的一种编程语言是yaml，它可以用来写配置文件。语法格式如下：</p>
+<p>　　字典: key: value</p>
+<p>　　列表: [] -</p>
+<p>　　后缀名：.yaml 或者 .yml</p>
+<p>　　注意：它的语法格式非常严格，冒号后边必须有空格，等号后边一定不能有空格，等等，自己去尝试一下！</p>
+<h6 id="2、ansible-playbook命令格式"><a href="#2、ansible-playbook命令格式" class="headerlink" title="2、ansible-playbook命令格式"></a>2、ansible-playbook命令格式</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible-playbook -h     # 查看ansible-playbook的命令格式，ansible-playbook [options] playbook.yml [playbook2 ...] ，部分参数如下：``-``C, ``-``-``check                   ``# 检查,白跑,干跑``-``f FORKS, ``-``-``forks``=``FORKS             ``# 用来做并发``-``-``list``-``hosts                   ``# 列出主机列表``-``-``syntax``-``check                  ``# 语法检查`</span><br></pre></td></tr></table></figure>
+
+<p>　　示例：使用yaml编写配置文件的方式解决上面问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# mkdir yaml     # 创建yaml目录，并进入该目录``[root@localhost yaml]``# vi p1.yml     # 创建配置文件p1.yml，写入如下内容，严格安装下面格式``-` `hosts: web`` ``tasks:`` ``-` `name: creategroup``  ``group: name``=``sb`` ``-` `name: createuser``  ``user: name``=``alex``[root@localhost yaml]``# ansible-playbook p1.yml`</span><br></pre></td></tr></table></figure>
+
+<p>　　执行顺序：从上往下</p>
+<p>　　特性：幂等性，即不管执行多少遍，结果都是一样的</p>
+<h6 id="3、传参"><a href="#3、传参" class="headerlink" title="3、传参"></a>3、传参</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost yaml]``# vi p2.yml     # 创建配置文件p2.yml，写入如下内容，注意有参数``-` `hosts: db`` ``tasks:`` ``-` `name: create&#123;&#123; user &#125;&#125;``  ``user: name``=``&#123;&#123; user &#125;&#125;`</span><br></pre></td></tr></table></figure>
+
+<p>　　分析：上面的配置文件中含有参数，那么我们该如何传参？有以下五种方法：</p>
+<p>　　第一种：命令的方式，即使用参数 “-e”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost yaml]``# ansible-playbook -e &apos;user=alexsb10&apos; p2.yml`</span><br></pre></td></tr></table></figure>
+
+<p>　　第二种：yml文件中vars的方式</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- hosts: db</span><br><span class="line">  vars:</span><br><span class="line">  - user: alexsb14</span><br><span class="line">  tasks:</span><br><span class="line">  - name: create&#123;&#123; user &#125;&#125;</span><br><span class="line">    user: name=&#123;&#123; user&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　第三种：ansible的hosts文件之一</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[db]</span><br><span class="line">192.168.107.132 user=alexsb11</span><br><span class="line">192.168.107.133 user=alexsb12</span><br></pre></td></tr></table></figure>
+
+<p>　　第四种：ansible的hosts文件之二</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[db:vars]         # 表示组的参数</span><br><span class="line">user=alexsb13</span><br></pre></td></tr></table></figure>
+
+<p>　　第五种：yml文件中注册的方式</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- hosts: db</span><br><span class="line">  tasks:</span><br><span class="line">  - name: sum</span><br><span class="line">    shell: echo 7+8|bc</span><br><span class="line">    register: user</span><br><span class="line">  - name: createuser</span><br><span class="line">    user: name=&#123;&#123;user.stdout&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　总结：传参方式之间有优先级：-e &gt; playbook vars &gt; hosts文件</p>
+<h6 id="4、补充：linux中计算"><a href="#4、补充：linux中计算" class="headerlink" title="4、补充：linux中计算"></a>4、补充：linux中计算</h6><p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190220211307301-7450317.png" alt="img"></p>
+<h4 id="一、setup模块"><a href="#一、setup模块" class="headerlink" title="一、setup模块"></a>一、setup模块</h4><p>　　ansible的setup模块主要用来收集信息，查看参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible-doc -s setup    # 查看参数，部分参数如下：``filter`     `# 过滤，筛选`</span><br></pre></td></tr></table></figure>
+
+<p>　　示例一：查看所有信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible cache -m setup     # 查看cache组的被管控机的信息，可查到部分信息如下`</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ansible_all_ipv4_addresses # ipv4的所有地址</span><br><span class="line">ansible_all_ipv6_addresses # ipv6的所有地址</span><br><span class="line">ansible_date_time # 获取到控制节点时间</span><br><span class="line">ansible_default_ipv4 # 默认的ipv4地址</span><br><span class="line">ansible_distribution # 系统</span><br><span class="line">ansible_distribution_major_version # 系统的大版本</span><br><span class="line">ansible_distribution_version # 系统的版本号</span><br><span class="line">ansible_domain # 系统所在的域</span><br><span class="line">ansible_env # 系统的环境变量</span><br><span class="line">ansible_hostname # 系统的主机名</span><br><span class="line">ansible_fqdn # 系统的全名（主机名+域名）</span><br><span class="line">ansible_machine # 系统的架构</span><br><span class="line">ansible_memory_mb # 系统的内存信息</span><br><span class="line">ansible_os_family # 系统的家族</span><br><span class="line">ansible_pkg_mgr # 系统的包管理工具</span><br><span class="line">ansible_processor_cores # 系统的cpu的核数(每颗)</span><br><span class="line">ansible_processor_count # 系统cpu的颗数</span><br><span class="line">ansible_processor_vcpus # 系统cpu的总个数=cpu的颗数*CPU的核数</span><br><span class="line">ansible_python # 系统上的python</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　示例二：搜索某个信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible cache -m setup -a &apos;filter=*processor*&apos;    # 用来搜索，*代表匹配任意个任意字符，可自行回顾正则表达式相关知识，可得如下信息``192.168``.``133.132` `| SUCCESS ``=``&gt; &#123;``&quot;ansible_facts&quot;``: &#123;``&quot;ansible_processor&quot;``: [``&quot;0&quot;``,``&quot;GenuineIntel&quot;``,``&quot;Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz&quot;``],``&quot;ansible_processor_cores&quot;``: ``1``,``&quot;ansible_processor_count&quot;``: ``1``,``&quot;ansible_processor_threads_per_core&quot;``: ``1``,``&quot;ansible_processor_vcpus&quot;``: ``1``&#125;,``&quot;changed&quot;``: false``&#125;`</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.cnblogs.com/li-li/p/10414238.html#main" target="_blank" rel="noopener">回到顶部</a></p>
+<h4 id="二、ansible剧本-1"><a href="#二、ansible剧本-1" class="headerlink" title="二、ansible剧本"></a>二、ansible剧本</h4><h6 id="1、条件判断"><a href="#1、条件判断" class="headerlink" title="1、条件判断"></a>1、条件判断</h6><p>　　ansible的playbook支持条件判断，当针对不同系统，不同版本，不同环境，不同用户有不同操作时，可以使用 when 作条件判断，示例如下：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost yaml]# vi p5.yml               # 写一个yml文件，内容如下：</span><br><span class="line">- hosts: db</span><br><span class="line">  remote_user: root</span><br><span class="line">  tasks: </span><br><span class="line">  - name: createfile3</span><br><span class="line">    copy: content=&quot;大弦嘈嘈如急雨&quot; dest=/tmp/a.txt</span><br><span class="line">    when: a==&quot;3&quot;</span><br><span class="line">  - name: createfile4</span><br><span class="line">    copy: content=&quot;小弦切切如私语&quot; dest=/tmp/a.txt</span><br><span class="line">    when: a==&quot;4&quot;</span><br><span class="line">[root@localhost yaml]# ansible-playbook --syntax-check p5.yml         # 验证语法合法性</span><br><span class="line"></span><br><span class="line">playbook: p5.yml</span><br><span class="line">[root@localhost yaml]# ansible-playbook -e &apos;a=&quot;3&quot;&apos; p5.yml              # 只执行name为 createfile3 的任务，结果自行验证</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h6 id="2、tags"><a href="#2、tags" class="headerlink" title="2、tags"></a>2、tags</h6><p>　　假如在一playbook文件中有多个任务，但是我们只想执行其中一个，该怎么办？此时，可以使用tags，如下示例：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost yaml]# vi p6.yml   </span><br><span class="line">- hosts: web</span><br><span class="line">  tasks:</span><br><span class="line">  - name: install</span><br><span class="line">    yum: name=redis</span><br><span class="line">  - name: copyfile</span><br><span class="line">    copy: src=/etc/redis.conf dest=/etc/redis.conf</span><br><span class="line">    tags: copyfile</span><br><span class="line">  - name: start</span><br><span class="line">    service: name=redis state=started</span><br><span class="line">[root@localhost yaml]# ansible-playbook --syntax-check p6.yml</span><br><span class="line"></span><br><span class="line">playbook: p6.yml</span><br><span class="line">[root@localhost yaml]# ansible-playbook -t copyfile p6.yml    # 执行脚本，结果自行验证</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h6 id="3、循环with-items"><a href="#3、循环with-items" class="headerlink" title="3、循环with_items"></a>3、循环with_items</h6><p>　　通常你想在一个任务中干很多事，比如创建一群用户、安装很多包、或者重复一个轮询步骤直到收到某个特定结果，这时就可以使用循环。</p>
+<p>　　示例一：单个循环</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost yaml]# vi p7.yml </span><br><span class="line">- hosts: web</span><br><span class="line">  tasks:</span><br><span class="line">  - name: createuser</span><br><span class="line">    user: name=&#123;&#123; item &#125;&#125;</span><br><span class="line">    with_items:</span><br><span class="line">    - zhangsan</span><br><span class="line">    - lisi</span><br><span class="line">    - wangwu</span><br><span class="line">[root@localhost yaml]# ansible-playbook --syntax-check p7.yml</span><br><span class="line"></span><br><span class="line">playbook: p7.yml</span><br><span class="line">[root@localhost yaml]# ansible-playbook p7.yml</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　示例二：多个循环</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost yaml]# vi p8.yml               # 写入如下内容</span><br><span class="line">- hosts: web</span><br><span class="line">  tasks:</span><br><span class="line">  - name: createuser</span><br><span class="line">    user: name=&#123;&#123; item &#125;&#125;</span><br><span class="line">    with_items:</span><br><span class="line">    - zs</span><br><span class="line">    - lss</span><br><span class="line">    - ww</span><br><span class="line">  - name: creategroup</span><br><span class="line">    group: name=&#123;&#123; item &#125;&#125;</span><br><span class="line">    with_items:</span><br><span class="line">    - yunwei</span><br><span class="line">    - kaifa</span><br><span class="line">    - ceshi</span><br><span class="line">[root@localhost yaml]# vi p8.yml</span><br><span class="line">[root@localhost yaml]# ansible-playbook --syntax-check p8.yml </span><br><span class="line"></span><br><span class="line">playbook: p8.yml</span><br><span class="line">[root@localhost yaml]# ansible-playbook p8.yml      # 执行命令，结果自行验证</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　示例三：循环嵌套</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost yaml]# vi p9.yml          # 写入如下内容</span><br><span class="line">- hosts: web</span><br><span class="line">  tasks:</span><br><span class="line">  - name: creategroup</span><br><span class="line">    group: name=&#123;&#123; item &#125;&#125;</span><br><span class="line">    with_items:</span><br><span class="line">    - yunwei</span><br><span class="line">    - kaifa</span><br><span class="line">    - ceshi</span><br><span class="line">  - name: createuser</span><br><span class="line">    user: name=&#123;&#123; item.name &#125;&#125; group=&#123;&#123; item.group &#125;&#125;</span><br><span class="line">    with_items:</span><br><span class="line">    - &#123;&apos;name&apos;:zs,&apos;group&apos;:yunwei&#125;</span><br><span class="line">    - &#123;&apos;name&apos;:lss,&apos;group&apos;:kaifa&#125;</span><br><span class="line">    - &#123;&apos;name&apos;:ww,&apos;group&apos;:ceshi&#125;</span><br><span class="line">[root@localhost yaml]# ansible-playbook p9.yml         # 结果自行验证</span><br><span class="line"></span><br><span class="line">playbook: p9.yml</span><br><span class="line">[root@localhost yaml]# ansible-playbook p9.yml</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h6 id="4、template模块"><a href="#4、template模块" class="headerlink" title="4、template模块"></a>4、template模块</h6><p>　　先来回忆一下<a href="https://www.cnblogs.com/li-li/p/10197778.html#autoid-2-0-0" target="_blank" rel="noopener">redis</a>的安装，为了安全起见，我们通常在redis安装完成后要更改redis的配置文件redis.conf，其中有一项是更改bind参数，让redis可以远程访问，实际开发中bind 参数为本机对外ip地址，而不能使用0.0.0.0开启，这时，问题来了，使用ansible批量传输配置文件时，如何将bind参数设置为被管控机的ip地址？</p>
+<p>　　首先，我们使用setup模块查询一下被管控机的ip地址，如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190222163141178-229480208.png" alt="img"></p>
+<p>　　在管控机上安装redis后，编辑配置文件redis.conf，更改bind参数如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost yaml]``# vi /etc/redis.conf      # 编辑redis配置文件，更改bind参数为如下内容`</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190222163509598-1672939706.png" alt="img"></p>
+<p>　　示例：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost yaml]# vi p10.yml </span><br><span class="line">- hosts: web</span><br><span class="line">  tasks:</span><br><span class="line">  - name: install</span><br><span class="line">    yum: name=redis</span><br><span class="line">  - name: copyfile</span><br><span class="line">    template: src=/etc/redis.conf dest=/etc/redis.conf</span><br><span class="line">  - name: start</span><br><span class="line">    service: name=redis state=started</span><br><span class="line">[root@localhost yaml]# ansible-playbook --syntax-check p10.yml </span><br><span class="line"></span><br><span class="line">playbook: p10.yml</span><br><span class="line">[root@localhost yaml]# ansible-playbook p10.yml</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　验证：查看web组的被管控机的redis配置文件中bind参数</p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190222164343407-900634013.png" alt="img"></p>
+<p><img src="https://img2018.cnblogs.com/blog/1451380/201902/1451380-20190222164439131-791065770.png" alt="img"></p>
+<p>　　copy模块与template模块的区别：copy模块不替换参数，而template模块替换参数。</p>
+<p>　　使用相对路径：在上面p10.yml中，template模块的src参数使用的是绝对路径，除此之外，我们还可以使用相对路径，如下：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost yaml]# vi p10.yml </span><br><span class="line">- hosts: web</span><br><span class="line">  tasks:</span><br><span class="line">  - name: install</span><br><span class="line">    yum: name=redis</span><br><span class="line">  - name: copyfile</span><br><span class="line">    template: src=redis.conf dest=/etc/redis.conf</span><br><span class="line">  - name: start</span><br><span class="line">    service: name=redis state=started</span><br><span class="line">[root@localhost yaml]# ansible-playbook --syntax-check p10.yml </span><br><span class="line"></span><br><span class="line">playbook: p10.yml</span><br><span class="line">[root@localhost yaml]# ansible-playbook p10.yml</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　注意：使用相对路径的前提是在当前目录（p10.yml文件所在目录）下新建一个templates（必须叫这个）目录，然后把文件redis.conf放在templates目录里面。</p>
+<h6 id="5、handlers"><a href="#5、handlers" class="headerlink" title="5、handlers"></a>5、handlers</h6><p>　　上面我们曾提到过，module 具有”幂等”性，所以当远端系统被人改动时，可以重放 playbooks 达到恢复的目的，playbooks 本身可以识别这种改动，并且有一个基本的 event system（事件系统），可以响应这种改动。（当发生改动时）’notify’ actions 会在 playbook 的每一个 task 结束时被触发，而且即使有多个不同的 task 通知改动的发生， ‘notify’ actions 只会被触发一次。</p>
+<p>　　举例来说，比如多个 resources 指出因为一个配置文件被改动，所以 apache 需要重新启动，但是重新启动的操作只会被执行一次。</p>
+<p>　　‘notify’ 下列出的即是 handlers。Handlers 也是一些 task 的列表，通过名字来引用，它们和一般的 task 并没有什么区别。Handlers 是由通知者进行 notify，如果没有被 notify，handlers 不会执行，不管有多少个通知者进行了 notify，等到 play 中的所有 task 执行完成之后，handlers 也只会被执行一次。</p>
+<p>　　示例：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost yaml]# vi p11.yml </span><br><span class="line">- hosts: web</span><br><span class="line">  tasks:</span><br><span class="line">  - name: install</span><br><span class="line">    yum: name=redis</span><br><span class="line">  - name: copyfile</span><br><span class="line">    template: src=redis.conf dest=/etc/redis.conf</span><br><span class="line">    tags: copyfile</span><br><span class="line">    notify: restart</span><br><span class="line">  - name: start</span><br><span class="line">    service: name=redis state=started</span><br><span class="line">  handlers:</span><br><span class="line">  - name: restart</span><br><span class="line">    service: name=redis state=restarted</span><br><span class="line">[root@localhost yaml]# </span><br><span class="line">[root@localhost yaml]# ansible-playbook --syntax-check p11.yml </span><br><span class="line"></span><br><span class="line">playbook: p11.yml</span><br><span class="line">[root@localhost yaml]# </span><br><span class="line">[root@localhost yaml]# ansible-playbook p11.yml                       </span><br><span class="line">[root@localhost yaml]# ansible-playbook -t copyfile p11.yml           # 执行copyfile任务 和 restart任务，即修改完配置文件后重启redis服务</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="https://www.cnblogs.com/li-li/p/10414238.html#main" target="_blank" rel="noopener">回到顶部</a></p>
+<h4 id="三、roles"><a href="#三、roles" class="headerlink" title="三、roles"></a>三、roles</h4><p>　　现在我们已经学过 tasks 和 handlers，那怎样组织 playbook 才是最好的方式呢？简单的回答就是：使用 roles ! roles 基于一个已知的文件结构，去自动的加载某些 vars_files，tasks 以及 handlers。基于 roles 对内容进行分组，使得我们可以容易地与其他用户分享 roles 。</p>
+<p>　　roles的优点：</p>
+<p>　　- 目录清晰</p>
+<p>　　- 可以互相调用</p>
+<p>　　roles目录结构：</p>
+<p>　　- 文件夹里面是要创建的每一个角色，每一个角色一个文件夹；</p>
+<p>　　- 每一个角色里面都有tasks（必须的），templates，files，handlers，vars目录；</p>
+<p>　　- 每个目录都要有main.yml文件，通过import_tasks来调用；</p>
+<p>　　- 其中templates文件夹中的文件可以通过相对路径来调用；</p>
+<p>　　其中files文件夹中的文件是否可以通过相对路径来调用?</p>
+<p>　　示例：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root</span><br><span class="line"> ├── roles</span><br><span class="line"> │   ├── cache</span><br><span class="line"> │   ├── db</span><br><span class="line"> │   └── web</span><br><span class="line"> │       ├── files</span><br><span class="line"> │       ├── handlers</span><br><span class="line"> │       │   └── main.yml</span><br><span class="line"> │       ├── tasks</span><br><span class="line"> │       │   ├── copy_redis_conf.yml</span><br><span class="line"> │       │   ├── install_redis.yml</span><br><span class="line"> │       │   ├── main.yml</span><br><span class="line"> │       │   └── start_redis.yml</span><br><span class="line"> │       ├── templates</span><br><span class="line"> │       │   └── redis.conf.j2</span><br><span class="line"> │       └── vars</span><br><span class="line"> └── web.yml</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> root/roles/web/tasks/install_redis.yml</p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> root/roles/web/tasks/copy_redis_conf.yml</p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> root/roles/web/tasks/start_redis.yml</p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> root/roles/web/tasks/main.yml</p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> root/roles/web/handlers/main.yml</p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> root/web.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`[root@localhost ~]``# ansible-playbook web.yml``[root@localhost ~]``# ansible-playbook -t copy_redis_conf web.yml     # 修改配置文件后加参数-t，触发handler中任务`</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.cnblogs.com/li-li/p/10414238.html#main" target="_blank" rel="noopener">回到顶部</a></p>
+<h4 id="四、nginx基于uwsgi部署django"><a href="#四、nginx基于uwsgi部署django" class="headerlink" title="四、nginx基于uwsgi部署django"></a>四、nginx基于uwsgi部署django</h4><p>　　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line">1.安装nginx</span><br><span class="line"></span><br><span class="line">yum install -y nginx（需要epel源）</span><br><span class="line">2.安装环境</span><br><span class="line"></span><br><span class="line">可以考虑使用虚拟化环境，本处不再使用</span><br><span class="line">3.安装uwsgi</span><br><span class="line"></span><br><span class="line">yum groupinstall &quot;Development tools&quot;</span><br><span class="line">yum install zlib-devel bzip2-devel pcre-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel</span><br><span class="line">pip install uwsgi</span><br><span class="line">4.安装django</span><br><span class="line"></span><br><span class="line">pip install django==1.11</span><br><span class="line">5.创建django项目</span><br><span class="line"></span><br><span class="line">django-admin startproject mysite</span><br><span class="line">6.创建app</span><br><span class="line"></span><br><span class="line">python manage.py startapp app01</span><br><span class="line">7.修改mysite/settings.py</span><br><span class="line"></span><br><span class="line">ALLOWED_HOSTS = [&apos;*&apos;]</span><br><span class="line">8.修改mysite/urls.py</span><br><span class="line"></span><br><span class="line">from app01 import views</span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(r&apos;^admin/&apos;, admin.site.urls),</span><br><span class="line">    url(r&apos;^hello_django/&apos;, views.hello),</span><br><span class="line">]</span><br><span class="line">9.修改app01/views.py</span><br><span class="line"></span><br><span class="line">from django.shortcuts import render,HttpResponse</span><br><span class="line"></span><br><span class="line"># Create your views here.</span><br><span class="line">def hello(request):</span><br><span class="line">    print(&apos;request is :&apos;,request)</span><br><span class="line">    return HttpResponse(&apos;django is ok &apos;)</span><br><span class="line">10.启动程序</span><br><span class="line"></span><br><span class="line">uwsgi --http :8000 --module mysite.wsgi</span><br><span class="line">11.uwsgi配置文件</span><br><span class="line"></span><br><span class="line">uwsgi支持ini、xml等多种配置方式，本文以 ini 为例， 在/etc/目录下新建uwsgi_nginx.ini，添加如下配置：</span><br><span class="line"></span><br><span class="line">[uwsgi]</span><br><span class="line">http = 0.0.0.0:8000</span><br><span class="line">#the local unix socket file than commnuincate to Nginx</span><br><span class="line">socket = /data/mysite/mysit.socket</span><br><span class="line"># the base directory (full path)</span><br><span class="line">chdir = /data/mysite</span><br><span class="line"># Django&apos;s wsgi file</span><br><span class="line">wsgi-file = mysite/wsgi.py</span><br><span class="line"># maximum number of worker processes</span><br><span class="line">processes = 4</span><br><span class="line">#thread numbers startched in each worker process</span><br><span class="line">threads = 2</span><br><span class="line"># clear environment on exit</span><br><span class="line">vacuum          = true</span><br><span class="line">daemonize = /data/mysite/uwsgi.log</span><br><span class="line">py-autoreload=1</span><br><span class="line">11.准备配置文件</span><br><span class="line"></span><br><span class="line">uwsgi_param  QUERY_STRING       $query_string;</span><br><span class="line">uwsgi_param  REQUEST_METHOD     $request_method;</span><br><span class="line">uwsgi_param  CONTENT_TYPE       $content_type;</span><br><span class="line">uwsgi_param  CONTENT_LENGTH     $content_length;</span><br><span class="line"></span><br><span class="line">uwsgi_param  REQUEST_URI        $request_uri;</span><br><span class="line">uwsgi_param  PATH_INFO          $document_uri;</span><br><span class="line">uwsgi_param  DOCUMENT_ROOT      $document_root;</span><br><span class="line">uwsgi_param  SERVER_PROTOCOL    $server_protocol;</span><br><span class="line">uwsgi_param  REQUEST_SCHEME     $scheme;</span><br><span class="line">uwsgi_param  HTTPS              $https if_not_empty;</span><br><span class="line"></span><br><span class="line">uwsgi_param  REMOTE_ADDR        $remote_addr;</span><br><span class="line">uwsgi_param  REMOTE_PORT        $remote_port;</span><br><span class="line">uwsgi_param  SERVER_PORT        $server_port;</span><br><span class="line">uwsgi_param  SERVER_NAME        $server_name;</span><br><span class="line">12.修改配置文件权限</span><br><span class="line"></span><br><span class="line">chown nginx.root uwsgi_params</span><br><span class="line">13.修改nginx配置文件</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">        include  /data/mysite/conf/uwsgi_params;</span><br><span class="line">        proxy_pass http://127.0.0.1:8000;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">location /static&#123;</span><br><span class="line">　　　　　alias /data/mysite/static;　　　</span><br><span class="line"> &#125;</span><br><span class="line">　　　　　#nginx处理媒体资源</span><br><span class="line">location /media&#123;</span><br><span class="line">     alias /data/mysite/media;　　</span><br><span class="line"> &#125;</span><br><span class="line">ps: nginx 连接uwsgi一共有三种方式</span><br><span class="line"></span><br><span class="line">方式一: </span><br><span class="line">uwsgi.ini 里面指定为http = 127.0.0.1:8000</span><br><span class="line">nginx的配置文件里面需要写</span><br><span class="line">proxy_pass http://127.0.0.1:8000;</span><br><span class="line">方式二:</span><br><span class="line">uwsgi.ini里面指定为socket = 127.0.0.1:8000</span><br><span class="line">nginx的配置文件需要写 </span><br><span class="line">include /etc/nginx/uwsgi.conf;</span><br><span class="line">uwsgi_pass 127.0.0.0:8000;</span><br><span class="line">方式三:</span><br><span class="line">uwsgi.ini里面指定为socket = /data/mysite/mysite.socket</span><br><span class="line">nginx的配置文件需要写 </span><br><span class="line">include /etc/nginx/uwsgi.conf;</span><br><span class="line">uwsgi_pass unix:/data/mysite/mysite.socket;</span><br><span class="line">14.执行命令迁移nginx静态文件</span><br><span class="line"></span><br><span class="line">STATIC_ROOT = os.path.join(BASE_DIR, &quot;static/&quot;)</span><br><span class="line">python manage.py collectstatic</span><br><span class="line">15.查看效果</span><br></pre></td></tr></table></figure>
+
+
+
+<p>　如何用roles 来安装nginx+uwsgi+mariadb + redis？</p>
+<p>下次补充。。。</p>
+<p>1.特点：<br>目录清晰<br>可以互相调用<br>2.roles文件夹<br>文件夹里面是要创建的每一个角色,每一个角色一个文件夹</p>
 <ul>
-<li>Workspace：工作区</li>
-<li>Index / Stage：暂存区</li>
-<li>Repository：仓库区（或本地仓库）</li>
-<li>Remote：远程仓库</li>
+<li>每一个角色里面都有tasks(必须的),templates,files,handlers,vars目录</li>
+<li>每个目录都要有main.yml文件,通过import_tasks来调用</li>
+<li>其中templates文件夹中的文件可以通过相对路径来调用<br>目录结构：<br>nginx/<br>├── files  #静态文件<br>├── handlers  #被触发的动作<br>│   └── main.yml<br>├── tasks  #任务列表<br>│   ├── copyfile.yml<br>│   ├── installnginx.yml<br>│   ├── main.yml  #入口文件<br>│   └── start.yml<br>├── templates  #模板文件<br>│   └── nginx.conf<br>└── vars  #变量<br>查找顺序</li>
 </ul>
-</blockquote>
-        
-          <a class="article-more-a" href="/2019/10/10/git-summary/#more">more >></a>
-        
+<ol>
+<li><p>roles目录，对应的文件夹</p>
+</li>
+<li><p>tasks：先找tasks目录里面的main.yml文件，看到import_tasks来导入别的yml文件，这个是必须的</p>
+</li>
+<li><p>templates： 找这个目录里面的模板文件，在tasks里面是可以用相对路径来写</p>
+</li>
+<li><p>vars：先找main.yml文件，如果找到就找变量替换</p>
+</li>
+<li><p>hanlers：先找main.yml文件，如果找到，则在tasks里面通过notify来触发</p>
+</li>
+<li><p>files： 放的是静态文件<br>相互调用<br>通过import_tasks来相互调用: roles/{nginx|uwsgi|···}/tasks/taskfile.yml</p>
+</li>
+</ol>
+<p>其中files文件夹中的文件是否可以通过相对路径来调用?</p>
+<p>3.怎么使用<br>跟roles同级目录下，写nginx.yml文件</p>
+<ul>
+<li>hosts： web<br>roles：<ul>
+<li>nginx</li>
+</ul>
+</li>
+</ul>
+<p>4.使用roles安装nginx和uwsgi：<br>1.创建nginx的roles目录：</p>
+<p>2.在tasks文件夹下编辑任务：</p>
+<p>3.更改nginx.conf配置</p>
+<p>worker_connections 102400;  #最大连接数<br>worker_processes ;  #工作进程数<br>4.目录结构</p>
+<p>nginx/<br>├── files  #静态文件<br>├── handlers  #被触发的动作<br>│   └── main.yml<br>├── tasks  #任务列表<br>│   ├── copyfile.yml<br>│   ├── installnginx.yml<br>│   ├── main.yml  #入口文件<br>│   └── start.yml<br>├── templates  #模板文件<br>│   └── nginx.conf<br>└── vars  #变量<br>安装uwsgi</p>
+<p>[root@centos7-0 ~/roles/uwsgi]#: !mkdir  #执行上一次mkdir的操作<br>mkdir -v {tasks,templates,files,vars,handlers}<br>mkdir: created directory ‘tasks’<br>mkdir: created directory ‘templates’<br>mkdir: created directory ‘files’<br>mkdir: created directory ‘vars’<br>mkdir: created directory ‘handlers’<br>Linux知识点补充：</p>
+<p>iptables -F # 临时关闭防火墙</p>
+<p>setenforce 0 #用来临时关闭selinux<br>vi /etc/selinux/config  #永久关闭SELinux<br>    SELINUX=disabled<br>5.nginx +uwsgi配置方式<br>第一种</p>
+<p>uwsgi配置文件里面是http= 0.0.0.0：8000</p>
+<p>nginx配置文件是proxy_pass <a href="http://127.0.0.1:8000" target="_blank" rel="noopener">http://127.0.0.1:8000</a>;<br>第二种方式</p>
+<p>uwsgi配置文件里面是socket= 0.0.0.0：8000</p>
+<p>nginx配置文件是</p>
+<p>include /etc/nginx/uwsgi.conf</p>
+<p>uwsgi_pass 127.0.0.1:8000;<br>第三种方式</p>
+<p>uwsgi配置文件里面是socket=/data/mysite/mysite.socket</p>
+<p>nginx配置文件是</p>
+<p>include /etc/nginx/uwsgi.conf</p>
+<p>uwsgi_pass unix:/data/mysite/mysite.socket;<br>6.用roles安装Redis</p>
+<h1 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h1><h1 id="监听地址为本机的内网IP地址"><a href="#监听地址为本机的内网IP地址" class="headerlink" title="- 监听地址为本机的内网IP地址"></a>- 监听地址为本机的内网IP地址</h1><h1 id="设置密码"><a href="#设置密码" class="headerlink" title="- 设置密码"></a>- 设置密码</h1><h1 id="设置落地方式"><a href="#设置落地方式" class="headerlink" title="- 设置落地方式"></a>- 设置落地方式</h1><ul>
+<li>hosts: web<br>tasks:<ul>
+<li>name: installredis<br>yum: name=redis</li>
+<li>name: copyfile<br>template: src=redis.conf dest=/etc/redis.conf</li>
+<li>name: startredis<br>service: name=redis state=started<br>handlers:</li>
+<li>name: restartredis<br>service: name=redis state=restarted</li>
+</ul>
+</li>
+</ul>
+<p>7.用roles安装MariaDB</p>
+<ul>
+<li>hosts: web<br>tasks:<ul>
+<li>name: copyfile<br>template: src=/etc/yum.repos.d/Mariadb.repo dest=/etc/yum.repos.d/Mariadb.repo</li>
+<li>name: installmariadb<br>yum: name=mariadb-server,mariadb</li>
+<li>name: startmaridb<br>service: name=mariadb state=started<br>handlers:</li>
+<li>name: restartmariadb<br>service: name=mariadb state=restarted</li>
+</ul>
+</li>
+</ul>
+<p>mysql/<br>├── files<br>├── handlers<br>├── tasks<br>│   ├── copyfile.yml<br>│   ├── installmariadb.yml<br>│   ├── main.yml<br>│   └── startmariadb.yml<br>├── templates<br>│   └── Mariadb.repo<br>└── vars<br>PS:打包命令</p>
+<p>tar -zcvf roles.tar.gz roles #将roles文件夹打包为roles.tar.gz文件<br>8.用roles来完成nginx+uwsgi配置django项目</p>
+<h1 id="大体步骤"><a href="#大体步骤" class="headerlink" title="大体步骤"></a>大体步骤</h1><p>第一步：安装包组和pip<br>yum groupinstall “Development tools”<br>yum install python2-pip<br>ansible web -m yum -a ‘name=python2-pip’<br>ansible web -m yum -a ‘name=”@Development Tools”‘ # 用来安装包组</p>
+<p>第二步：安装django<br>pip install django<br>ansible web -m pip -a “name=flask”</p>
+<p>第三步：安装uwsgi<br>yum install zlib-devel bzip2-devel pcre-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel<br>yum install python-devel<br>pip install uwsgi</p>
+<p>第四步：配置好django项目<br>copy - 将django项目mysite文件夹存放到files文件夹下<br>其中，已配置好的uwsgi.ini文件已存放在mysite文件下了</p>
+<p>第五步：启动uwsgi<br>uwsgi –ini uwsgi.ini</p>
+<p>第六步：配置nginx信息</p>
+<p>第七步：关闭SELinux<br>vim /etc/selinux/config<br>SELinux=disabled<br>systemctl restart nginx<br>uwsgi的配置目录：</p>
+<p>uwsgi/<br>├── files<br>│   └── mysite  #django项目<br>├── handlers<br>├── tasks<br>│   ├── copyfile.yml<br>│   ├── install.yml<br>│   ├── main.yml<br>│   ├── startuwsgi.yml<br>│   └── stopiptables.yml<br>├── templates<br>└── vars<br>其中，install.yml文件：</p>
+<ul>
+<li>name: installtools<br>yum: name=”@Development Tools”</li>
+<li>name: installpythondev<br>yum: name=python2-pip,zlib-devel,bzip2-devel,pcre-devel,openssl-devel,ncurses-devel,sqlite-devel,readline-devel,tk-devel,python-devel</li>
+<li>name: installdjango<br>pip: name=django version=1.11.16</li>
+<li>name: installuwsgi<br>pip: name=uwsgi<br>执行结果：</li>
+</ul>
+<p>待完成：nginx的roles配置，并且和uwsgi相互调用<br>PS：上面的roles配置过程并不详细，只是大体的思路</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -195,16 +683,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/10/git-summary/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://anthonywang68.site/2019/11/01/ansible-summary-持续更新ing/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/01/部署-MongoDB-集群-AWS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">部署 MongoDB 集群</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -224,276 +771,14 @@
 
 
 
-
-  
-    <article id="post-aiohttp学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/04/aiohttp学习/">aiohttp学习</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/04/aiohttp学习/" class="archive-article-date">
-  	<time datetime="2019-10-04T13:23:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>asyncio</code>可以实现单线程并发IO操作。如果仅用在客户端，发挥的威力不大。如果把<code>asyncio</code>用在服务器端，例如Web服务器，由于HTTP连接就是IO操作，因此可以用单线程+<code>coroutine</code>实现多用户的高并发支持。</p>
-        
-          <a class="article-more-a" href="/2019/10/04/aiohttp学习/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/04/aiohttp学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-django-drf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/29/django-drf/">django---drf</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/29/django-drf/" class="archive-article-date">
-  	<time datetime="2019-09-29T03:00:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>DRF梳理(不断更新….)</p>
-<p>REST是一种软件架构设计风格，不是标准，也不是技术实现，只是提供了一组设计原则和约束条件，是目前最流行的API 设计规范，用于web数据接口的设计。2000年，由Roy Fielding在他的博士论文中提出，Roy Fielding是HTTP规范的主要编写者之一。</p>
-<p>　　RESTful参考链接：</p>
-<p>　　　　<a href="http://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html" target="_blank" rel="noopener">RESTful API 最佳实践 - 阮一峰</a></p>
-<p>　　　　<a href="http://www.scienjus.com/my-restful-api-best-practices/" target="_blank" rel="noopener">我所认为的RESTful API最佳实践</a></p>
-        
-          <a class="article-more-a" href="/2019/09/29/django-drf/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/29/django-drf/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-django-debug-toolbar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/28/django-debug-toolbar/">django-debug-toolbar</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/28/django-debug-toolbar/" class="archive-article-date">
-  	<time datetime="2019-09-28T10:05:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>django-debug-toolbar 是一组可配置的面板，可显示有关当前请求/响应的各种调试信息，并在单击时显示有关面板内容的更多详细信息。</p>
-        
-          <a class="article-more-a" href="/2019/09/28/django-debug-toolbar/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/28/django-debug-toolbar/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Go学习，未完待续" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/25/Go学习，未完待续/">Go学习，未完待续</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/25/Go学习，未完待续/" class="archive-article-date">
-  	<time datetime="2019-09-25T13:11:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>业余时间，每天学习。。。。</p>
-        
-          <a class="article-more-a" href="/2019/09/25/Go学习，未完待续/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/25/Go学习，未完待续/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -516,8 +801,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
