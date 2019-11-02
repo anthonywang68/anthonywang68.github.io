@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://anthonywang68.site">
-  <title>Archives: 2019 | Anthony Wang&#39;summary</title>
+  <title>生产中实际遇到的问题排查总结,持续更新。。。。。 | Anthony Wang&#39;summary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是一个基于Hexo搭建的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Anthony Wang&#39;summary">
-<meta property="og:url" content="https://anthonywang68.site/archives/2019/page/5/index.html">
+  <meta name="description" content="常见问题： 1、生产系统刚开始运行阶段，系统稳定。但是运行一段时间后，发现部分时间段系统接口响应变慢。查看客户端日志经常会出现这样的错误： redis.clients.jedis.exceptions.JedisConnectionException: java.net.SocketTimeoutException: Read timed out。 2、生产环境长时间的运行后，经常会有接口返回数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生产中实际遇到的问题排查总结,持续更新。。。。。">
+<meta property="og:url" content="https://anthonywang68.site/2019/11/02/生产中实际遇到的问题排查总结-持续更新。。。。。/index.html">
 <meta property="og:site_name" content="Anthony Wang&#39;summary">
-<meta property="og:description" content="这是一个基于Hexo搭建的博客">
+<meta property="og:description" content="常见问题： 1、生产系统刚开始运行阶段，系统稳定。但是运行一段时间后，发现部分时间段系统接口响应变慢。查看客户端日志经常会出现这样的错误： redis.clients.jedis.exceptions.JedisConnectionException: java.net.SocketTimeoutException: Read timed out。 2、生产环境长时间的运行后，经常会有接口返回数据">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-02T09:24:46.261Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anthony Wang&#39;summary">
-<meta name="twitter:description" content="这是一个基于Hexo搭建的博客">
+<meta name="twitter:title" content="生产中实际遇到的问题排查总结,持续更新。。。。。">
+<meta name="twitter:description" content="常见问题： 1、生产系统刚开始运行阶段，系统稳定。但是运行一段时间后，发现部分时间段系统接口响应变慢。查看客户端日志经常会出现这样的错误： redis.clients.jedis.exceptions.JedisConnectionException: java.net.SocketTimeoutException: Read timed out。 2、生产环境长时间的运行后，经常会有接口返回数据">
   
     <link rel="alternative" href="/atom.xml" title="Anthony Wang&#39;summary" type="application/atom+xml">
   
@@ -151,160 +152,214 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-生产中实际遇到的问题排查总结-持续更新。。。。。" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      生产中实际遇到的问题排查总结,持续更新。。。。。
+    </h1>
+  
+
+        
+        <a href="/2019/11/02/生产中实际遇到的问题排查总结-持续更新。。。。。/" class="archive-article-date">
+  	<time datetime="2019-11-02T09:20:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>常见问题：</p>
+<p>1、生产系统刚开始运行阶段，系统稳定。但是运行一段时间后，发现部分时间段系统接口响应变慢。查看客户端日志经常会出现这样的错误：</p>
+<p>redis.clients.jedis.exceptions.JedisConnectionException: java.net.SocketTimeoutException: Read timed out。</p>
+<p>2、生产环境长时间的运行后，经常会有接口返回数据失败的情况，或者是从监控上发现数据库压力某一时间暴增。查看客户端日志发现这样的错误：</p>
+<p>redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool</p>
+<p>3、突然间服务不能访问，返回错误：</p>
+<p>redis.clients.jedis.exceptions.JedisDataException: MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.</p>
+<p>当然在实际生产情况中，还有各种各样的异常情况，但是在客户端普遍表现为上面几种场景</p>
+<a id="more"></a>
+
+<p>问题一：<br>首先从客户端反馈的日志，怀疑是服务器和客户端间的网络问题。为排除这个问题，我们编写脚本，在客户端定时ping服务端（redis服务），持续运行一段后，发现未有丢包的情况，排除网络问题。</p>
+<p>查看redis服务端日志，未发现有异常情况。查看redis服务器资源监控，发现每几分钟左右，IO会有一波峰值，但是CPU和带宽压力都在正常范围。</p>
+<p>我们redis部署模式：</p>
+<p>一主一从通过redis自带的sentinal做HA，主从均有开启持久化。初步怀疑间隔性IO操作占用资源导致redis读写变慢(在此，抛出一个问题：在服务器资源CPU和带宽均未达到瓶颈的情况下，持续的IO高峰操作是否会影响物理内存的读写）。接下来采取的措施是：关闭主库的持久化，用从库来做持久化，但是这种模式下存在一个问题，如果主发生故障，sentinal做主从切换后问题同样存在。</p>
+<p>运行一段时候，发现问题有所改善，但是依然还是会有time out的情况，只有继续排查问题。由于redis操作采用单线程，考虑会不会有某些慢查询导致time out。执行slowlog查看慢查询语句，发现有大量的keys命令操作，keys命令在大量并发情况下性能非常差，结合官方给出的warning</p>
+<p>正式环境中，尽量避免使用keys，接下来找出使用keys的代码做优化，至此，time out问题解决。</p>
+<p>也可以：</p>
+<p>升级到redis4.0，然后主库关闭rdb持久化，开启rdb + aof 混合持久化，减少因为持久化占用资源的时间</p>
+<p>问题二：<br>从错误日志看，是提示无法获取连接。有两种情况：</p>
+<p>1、客户端的连接池满了，无法创建新的连接</p>
+<p>检查客户端连接最大限制maxActive是否足够</p>
+<p>2、redis服务端连接溢出，无法分配新的连接</p>
+<p>检查服务端tcp连接：netstat -nat|grep -i “6379”|wc -l</p>
+<p>检查服务端连接是否达到最大值：查看服务端支持的最大连接：CONFIG GET maxclients，查看当前服务端建立的   连接：connected_clients</p>
+<p>通过上述检查后，发现redis服务端connected_clients连接数持续过高，经常在最大值徘徊。但是结合客户端配置的最大连接配置maxActive，计算出所有客户端连接占满的情况下最大的连接数也达不到connected_clients的连接数。</p>
+<p>执行client list命令，发现大量的client的idle时间特别长：</p>
+<p>正常的client连接，在持续使用的情况下，是不可能空闲这么长时间，连接长时间空闲，客户端也会关闭连接。</p>
+<p>查看redis服务端下面两项配置：</p>
+<pre><code>timeout：client连接空闲多久会被关闭（这个配置容易被误导为：连接超时和操作执行超时）
+
+tcp-keepalive：redis服务端主动向空闲的客户端发起ack请求，以判断连接是否有效</code></pre><p>检查上述配置发现 timeout和tcp-keepalive均未启用（均为0），这种情况下，redis服务端没有有效的机制来确保服务端已经建立的连接是否已经失效。当服务器和客户端网络出现闪断，导致tcp连接中断，这种情况下的client将会一直被redis服务端所持有，就会出现上面我们看到的idle时间特长的client连接。</p>
+<p>接下来设置timeout和tcp-keepalive来清理失效的连接。</p>
+<p>上面问题中提到的数据库某一时间压力暴增，是由于在缓存模式下，redis请求失败，请求的压力瞬间集中到数据库。</p>
+<p>问题三：<br>从错误提示，可以看出是向磁盘保存数据失败。引起这个问题的原因一般是内存不足，但是生产环境我们一般都会为系统分配足够的内存运行，而且查看内存情况也显示还有可用内存。</p>
+<p>查看redis日志，发现有这个错误：Can’t save in background: fork: Cannot allocate memory</p>
+<p>redis在保存内存的数据到磁盘时，为了防止主进程假死，会Fork一个子进程来完成这个保存操作。但是这个Fork的子进程会需要分配和主进程相同的内存，这时候就相当于需要的内存double了，如果这时候可用内存不足以分配需要的内存，将会导致Fock子进程失败而无法保存数据到磁盘。</p>
+<p>修改linux内核参数：vm.overcommit_memory=1。至此，问题解决。</p>
+<p>overcommit_memory有三种取值：0， 1， 2</p>
+<pre><code>0：:检查是否有足够的可用内存供进程使用；有则允许申请，否则，内存申请失败，并把错误返回给应用进程；
+
+1：表示内核允许分配所有的物理内存，而不管当前的内存状态如何；
+
+2：表示内核允许分配超过所有物理内存和交换空间总和的内存。</code></pre><p>优化措施总结<br>1、结合实际使用场景，考虑是否需要用到redis的持久化，如果单纯用来做应用层的缓存（在缓存未命中的情况下访问数据库），可以关闭持久化。</p>
+<p>2、缓存模式下，尽量为每块缓存设置时效性，避免冷数据长时间占用资源。</p>
+<p>3、生产环境中尽量避免使用keys操作，由于redis是单线程模式，大量的keys操作会阻塞其他的命令执行。</p>
+<p>4、设置合理的内存回收策略，保证内存可用性的同时能适当的提供缓存的命中率。</p>
+<p>5、提前计算出系统可能会用的内存大小，合理的分配内存。需要注意在开启持久化模式下，需要预留更多的内存提供给Fock的子进程做数据磁盘flush操作。</p>
+<p>深入探讨研究<br>如果redis服务端未设置timeout，客户端会如何处理长时间未使用的连接？<br>这个问题可以从分析redis的sdk源码查找答案，不过这个过程会比较枯燥。</p>
+<p>接下来我们直接通过抓取客户端和服务端的tcp数据包来获取答案：</p>
+<p>这里我用wireshark来抓取中间的tcp数据包，下面是抓取了一个完整的redis连接（从发起到结束）的tcp数据包</p>
+<p>从上面可以看到，从tcp3次握手建立连接，到最后客户端发送reset包给服务端终止了这个连接。</p>
+<p>追踪整个tcp的数据流：</p>
+<p>*2<br>$4<br>AUTH<br>$8<br>password<br>+OK<br>*1<br>$4<br>PING<br>+PONG<br>*1<br>$4<br>PING<br>+PONG<br>*1<br>$4<br>QUIT<br>+OK<br>从tcp数据流可以看出，整个tcp连接中间经历的操作：</p>
+<pre><code>1、客户端发送密码建立连接，服务端响应OK
+
+2、客户端发送PING命令校验连接，服务端响应PONG表示成功
+
+3、客户端再次发送PING命令校验连接，服务端响应PONG表示成功
+
+4、客户端发送QUIT命令退出连接，服务端响应OK表示退出成功</code></pre><p>当服务端响应QUIT命令OK后，客户端发送RESET的tcp包终止整个tcp连接。中间客户端发起了两次PING命令校验连接和一次QUIT命令来退出连接，每次间隔30s，加起来整个连接存活了90s。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/15/算法学习随笔/" class="archive-article-date">
-  	<time datetime="2019-09-15T14:42:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/15/算法学习随笔/">算法数据结构部分学习笔记</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://anthonywang68.site/2019/11/02/生产中实际遇到的问题排查总结-持续更新。。。。。/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/15/数据结构分析/" class="archive-article-date">
-  	<time datetime="2019-09-15T10:23:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/01/ansible-summary-持续更新ing/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ansible-summary,持续更新ing....</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/15/数据结构分析/">数据结构分析</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/15/数据结构笔记，未完待续/" class="archive-article-date">
-  	<time datetime="2019-09-15T10:18:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/15/数据结构笔记，未完待续/">数据结构笔记，未完待续</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/15/数据库部分理解/" class="archive-article-date">
-  	<time datetime="2019-09-15T02:41:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/15/数据库部分理解/">数据库部分理解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/15/RabbitMQ使用随笔/" class="archive-article-date">
-  	<time datetime="2019-09-15T01:42:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/15/RabbitMQ使用随笔/">RabbitMQ使用随笔</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/page/4/">&laquo; Prev</a><a class="page-number" href="/archives/2019/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/3/">3</a><a class="page-number" href="/archives/2019/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/2019/page/6/">6</a><a class="page-number" href="/archives/2019/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/9/">9</a><a class="extend next" rel="next" href="/archives/2019/page/6/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -328,8 +383,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
