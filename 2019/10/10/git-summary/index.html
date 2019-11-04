@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://anthonywang68.site/.site//D:%5Cmd_down_png%5C1570668024072.png">
 <meta property="og:image" content="https://anthonywang68.site/.site//D:%5Cmd_down_png%5C1570670145803.png">
 <meta property="og:image" content="https://anthonywang68.site/.site//D:%5Cmd_down_png%5C1570670267464.png">
-<meta property="og:updated_time" content="2019-10-29T11:43:40.743Z">
+<meta property="og:updated_time" content="2019-11-04T13:34:47.727Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git--summary">
 <meta name="twitter:description" content="下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。   Workspace：工作区 Index / Stage：暂存区 Repository：仓库区（或本地仓库） Remote：远程仓库">
@@ -195,6 +195,11 @@
 </ul>
 </blockquote>
 <a id="more"></a>
+
+
+
+<p>最近我们的老司机推荐做法来解决线上代码bug，做个笔记：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> 拉一个新分支，老司机都推荐这样做，充分利用了git特性</span><br><span class="line">先暂存一下工作空间改动：</span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line">新建一个分支，并且换到这个新分支</span><br><span class="line">git branch fix_bug //新建分支</span><br><span class="line">git checkout fix_bug //切换分支</span><br><span class="line"></span><br><span class="line">这时候就可以安心的在这个fix_bug分支改bug了，改完之后：</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m &quot;fix a bug&quot;</span><br><span class="line"></span><br><span class="line">切换到master主分支</span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line">从fix_bug合并到master分支</span><br><span class="line">git merge fix_bug</span><br><span class="line">提交代码</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line">然后从暂存区恢复代码</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
 
 <ol>
 <li><p>使用git实现版本控制–本质 : git帮助我们管理文件夹</p>
