@@ -6,18 +6,41 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://anthonywang68.site">
-  <title>Anthony Wang&#39;summary</title>
+  <title>K8S知识点梳理，持续更新ing | Anthony Wang&#39;summary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是一个基于Hexo搭建的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Anthony Wang&#39;summary">
-<meta property="og:url" content="https://anthonywang68.site/page/2/index.html">
+  <meta name="description" content="Kubernetes(k8s)是Google开源的容器集群管理系统。在Docker技术的基础上，为容器化的应用提供部署运行、资源调度、服务发现和动态伸缩等一系列完整功能，提高了大规模 容器集群管理的便捷性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="K8S知识点梳理，持续更新ing">
+<meta property="og:url" content="https://anthonywang68.site/2019/11/15/K8S知识点梳理，持续更新ing/index.html">
 <meta property="og:site_name" content="Anthony Wang&#39;summary">
-<meta property="og:description" content="这是一个基于Hexo搭建的博客">
+<meta property="og:description" content="Kubernetes(k8s)是Google开源的容器集群管理系统。在Docker技术的基础上，为容器化的应用提供部署运行、资源调度、服务发现和动态伸缩等一系列完整功能，提高了大规模 容器集群管理的便捷性。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827154649268-618652022.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155030824-447261448.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155126551-932355788.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155323824-133296545.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155453104-1045815455.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155531232-1839476935.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155715406-672763430.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155823456-1669723369.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155926540-1719972215.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160030432-467866661.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160146165-874224246.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160219188-1621737504.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160325253-473506597.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160425395-1874526091.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160543569-1608275420.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160616292-2043305204.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160758720-1084928179.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160848780-1527756773.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160928855-393058847.png">
+<meta property="og:updated_time" content="2019-11-15T14:50:35.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anthony Wang&#39;summary">
-<meta name="twitter:description" content="这是一个基于Hexo搭建的博客">
+<meta name="twitter:title" content="K8S知识点梳理，持续更新ing">
+<meta name="twitter:description" content="Kubernetes(k8s)是Google开源的容器集群管理系统。在Docker技术的基础上，为容器化的应用提供部署运行、资源调度、服务发现和动态伸缩等一系列完整功能，提高了大规模 容器集群管理的便捷性。">
+<meta name="twitter:image" content="https://common.cnblogs.com/images/copycode.gif">
   
     <link rel="alternative" href="/atom.xml" title="Anthony Wang&#39;summary" type="application/atom+xml">
   
@@ -151,41 +174,209 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-生产中实际遇到的问题排查总结-持续更新。。。。。" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-K8S知识点梳理，持续更新ing" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/02/生产中实际遇到的问题排查总结-持续更新。。。。。/">生产中实际遇到的问题排查总结,持续更新。。。。。</a>
+    <h1 class="article-title" itemprop="name">
+      K8S知识点梳理，持续更新ing
     </h1>
   
 
         
-        <a href="/2019/11/02/生产中实际遇到的问题排查总结-持续更新。。。。。/" class="archive-article-date">
-  	<time datetime="2019-11-02T09:20:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
+        <a href="/2019/11/15/K8S知识点梳理，持续更新ing/" class="archive-article-date">
+  	<time datetime="2019-11-15T14:49:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>常见问题：</p>
-<p>1、生产系统刚开始运行阶段，系统稳定。但是运行一段时间后，发现部分时间段系统接口响应变慢。查看客户端日志经常会出现这样的错误：</p>
-<p>redis.clients.jedis.exceptions.JedisConnectionException: java.net.SocketTimeoutException: Read timed out。</p>
-<p>2、生产环境长时间的运行后，经常会有接口返回数据失败的情况，或者是从监控上发现数据库压力某一时间暴增。查看客户端日志发现这样的错误：</p>
-<p>redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool</p>
-<p>3、突然间服务不能访问，返回错误：</p>
-<p>redis.clients.jedis.exceptions.JedisDataException: MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.</p>
-<p>当然在实际生产情况中，还有各种各样的异常情况，但是在客户端普遍表现为上面几种场景</p>
-        
-          <a class="article-more-a" href="/2019/11/02/生产中实际遇到的问题排查总结-持续更新。。。。。/#more">more >></a>
-        
+        <p>Kubernetes(k8s)是Google开源的容器集群管理系统。在Docker技术的基础上，为容器化的应用提供部署运行、资源调度、服务发现和动态伸缩等一系列完整功能，提高了大规模 容器集群管理的便捷性。</p>
+<a id="more"></a>
+
+<p><strong>1.K8S**</strong>优势：**</p>
+<p>容器编排；轻量级；开源；弹性伸缩；负载均衡</p>
+<p><strong>2.重要概念：</strong></p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Cluster: 是 计算、存储和网络资源的集合，k8s利用这些资源运行各种基于容器的应用.</span><br><span class="line">Master: master是cluster的大脑，他的主要职责是调度，即决定将应用放在那里运行。master运行linux操作系统，可以是物理机或者虚拟机。为了实现高可用，可以运行多个master。</span><br><span class="line">Node: 职责是运行容器应用。node由master管理，node负责监控并汇报容器的状态，同时根据master的要求管理容器的生命周期。node运行在linux的操作系统上，可以是物理机或者是虚拟机。</span><br><span class="line">Pod: pod是k8s的最小工作单元。每个pod包含一个或者多个容器。pod中的容器会作为一个整体被master调度到一个node上运行。</span><br><span class="line">Controller: k8s通常不会直接创建pod,而是通过controller来管理pod的。controller中定义了pod的部署特性，比如有几个剧本，在什么样的node上运行等。为了满足不同的业务场景，</span><br><span class="line">            k8s提供了多种controller，包括deployment、replicaset、daemonset、statefulset、job等。</span><br><span class="line">Deployment: 是最常用的controller。deployment可以管理pod的多个副本，并确保pod按照期望的状态运行。</span><br><span class="line">Replicaset: 实现了pod的多副本管理。使用deployment时会自动创建replicaset，也就是说deployment是通过replicaset来管理pod的多个副本的，我们通常不需要直接使用replicaset。</span><br><span class="line">Daemonset: 用于每个node最多只运行一个pod副本的场景。正如其名称所示的，daemonset通常用于运行daemon。</span><br><span class="line">Job: 用于运行结束就删除的应用，而其他controller中的pod通常是长期持续运行的。</span><br><span class="line">Service: deployment可以部署多个副本，每个pod 都有自己的IP，外界如何访问这些副本那？答案是service。k8s的 service定义了外界访问一组特定pod的方式。service有自己的IP和端口，</span><br><span class="line">         service为pod提供了负载均衡。k8s运行容器pod与访问容器这两项任务分别由controller和service执行。</span><br><span class="line">Namespace: 可以将一个物理的cluster逻辑上划分成多个虚拟cluster，每个cluster就是一个namespace。不同的namespace里的资源是完全隔离的。</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>二. <strong>k8s**</strong>架构分析** </p>
+<p>k8s的集群由master和node组成，节点上运行着若干k8s服务</p>
+<p><strong>1.master**</strong>节点：**</p>
+<p>master节点之上运行着的后台服务有kube-apiserver 、kube-scheduler、kube-controller-manager、etcd和pod网络。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827154649268-618652022.png" alt="img"></p>
+<p><strong>1.API Server:</strong> API Server是k8s的前端接口，各种客户端工具以及k8s其他组件，可以通过它管理集群的各种资源。</p>
+<p><strong>2.Scheduler:</strong> scheduer负责决定将pod放在哪个node上运行。另外scheduler在调度时会充分考虑集群的架构，当前各个节点的负载，以及应用对高可用、性能、数据亲和性的需求。</p>
+<p><strong>3.Controller Manager:</strong> 负责管理集群的各种资源，保证资源处于预期的状态。</p>
+<p><strong>4.**</strong>etcd:** 负责保存k8s集群的配置信息和各种资源的状态信息，当数据发生变化时，etcd会快速的通知k8s相关组件。</p>
+<p><strong>5.pod**</strong>网络：**pod要能够相互通信，k8s集群必须掌握pod网络，fannel是其中一个可选的方案。</p>
+<p><strong>2.Node**</strong>节点：**</p>
+<p>node是pod运行的地方。node上运行的k8s组件有kublet、kube-proxy和pod网络（例如flannel）</p>
+<p><strong>1.kubelet:</strong> 是node的agent，当scheduler去确定在某个node上运行pod后，会将pod的具体配置信息发送给该节点的kubelet，kubelet会根据遮羞信息创建和运行容器，并向master报告运行状态。</p>
+<p><strong>2.kube-proxy:</strong> 每个node都会运行kube-proxy服务，外界通过service访问pod，kube-proxy负责将降访问service的TCP/UDP数据流转发到后端的容器。如果有多个副本，kube-proxy会实现负载均衡。</p>
+<p><strong>3.pod**</strong>网络**：pod能能够互相通信，k8s集群必须部署pod网络，flannel是其中一个可以选择的方案</p>
+<p><strong>3.部署过程：</strong></p>
+<p>1.kubectl 发送部署请求到 API Server。</p>
+<p>2.API Server 通知 Controller Manager 创建一个 deployment 资源。</p>
+<p>3.Scheduler 执行调度任务，将两个副本 Pod 分发到 k8s-node1 和 k8s-node2。</p>
+<p>4.k8s-node1 和 k8s-node2 上的 kubectl 在各自的节点上创建并运行 Pod。</p>
+<p><strong>三.deployment**</strong>—yml<strong>**文件</strong></p>
+<p> <strong>命令**</strong>vs<strong><strong>配置文件（</strong></strong>yml<strong>**文件）</strong></p>
+<p>1.命令方式简单直接快捷，上手快；适合临时测试或实验。</p>
+<p>2.配置文件方式提供了创建的模板，可以重复部署；易于管理；适合正规，跨环境，规模化部署。</p>
+<p><strong>案例：启动**</strong>nginx pod ,<strong>**副本为3</strong></p>
+<p><strong>1.</strong> <strong>命令行方式：</strong> <strong>kubectl run nginx –image=nginx -r 3</strong></p>
+<p><strong>2 .**</strong>编写<strong><strong>yml</strong></strong>文件**</p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155030824-447261448.png" alt="img"></strong></p>
+<p>执行yml 文件：kubectl apply -f nginx.yml</p>
+<p><strong>给**</strong>node<strong>**打标签</strong></p>
+<p>1.kubectl label node ken3 disk=ssd</p>
+<p>2.将pod加入到标签节点上（在yml文件中修改）</p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155126551-932355788.png" alt="img"></strong></p>
+<p>3.执行yml文件后查看pod，会发现运行在标签为disk=ssd的节点上。</p>
+<p> <strong>四.Job</strong></p>
+<p>容器按照持续运行的时间可分为两类：服务类容器和工作类容器。服务类容器通常持续提供服务，需要一直运行，比如 http server，daemon 等。工作类容器则是一次性任务，比如批处理程序，完成后容器就退出。Kubernetes 的 Deployment、ReplicaSet 和 DaemonSet 都用于管理服务类容器；对于工作类容器，我们用 Job。</p>
+<p><strong>1.Job**</strong>配置文件**</p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155323824-133296545.png" alt="img"></strong></p>
+<p>restartPolicy 指定什么情况下需要重启容器。对于 Job，只能设置为 Never 或者 OnFailure。对于其他 controller（比如 Deployment）可以设置为 Always 。</p>
+<p><strong>如果**</strong>Job<strong>**失败会发生什么？</strong></p>
+<p><strong>会自动生成很多**</strong>pod<strong>**。</strong>因为在job中期待完成数是1.但是因为job内部有错误，无法完成相应的任务，而且重启策略是Never，表示容器从来不会重启，所以系统为了完成工作，就会一直开启新的容器，试图去完成自己的工作。<strong>如果重启策略为OnFailure的话，只有一个pod，但pod会一直重启！</strong></p>
+<p><strong>注意：</strong></p>
+<p><strong>restartPolicy</strong> <strong>表示**</strong>pod<strong>**重启策略</strong></p>
+<p>Always： 这个是默认值，pod退出就会自动重启</p>
+<p>Never: 这个表示容器退出不会重启</p>
+<p>OnFailure: 表示容器再失败退出的时候才会重启，容器正常退出不会重启</p>
+<p><strong>imagePullPolicy</strong> <strong>表示镜像拉取的策略</strong></p>
+<p>Always: 这个是默认值，表示每次执行yml文件都会去拉取dockerhub中的镜像</p>
+<p>Never: 总是不拉取镜像</p>
+<p>IfNotPresent: 本地不存在才会去拉取镜像</p>
+<p><strong>五.cronjob</strong></p>
+<p><strong>1.cj**</strong>的<strong><strong>yml</strong></strong>文件**</p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155453104-1045815455.png" alt="img"></strong></p>
+<p><strong>六.service</strong></p>
+<p>1.每个 Pod 都有自己的 IP 地址。当 controller 用新 Pod 替代发生故障的 Pod 时，新 Pod 会分配到新的 IP 地址。这样就产生了一个问题：</p>
+<p>如果一组 Pod 对外提供服务（比如 HTTP），它们的 IP 很有可能发生变化，那么客户端如何找到并访问这个服务呢？Kubernetes 给出的解决方案是 Service。</p>
+<p>Kubernetes Service 从逻辑上代表了一组 Pod，具体是哪些 Pod 则是由 label 来挑选。Service 有自己 IP，而且这个 IP 是不变的。客户端只需要访问 Service 的 IP，Kubernetes 则负责建立和维护 Service 与 Pod 的映射关系。无论后端 Pod 如何变化，对客户端不会有任何影响，因为 Service 没有变。</p>
+<p><strong>2.**</strong>创建<strong>**service:</strong></p>
+<p><strong>先创建**</strong>deployment<strong>**文件（如上）</strong></p>
+<p><strong>再创建**</strong>service<strong>**文件：</strong></p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155531232-1839476935.png" alt="img"></strong></p>
+<p>selector 指明挑选那些 label 为 run: httpd 的 Pod 作为 Service 的后端。</p>
+<p>将 Service 的 8080 端口映射到 Pod 的 80 端口，使用 TCP 协议。（tcp协议可省略，默认的）</p>
+<p><strong>七.DNS**</strong>访问** </p>
+<p>此时我们通过另一个容器来访问刚才的pod</p>
+<p>1.启动容器busybox</p>
+<p>2.通过名称访问service中运行的pod(进入到容器busybox中) </p>
+<p>  Wget httpd-svc:80</p>
+<p>发现可以访问。但要注意，通过名称访问，只能在同一名称空间。如果不是在同一名称空间，需要指定namespace. 执行如下：</p>
+<p>1.修改yml文件：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155715406-672763430.png" alt="img"></p>
+<p>2.同样启动容器busybox，并指定名称空间进行访问</p>
+<p>Wget httpd2-svc.kube-public:80</p>
+<p>3.或者在启动容器busybox时就指定名称空间</p>
+<p>Kubectl run -it –image=busybox -n kube-public /bin/sh</p>
+<p><strong>八.**</strong>外网如何访问<strong><strong>pod</strong></strong>？<strong>**（这里主要讲通过端口形式）</strong></p>
+<p><strong>1.**</strong>编写<strong><strong>service</strong></strong>的文件**</p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155823456-1669723369.png" alt="img"></strong></p>
+<p>在原有文件添加type:NodePort,表示暴露一个随机端口出来。外部访问只需加上这个端口就可以访问。</p>
+<p><strong>2.**</strong>固定宿主机端口**</p>
+<p><strong>(1).编写**</strong>service<strong><strong>的</strong></strong>yml<strong>**文件(加上固定端口号即可)</strong></p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827155926540-1719972215.png" alt="img"></strong></p>
+<p><strong>几个端口表示的含义</strong></p>
+<p><strong>port**</strong>：<strong><strong>表示</strong></strong>svc<strong>**的端口</strong></p>
+<p><strong>targetPort: pod**</strong>的端口**</p>
+<p><strong>nodePort:</strong> <strong>需要映射到宿主机的端口</strong></p>
+<p><strong>九.**</strong>数据管理（<strong><strong>volume</strong></strong>）**</p>
+<p><strong>1.emptyDir</strong></p>
+<p>emptyDir 是最基础的 Volume 类型。一个 emptyDir Volume 是 Host 上的一个空目录。emptyDir Volume 对于容器来说是持久的，对于 Pod 则不是。当 Pod 从节点删除时，Volume 的内容也会被删除。但如果只是容器被销毁而 Pod 还在，则 Volume 不受影响。emptyDir Volume 的生命周期与 Pod 一致。</p>
+<p><strong>实践**</strong>emptyDir(<strong><strong>相当于</strong></strong>docker<strong>**中Docker Management Volume)</strong></p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160030432-467866661.png" alt="img"></strong></p>
+<p> emptyDir 是 Host 上创建的临时目录，其优点是能够方便地为 Pod 中的容器提供共享存储，不需要额外的配置。但它不具备持久性，如果 Pod 不存在了，emptyDir 也就没有了。</p>
+<p> <strong>2.hostpath</strong></p>
+<p>hostPath Volume 的作用是将 Docker Host 文件系统中已经存在的目录 mount 给 Pod 的容器。大部分应用都不会使用 hostPath Volume，因为这实际上增加了 Pod 与节点的耦合，限制了 Pod 的使用。不过那些需要访问 Kubernetes 或 Docker 内部数据（配置文件和二进制库）的应用则需要使用 hostPath。</p>
+<p><strong>实践hostPath(效果相当于执行： docker run -v /tmp:/usr/share/nginx/html</strong></p>
+<p><strong>编写**</strong>yml<strong>**文件</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160146165-874224246.png" alt="img"></p>
+<p> <strong>3.NFS</strong></p>
+<p>1.环境准备：控制节点部署好NFS，节点需要下载nfs-utils支持nfs文件类型</p>
+<p>2.编写yml文件</p>
+<p><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160219188-1621737504.png" alt="img"></p>
+<p><strong>4.pv&amp;pvc</strong></p>
+<p>PersistenVolume(pv)是外部存储系统中的一块存储空间，由管理员创建和维护。与volume一样，pv具有持久性，生命周期独立于Pod。</p>
+<p>PersistentVolumeClaim(pvc)是对pv的申请。Pvc通常由普通用户创建和维护。需要为pod分配存储资源时，用户可以创建一个pvc，指明存储资源的容量大小和访问模式等信息，K8s会查找并提供满足条件的pv.</p>
+<p>有了PersistentVolumeClaim，用户只需要告诉k8s需要什么样的存储资源，而不必关心真正的空间从哪里分配，如何访问等底层细节信息。这些Storage Provider的底层信息交给管理员来处理。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160325253-473506597.png" alt="img"></p>
+<p><strong>实践**</strong>PV/PVC**</p>
+<p><strong>1.部署**</strong>NFS**</p>
+<p><strong>2.编写**</strong>pv<strong><strong>的</strong></strong>yml<strong>**文件</strong></p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160425395-1874526091.png" alt="img"></strong></p>
+<p>3.执行yml文件并查看pv</p>
+<p><strong>注意：</strong></p>
+<p><strong>accessModes**</strong>有三类**</p>
+<p>ReadWriteOnce – 可以被单个节点进行读写挂载</p>
+<p>ReadOnlyMany – 可以被多个节点进行只读挂载</p>
+<p>ReadWriteMany – 可以被多个节点进行读写挂载</p>
+<p><strong>4.**</strong>创建<strong>**pvc</strong></p>
+<p><strong>编写pvc的**</strong>yml<strong>**文件</strong></p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160543569-1608275420.png" alt="img"></strong></p>
+<p>执行yml文件并查看pvc</p>
+<p><strong>5.**</strong>使用<strong>**pvc</strong></p>
+<p><strong>编写部署**</strong>nginx<strong><strong>的</strong></strong>yml<strong>**文件</strong></p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160616292-2043305204.png" alt="img"></strong></p>
+<p>执行yml文件并进行测试</p>
+<p><strong>5.**</strong>如何释放<strong>**pv</strong></p>
+<p> 1.先停掉pod</p>
+<p> 2.删除pvc</p>
+<p> 3.删除pv</p>
+<p><strong>十.**</strong>应用机密信息与配置管理**</p>
+<p><strong>Secret</strong></p>
+<p>应用启动过程中可能需要一些敏感信息，比如访问数据库的用户名密码或者秘钥。将这些信息直接保存在容器镜像中显然不妥，Kubernetes 提供的解决方案是 Secret。</p>
+<p>Secret 会以密文的方式存储数据，避免了直接在配置文件中保存敏感信息。Secret 会以 Volume 的形式被 mount 到 Pod，容器可通过文件的方式使用 Secret 中的敏感数据；此外，容器也可以环境变量的方式使用这些数据。</p>
+<p><strong>实践**</strong>Secret**</p>
+<p><strong>1.创建**</strong>Secre<strong>**t</strong></p>
+<p><strong>加密用户及密码：</strong> <strong>echo ‘123’ | base64</strong> </p>
+<p><strong>编写**</strong>secret<strong><strong>的</strong></strong>yml<strong>**文件</strong></p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160758720-1084928179.png" alt="img"></strong></p>
+<p>执行yml文件并查看，获取加密密码</p>
+<p><strong>2.**</strong>使用<strong>**secret</strong></p>
+<p>两种方式：1.以volume形式挂载在pod上；2.以环境变量形式使用</p>
+<p><strong>以**</strong>volume<strong><strong>的形式挂载到</strong></strong>pod**</p>
+<p><strong>1.**</strong>创建<strong><strong>pod</strong></strong>并编写<strong><strong>yml</strong></strong>文件**</p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160848780-1527756773.png" alt="img"></strong></p>
+<p>执行yml文件并进入到pod 查看secret</p>
+<p>Volume形式可以动态更新密码</p>
+<p><strong>以环境变量方式使用**</strong>secret**</p>
+<p><strong>1.**</strong>编写<strong><strong>yml</strong></strong>文件**</p>
+<p><strong><img src="https://img2018.cnblogs.com/blog/1747745/201908/1747745-20190827160928855-393058847.png" alt="img"></strong></p>
+<p>执行文件并进入到Pod验证</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -194,16 +385,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/02/生产中实际遇到的问题排查总结-持续更新。。。。。/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://anthonywang68.site/2019/11/15/K8S知识点梳理，持续更新ing/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/15/ansible梳理。。。持续更新ing/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ansible梳理。。。持续更新ing</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -223,274 +473,14 @@
 
 
 
-
-  
-    <article id="post-部署-MongoDB-集群-AWS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/01/部署-MongoDB-集群-AWS/">部署 MongoDB 集群</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/01/部署-MongoDB-集群-AWS/" class="archive-article-date">
-  	<time datetime="2019-11-01T13:31:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>开始前进入su模式，关闭防火墙systemctl stop firewalld.service   重启生效：systemctl disable firewalld.service<br>以下配置文件中id除非是0.0.0.0的，其他都需要根据自身情况来修改</p>
-        
-          <a class="article-more-a" href="/2019/11/01/部署-MongoDB-集群-AWS/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/01/部署-MongoDB-集群-AWS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库-存储过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/16/数据库-存储过程/">数据库--存储过程</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/16/数据库-存储过程/" class="archive-article-date">
-  	<time datetime="2019-10-16T08:28:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>维基百科：</p>
-<pre><code>储存程序 (Stored Procedure)，又可称预储程序或者存储过程，是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象，它可以视为数据库中的一种函数或子程序。</code></pre><hr>
-        
-          <a class="article-more-a" href="/2019/10/16/数据库-存储过程/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/16/数据库-存储过程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-py-魔术方法汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/11/py-魔术方法汇总/">py 魔术方法汇总</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/11/py-魔术方法汇总/" class="archive-article-date">
-  	<time datetime="2019-10-11T09:00:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Python魔法方法总结及注意事项"><a href="#Python魔法方法总结及注意事项" class="headerlink" title="Python魔法方法总结及注意事项"></a><a href="https://www.cnblogs.com/Jimmy1988/p/6801795.html" target="_blank" rel="noopener">Python魔法方法总结及注意事项</a></h1><p><strong>1、魔法方法：</strong></p>
-<p>　　Python中，一定要区分开函数和方法的含义；</p>
-        
-          <a class="article-more-a" href="/2019/10/11/py-魔术方法汇总/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/11/py-魔术方法汇总/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python高级特性整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/10/python高级特性整理/">python高级特性整理</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/10/python高级特性整理/" class="archive-article-date">
-  	<time datetime="2019-10-10T07:32:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2>
-        
-          <a class="article-more-a" href="/2019/10/10/python高级特性整理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/10/python高级特性整理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -513,8 +503,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
