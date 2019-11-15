@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://anthonywang68.site">
-  <title>Anthony Wang&#39;summary</title>
+  <title>ansible梳理。。。持续更新ing | Anthony Wang&#39;summary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是一个基于Hexo搭建的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Anthony Wang&#39;summary">
-<meta property="og:url" content="https://anthonywang68.site/index.html">
+  <meta name="description" content="1.1 ansible基本架构ansible系统由控制主机和被管理主机组成,控制主机不支持windows平台">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ansible梳理。。。持续更新ing">
+<meta property="og:url" content="https://anthonywang68.site/2019/11/15/ansible梳理。。。持续更新ing/index.html">
 <meta property="og:site_name" content="Anthony Wang&#39;summary">
-<meta property="og:description" content="这是一个基于Hexo搭建的博客">
+<meta property="og:description" content="1.1 ansible基本架构ansible系统由控制主机和被管理主机组成,控制主机不支持windows平台">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6078939-1799907d732a3e87.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6078939-2d6e5a817186480d.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6078939-dd7555be152cfb66.png">
+<meta property="og:updated_time" content="2019-11-15T14:44:15.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anthony Wang&#39;summary">
-<meta name="twitter:description" content="这是一个基于Hexo搭建的博客">
+<meta name="twitter:title" content="ansible梳理。。。持续更新ing">
+<meta name="twitter:description" content="1.1 ansible基本架构ansible系统由控制主机和被管理主机组成,控制主机不支持windows平台">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6078939-1799907d732a3e87.png">
   
     <link rel="alternative" href="/atom.xml" title="Anthony Wang&#39;summary" type="application/atom+xml">
   
@@ -151,16 +156,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-ansible梳理。。。持续更新ing" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-ansible梳理。。。持续更新ing" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/15/ansible梳理。。。持续更新ing/">ansible梳理。。。持续更新ing</a>
+    <h1 class="article-title" itemprop="name">
+      ansible梳理。。。持续更新ing
     </h1>
   
 
@@ -174,11 +177,237 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="1-1-ansible基本架构"><a href="#1-1-ansible基本架构" class="headerlink" title="1.1 ansible基本架构"></a>1.1 ansible基本架构</h2><p>ansible系统由控制主机和被管理主机组成,控制主机不支持windows平台</p>
-        
-          <a class="article-more-a" href="/2019/11/15/ansible梳理。。。持续更新ing/#more">more >></a>
-        
+<a id="more"></a>
+
+
+
+<p><img src="https://upload-images.jianshu.io/upload_images/6078939-1799907d732a3e87.png" alt="img"></p>
+<p>ansible基础架构</p>
+<ul>
+<li>核心: ansible</li>
+<li>Core Modules: ansible自带的模块</li>
+<li>Custom Modules: 核心模块功能不足时,用户可以添加扩展模块</li>
+<li>Plugins: 通过插件来实现记录日志,发送邮件或其他功能</li>
+<li>Playbooks: 剧本,YAML格式文件，多个任务定义在一个文件中，定义主机需要调用哪些模块来完成的功能</li>
+<li>Connectior Plugins: ansible基于连接插件连接到各个主机上,默认是使用ssh</li>
+<li>Host Inventory: 记录由Ansible管理的主机信息，包括端口、密码、ip等</li>
+</ul>
+<h2 id="1-2-ansible特点"><a href="#1-2-ansible特点" class="headerlink" title="1.2 ansible特点"></a>1.2 ansible特点</h2><p>部署简单, 只需要在控制主机上部署ansible环境,被控制端上只要求安装ssh和python 2.5以上版本,这个对于类unix系统来说相当与无需配置.</p>
+<ol>
+<li>no angents: 被管控节点无需安装agent</li>
+<li>no server: 无服务端,使用是直接调用命名</li>
+<li>modules in any languages: 基于模块工作, 可以使用任意语言开发模块</li>
+<li>易读的语法: 基于yaml语法编写playbook</li>
+<li>基于推送模式: 不同于puppet的拉取模式,直接由调用者控制变更在服务器上发生的时间</li>
+<li>模块是幂等性的:定义的任务已存在则不会做任何事情,意味着在同一台服务器上多次执行同一个playbook是安全的</li>
+</ol>
+<h2 id="1-3-ansible程序目录结构"><a href="#1-3-ansible程序目录结构" class="headerlink" title="1.3 ansible程序目录结构:"></a>1.3 ansible程序目录结构:</h2><ul>
+<li>配置文件: <code>/etc/ansible/</code></li>
+<li>执行文件目录: <code>/usr/bin/</code></li>
+<li>lib依赖库: <code>/usr/lib/python2.7/site-packages/ansible/</code></li>
+<li>help文件: <code>/usr/lib/python2.7/site-packages/ansible</code></li>
+</ul>
+<h1 id="2-ansible任务执行"><a href="#2-ansible任务执行" class="headerlink" title="2. ansible任务执行"></a>2. ansible任务执行</h1><h2 id="2-1-ansible任务执行模式"><a href="#2-1-ansible任务执行模式" class="headerlink" title="2.1 ansible任务执行模式"></a>2.1 ansible任务执行模式</h2><p>Ansible任务执行模式分为以下两种:</p>
+<ul>
+<li>ad-hoc模式(点对点模块)<br>使用单个模块,支持批量执行单条命令,相当与在bash中执行一句shell命令</li>
+<li>playbook模式(剧本模式)<br>ansible主要的管理方式,通过多个task的集合完成一类功能,可以理解为多个ad-hoc的配置文件</li>
+</ul>
+<h2 id="2-2-ansible执行流程"><a href="#2-2-ansible执行流程" class="headerlink" title="2.2 ansible执行流程:"></a>2.2 ansible执行流程:</h2><p><img src="https://upload-images.jianshu.io/upload_images/6078939-2d6e5a817186480d.png" alt="img"></p>
+<p>image.png</p>
+<h1 id="3-ansible使用实例"><a href="#3-ansible使用实例" class="headerlink" title="3. ansible使用实例"></a>3. ansible使用实例</h1><h2 id="3-1-安装"><a href="#3-1-安装" class="headerlink" title="3.1 安装"></a>3.1 安装</h2><ol>
+<li>编译安装<br>ansible依赖于Python 2.6或更高的版本、paramiko、PyYAML及Jinja2。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install python-jinja2 PyYAML python-paramiko python-babel python-crypto</span><br><span class="line"># tar xf ansible-1.5.4.tar.gz</span><br><span class="line"># cd ansible-1.5.4</span><br><span class="line"># python setup.py build</span><br><span class="line"># python setup.py install</span><br><span class="line"># mkdir /etc/ansible</span><br><span class="line"># cp -r examples/* /etc/ansible</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>rpm包安装</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install ansible</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2-修改配置文件"><a href="#3-2-修改配置文件" class="headerlink" title="3.2 修改配置文件"></a>3.2 修改配置文件</h2><p>ansible配置文件查找顺序</p>
+<ol>
+<li>检查环境变量<code>ANSIBLE_CONFIG</code>指向的路径文件(<code>export ANSIBLE_CONFIG=/etc/ansible.cfg</code>)；</li>
+<li><code>~/.ansible.cfg</code>，检查当前目录下的ansible.cfg配置文件；</li>
+<li><code>/etc/ansible.cfg</code>检查etc目录的配置文件。</li>
+</ol>
+<p>ansible配置文件<br>ansible 有许多参数，下面我们列出一些常见的参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">inventory = /etc/ansible/hosts      #这个参数表示资源清单inventory文件的位置</span><br><span class="line">library = /usr/share/ansible        #指向存放Ansible模块的目录，支持多个目录方式，只要用冒号（：）隔开就可以</span><br><span class="line">forks = 5       #并发连接数，默认为5</span><br><span class="line">sudo_user = root        #设置默认执行命令的用户</span><br><span class="line">remote_port = 22        #指定连接被管节点的管理端口，默认为22端口，建议修改，能够更加安全</span><br><span class="line">host_key_checking = False       #设置是否检查SSH主机的密钥，值为True/False。关闭后第一次连接不会提示配置实例</span><br><span class="line">timeout = 60        #设置SSH连接的超时时间，单位为秒</span><br><span class="line">log_path = /var/log/ansible.log     #指定一个存储ansible日志的文件（默认不记录日志）</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-定义Inventory-主机列表"><a href="#3-3-定义Inventory-主机列表" class="headerlink" title="3.3 定义Inventory(主机列表)"></a>3.3 定义Inventory(主机列表)</h2><p>ansible的主要功用在于批量主机操作，为了便捷地使用其中的部分主机，可以在inventory file中将其分组命名。默认的inventory file为/etc/ansible/hosts。<br>inventory file可以有多个，且也可以通过Dynamic Inventory来动态生成。</p>
+<p>Inventory文件格式:</p>
+<ul>
+<li>inventory文件遵循INI文件风格，中括号中的字符为组名。可以将同一个主机同时归并到多个不同的组中；此外，当如若目标主机使用了非默认的SSH端口，还可以在主机名称之后使用冒号加端口号来标明。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ntp.com</span><br><span class="line"></span><br><span class="line">[webservers]</span><br><span class="line">www1.com:2222</span><br><span class="line">www2.com</span><br><span class="line"></span><br><span class="line">[dbservers]</span><br><span class="line">db1.com</span><br><span class="line">db2.com</span><br><span class="line">db3.com</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果主机名称遵循相似的命名模式，还可以使用列表的方式标识各主机，例如：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[webservers]</span><br><span class="line">www[01:50].example.com</span><br><span class="line"></span><br><span class="line">[databases]</span><br><span class="line">db-[a:f].example.com</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主机变量: 可以在inventory中定义主机时为其添加主机变量以便于在playbook中使用。例如：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[webservers]</span><br><span class="line">www1.com http_port=80 maxRequestsPerChild=808</span><br><span class="line">www2.com http_port=8080 maxRequestsPerChild=909</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>组变量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[webservers]</span><br><span class="line">www1.com</span><br><span class="line">www2.com</span><br><span class="line"></span><br><span class="line">[webservers:vars]</span><br><span class="line">ntp_server=ntp.com</span><br><span class="line">nfs_server=nfs.com</span><br></pre></td></tr></table></figure>
+
+<p>inventory其他的参数</p>
+<ul>
+<li>ansible基于ssh连接inventory中指定的远程主机时，还可以通过参数指定其交互方式；这些参数如下所示：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ansible_ssh_host # 远程主机</span><br><span class="line">ansible_ssh_port # 指定远程主机ssh端口</span><br><span class="line">ansible_ssh_user # ssh连接远程主机的用户,默认root</span><br><span class="line">ansible_ssh_pass # 连接远程主机使用的密码,在文件中明文,建议使用--ask-pass或者使用SSH keys</span><br><span class="line">ansible_sudo_pass # sudo密码, 建议使用--ask-sudo-pass</span><br><span class="line">ansible_connection # 指定连接类型: local, ssh, paramiko</span><br><span class="line">ansible_ssh_private_key_file # ssh 连接使用的私钥</span><br><span class="line">ansible_shell_type # 指定连接对端的shell类型, 默认sh,支持csh,fish</span><br><span class="line">ansible_python_interpreter # 指定对端使用的python编译器的路径</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-4-基于ad-hoc模式运行"><a href="#3-4-基于ad-hoc模式运行" class="headerlink" title="3.4 基于ad-hoc模式运行"></a>3.4 基于ad-hoc模式运行</h2><p>ansible通过ssh实现配置管理、应用部署、任务执行等功能，因此，需要事先配置ansible端能基于密钥认证的方式联系各被管理节点。</p>
+<p>ansible命令使用语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ansible &lt;host-pattern&gt; [-f forks] [-m module_name] [-a args]</span><br><span class="line">    -m module：默认为command</span><br></pre></td></tr></table></figure>
+
+<p>例如:</p>
+<ol>
+<li>定义好inventory后可以调用<code>ping</code>模块来检测网络是否可达</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># ansible all -m ping</span><br><span class="line">192.168.57.22 | SUCCESS =&gt; &#123;</span><br><span class="line">    &quot;changed&quot;: false, </span><br><span class="line">    &quot;ping&quot;: &quot;pong&quot;</span><br><span class="line">&#125;</span><br><span class="line">192.168.57.11 | SUCCESS =&gt; &#123;</span><br><span class="line">    &quot;changed&quot;: false, </span><br><span class="line">    &quot;ping&quot;: &quot;pong&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用<code>command</code>模块远程执行命令:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 如果/etc/passwd文件存在就执行grep命令</span><br><span class="line"># ansible all -m command -a &apos;removes=/etc/passwd grep root /etc/passwd&apos; </span><br><span class="line">192.168.57.22 | SUCCESS | rc=0 &gt;&gt;</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">operator:x:11:0:operator:/root:/sbin/nologin</span><br><span class="line"></span><br><span class="line">192.168.57.11 | SUCCESS | rc=0 &gt;&gt;</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">operator:x:11:0:operator:/root:/sbin/nologin</span><br></pre></td></tr></table></figure>
+
+<p>可以通过<code>ansible-doc -l</code>列出所有可用的module,常用的module有:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ping # 主机连通性测试</span><br><span class="line">command # 在远程主机上执行命令,不支持管道</span><br><span class="line">shell # 在远程主机上调用shell解析器,支持管道命令个</span><br><span class="line">copy # 用于将文件复制到远程主机,支持设定内容和修改权限.</span><br><span class="line">file # 创建文件,创建连接文件,删除文件等</span><br><span class="line">fetch # 从远程复制文件到本地</span><br><span class="line">cron # 管理cron计划任务</span><br><span class="line">yum # 用于模块的安装</span><br><span class="line">service # 管理服务</span><br><span class="line">user # 管理用户账号</span><br><span class="line">group # 用户组管理</span><br><span class="line">script # 将本地的脚本在远端服务器运行</span><br><span class="line">setup # 该模块主要用于收集信息，是通过调用facts组件来实现的,以变量形式存储主机上的信息</span><br></pre></td></tr></table></figure>
+
+<p><code>ansible -s</code>可以查看指定module的用法,或者参看<a href="http://docs.ansible.com/ansible/latest/modules/modules_by_category.html" target="_blank" rel="noopener">官方帮助文档</a>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># ansible-doc -s service</span><br><span class="line">- name: Manage services</span><br><span class="line">  service:</span><br><span class="line">      arguments:             # Additional arguments provided on the command line</span><br><span class="line">      enabled:               # Whether the service should start on boot. *At least one of state and enabled are required.*</span><br><span class="line">      name:                  # (required) Name of the service.</span><br><span class="line">      pattern:               # If the service does not respond to the status command, name a substring to look for as would be</span><br><span class="line">                               found in the output of the `ps&apos; command as a stand-in for a</span><br><span class="line">                               status result.  If the string is found, the service will be</span><br><span class="line">                               assumed to be running.</span><br><span class="line">      runlevel:              # For OpenRC init scripts (ex: Gentoo) only.  The runlevel that this service belongs to.</span><br><span class="line">      sleep:                 # If the service is being `restarted&apos; then sleep this many seconds between the stop and start</span><br><span class="line">                               command. This helps to workaround badly behaving init scripts</span><br><span class="line">                               that exit immediately after signaling a process to stop.</span><br><span class="line">      state:                 # `started&apos;/`stopped&apos; are idempotent actions that will not run commands unless necessary.</span><br><span class="line">                               `restarted&apos; will always bounce the service.  `reloaded&apos; will</span><br><span class="line">                               always reload. *At least one of state and enabled are required.*</span><br><span class="line">                               Note that reloaded will start the service if it is not already</span><br><span class="line">                               started, even if your chosen init system wouldn&apos;t normally.</span><br><span class="line">      use:                   # The service module actually uses system specific modules, normally through auto detection, this</span><br><span class="line">                               setting can force a specific module. Normally it uses the value</span><br><span class="line">                               of the &apos;ansible_service_mgr&apos; fact and falls back to the old</span><br><span class="line">                               &apos;service&apos; module when none matching is found.</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-基于playbook执行"><a href="#3-5-基于playbook执行" class="headerlink" title="3.5 基于playbook执行"></a>3.5 基于playbook执行</h2><p>playbook是由一个或多个“play”组成的列表。play的主要功能在于将事先归并为一组的主机装扮成事先通过ansible中的task定义好的角色。从根本上来讲，所谓task无非是调用ansible的一个module。将多个play组织在一个playbook中，即可以让它们联同起来按事先编排的机制同唱一台大戏。</p>
+<p>下面是一个简单示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- hosts: master</span><br><span class="line">  user: root</span><br><span class="line">  vars:</span><br><span class="line">    - motd_warning: &apos;WARNING: Use by master ONLY&apos;</span><br><span class="line">  tasks:</span><br><span class="line">    - name: setup a MOTD</span><br><span class="line">      copy: dest=/etc/motd content=&quot;&#123;&#123; motd_warning &#125;&#125;&quot;</span><br><span class="line">      notify: say something</span><br><span class="line">  handlers:</span><br><span class="line">    - name: say something</span><br><span class="line">      command: echo &quot;copy OK&quot;</span><br></pre></td></tr></table></figure>
+
+<p>playbooks的组成部分</p>
+<ul>
+<li>Target section: 定义要运行playbook的远程主机组<ul>
+<li>hosts: hosts用于指定要执行指定任务的主机，其可以是一个或多个由冒号分隔主机组</li>
+<li>user: 指定远程主机上的执行任务的用户,还可以指定sudo用户等</li>
+</ul>
+</li>
+<li>Variable section: 定义playbook运行时使用的变量</li>
+<li>Task section: 定义要在远程主机上运行的任务列表<ul>
+<li>name: 每个任务都有name,建议描述任务执行步骤,未通过name会用执行结果作为name</li>
+<li>‘module:options’: 调用的module和传入的参数args</li>
+</ul>
+</li>
+<li>Handler section: 定义task完成后需要调用的任务<ul>
+<li>notify: 在Task Section在每个play的最后触发,调用在hendler中定义的操作</li>
+<li>handler: 也是task的列表</li>
+</ul>
+</li>
+</ul>
+<p>执行过程:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ansible]# ansible-playbook set_motd.yaml </span><br><span class="line"></span><br><span class="line">PLAY [master] ******************************************************************************************************************</span><br><span class="line"></span><br><span class="line">TASK [Gathering Facts] *********************************************************************************************************</span><br><span class="line">ok: [192.168.57.11]</span><br><span class="line"></span><br><span class="line">TASK [setup a MOTD] ************************************************************************************************************</span><br><span class="line">changed: [192.168.57.11]</span><br><span class="line"></span><br><span class="line">RUNNING HANDLER [say something] ************************************************************************************************</span><br><span class="line">changed: [192.168.57.11]</span><br><span class="line"></span><br><span class="line">PLAY RECAP *********************************************************************************************************************</span><br><span class="line">192.168.57.11              : ok=3    changed=2    unreachable=0    failed=0   </span><br><span class="line"></span><br><span class="line"># cat /etc/motd </span><br><span class="line">WARNING: Use by master ONLY</span><br></pre></td></tr></table></figure>
+
+<p>playbook安装配置apache实战</p>
+<ol>
+<li>编写playbook:<code>install_httpd.yaml</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">- hosts: slave</span><br><span class="line">  vars:</span><br><span class="line">    http_port: 8080</span><br><span class="line">  user: root</span><br><span class="line">  tasks:</span><br><span class="line">  - name: ensure apache is at the latest version</span><br><span class="line">    yum: name=httpd state=latest</span><br><span class="line">  - name: write the apache config file</span><br><span class="line">    template:</span><br><span class="line">      src: template/httpd.j2</span><br><span class="line">      dest: /etc/httpd/conf/httpd.conf</span><br><span class="line">    notify:</span><br><span class="line">    - restart apache</span><br><span class="line">  - name: ensure apache is running</span><br><span class="line">    service: name=httpd state=started</span><br><span class="line">  handlers:</span><br><span class="line">    - name: restart apache</span><br><span class="line">      service:</span><br><span class="line">        name: httpd</span><br><span class="line">        state: restarted</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>生成apache配置文件jinja2模板,将服务端口配置为变量<code>Listen </code></li>
+<li>执行playbook并检查远端服务端口</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ansible]# ansible-playbook install_httpd.yaml </span><br><span class="line"></span><br><span class="line">PLAY [slave] *******************************************************************************************************************</span><br><span class="line"></span><br><span class="line">TASK [Gathering Facts] *********************************************************************************************************</span><br><span class="line">ok: [192.168.57.22]</span><br><span class="line"></span><br><span class="line">TASK [ensure apache is at the latest version] **********************************************************************************</span><br><span class="line">changed: [192.168.57.22]</span><br><span class="line"></span><br><span class="line">TASK [write the apache config file] ********************************************************************************************</span><br><span class="line">changed: [192.168.57.22]</span><br><span class="line"></span><br><span class="line">TASK [ensure apache is running] ************************************************************************************************</span><br><span class="line">changed: [192.168.57.22]</span><br><span class="line"></span><br><span class="line">RUNNING HANDLER [restart apache] ***********************************************************************************************</span><br><span class="line">changed: [192.168.57.22]</span><br><span class="line"></span><br><span class="line">PLAY RECAP *********************************************************************************************************************</span><br><span class="line">192.168.57.22              : ok=5    changed=4    unreachable=0    failed=0   </span><br><span class="line"></span><br><span class="line">[root@localhost ansible]# ansible slave -m shell -a &apos;ss -lntp | grep 8080&apos;</span><br><span class="line">192.168.57.22 | SUCCESS | rc=0 &gt;&gt;</span><br><span class="line">LISTEN     0      128         :::8080                    :::*                   users:((&quot;httpd&quot;,pid=29187,fd=4),(&quot;httpd&quot;,pid=29185,fd=4),(&quot;httpd&quot;,pid=29184,fd=4),(&quot;httpd&quot;,pid=29183,fd=4),(&quot;httpd&quot;,pid=29182,fd=4),(&quot;httpd&quot;,pid=29181,fd=4))</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-6-roles"><a href="#3-6-roles" class="headerlink" title="3.6 roles"></a>3.6 roles</h2><p>ansilbe自1.2版本引入的新特性，用于层次性、结构化地组织playbook。roles能够根据层次型结构自动装载变量文件、tasks以及handlers等。要使用roles只需要在playbook中使用include指令即可。简单来讲，roles就是通过分别将变量、文件、任务、模块及处理器放置于单独的目录中，并可以便捷地include它们的一种机制。角色一般用于基于主机构建服务的场景中，但也可以是用于构建守护进程等场景中。</p>
+<p>一个roles的案例如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">site.yml</span><br><span class="line">webservers.yml</span><br><span class="line">fooservers.yml</span><br><span class="line">roles/</span><br><span class="line">   common/</span><br><span class="line">     files/</span><br><span class="line">     templates/</span><br><span class="line">     tasks/</span><br><span class="line">     handlers/</span><br><span class="line">     vars/</span><br><span class="line">     meta/</span><br><span class="line">   webservers/</span><br><span class="line">     files/</span><br><span class="line">     templates/</span><br><span class="line">     tasks/</span><br><span class="line">     handlers/</span><br><span class="line">     vars/</span><br><span class="line">     meta/</span><br></pre></td></tr></table></figure>
+
+<p>在playbook中,可以这样使用roles:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">- hosts: webservers</span><br><span class="line">  roles:</span><br><span class="line">    - common</span><br><span class="line">    - webservers</span><br></pre></td></tr></table></figure>
+
+<p>也可以向roles传递参数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">  - hosts: webservers</span><br><span class="line">  - common</span><br><span class="line">  - &#123; role: foo_app_instance, dir: &apos;/opt/a&apos;, port: 5000 &#125;</span><br><span class="line">  - &#123; role: foo_app_instance, dir: &apos;/opt/b&apos;, port: 5001 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>也可以用条件来使用roles:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">- hosts: webservers</span><br><span class="line">  - &#123; role: some_role, when: &quot;ansible_os_family == &apos;RedHat&apos;&quot;  &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-6-1-创建roles步骤"><a href="#3-6-1-创建roles步骤" class="headerlink" title="3.6.1 创建roles步骤:"></a>3.6.1 创建roles步骤:</h3><ol>
+<li>创建以roles命名的目录；</li>
+<li>在roles目录中分别创建以各角色名称命名的目录，如webservers等；</li>
+<li>在每个角色命名的目录中分别创建files、handlers、meta、tasks、templates和vars目录；用不到的目录可以创建为空目录，也可以不创建；</li>
+<li>在playbook文件中，调用各角色；</li>
+</ol>
+<h1 id="4-ansible速度优化"><a href="#4-ansible速度优化" class="headerlink" title="4. ansible速度优化"></a>4. ansible速度优化</h1><h2 id="4-1-SSH-Multiplexing"><a href="#4-1-SSH-Multiplexing" class="headerlink" title="4.1 SSH Multiplexing"></a>4.1 SSH Multiplexing</h2><p>ansible运行playbook时会启动很多ssh连接来执行复制文件,运行命令这样的操作.openssh支持这样一个优化,叫做ssh Multiplexing,当使用这个ssh Multiplexing的时候,多个连接到相同主机的ssh回话会共享相同的TCP连接,这样就只有第一次连接的时候需要进行TCP三次握手.</p>
+<p>ansible会默认使用ssh Multiplexing特性,一般不需要更改配置,相关的配置项为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[ssh_connection]</span><br><span class="line">control_master = auto # 套接字不存在的情况下自动创建</span><br><span class="line">control_path = $HOME/.ansible/cp/ansible-ssh-%h-%p-%r # 连接套接字存放的位置</span><br><span class="line">control_persist = 60s  # 60s没有ssh连接就关闭主连接</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2-pipelining"><a href="#4-2-pipelining" class="headerlink" title="4.2 pipelining"></a>4.2 pipelining</h2><p>ansible执行过程中,他会基于调用的模块生成一个python脚本,然后将python脚本复制到主机上,最后执行脚本.ansible支持一个优化,叫做pipelining,在这个模式下ansible执行脚本时并不会去复制它,而是通过管道传递给ssh会话,这会让ansible的ssh会话从2个减少到1个,从而节省时间.</p>
+<p>pipelining默认是关闭的, 因为他需要确认被管理主机上的/etc/sudoers文件中的<code>requiretty</code>没有启用, 格式如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Defaults: &lt;username&gt; !requiretty</span><br></pre></td></tr></table></figure>
+
+<p>ansible开启pipelining方法, 修改ansible.cfg配置文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[defaults]</span><br><span class="line">pipelining = True</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-3-fact缓存"><a href="#4-3-fact缓存" class="headerlink" title="4.3 fact缓存"></a>4.3 fact缓存</h2><p>ansible playbook会默认先收集fact信息,如果不需要fact数据可以在playbook中禁用fact采集:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- name: not need facts</span><br><span class="line">  hosts: myhosts</span><br><span class="line">  gather_facts: False</span><br><span class="line">  tasks:</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<p>也可以全局禁用fact采集:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[defaults]</span><br><span class="line">gathering = explicit</span><br></pre></td></tr></table></figure>
+
+<p>另一种解决方案就是使用fact缓存,目前ansible支持下面几种fact缓存:</p>
+<ul>
+<li>JSON文件</li>
+<li>Redis</li>
+<li>memcached</li>
+</ul>
+<p>JSON文件做fact缓存示例<br>ansible把采集到的fact写入控制主机的json文件中,如果文件已经存在,那么ansible不会再去主机上采集fact</p>
+<p>启用JSON文件缓存,修改ansible.cfg文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[defaults]</span><br><span class="line">gathering = smart</span><br><span class="line"></span><br><span class="line"># 设置超时时间</span><br><span class="line">face_caching_timeout = 86400</span><br><span class="line"></span><br><span class="line"># 使用JSON文件做为缓存后端</span><br><span class="line">fact_caching = jsonfile</span><br><span class="line">fact_caching_connection = /tmp/ansible_fact_cache</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-并发数"><a href="#4-4-并发数" class="headerlink" title="4.4 并发数"></a>4.4 并发数</h2><p>ansible默认并发数是5,可以用下面两种方法修改并发数:</p>
+<ul>
+<li>环境变量方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export ANSIBLE_FORKS=20</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置ansible.cfg</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[defaults]</span><br><span class="line">forks = 20</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-ansible-与-docker"><a href="#5-ansible-与-docker" class="headerlink" title="5. ansible 与 docker"></a>5. ansible 与 docker</h1><p>ansible内置多种云计算相关模块,如aws,openstack,docker等,下图是ansible与docker相关的模块:</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6078939-dd7555be152cfb66.png" alt="img"></p>
+<p>image</p>
+<h2 id="5-1-使用ansible创建docker镜像"><a href="#5-1-使用ansible创建docker镜像" class="headerlink" title="5.1 使用ansible创建docker镜像"></a>5.1 使用ansible创建docker镜像</h2><p>通过playbook和dockerfile相结合的方式生成镜像, 示例如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">FROM ansible/ubuntu14.04-ansible:stable</span><br><span class="line">MAINTAINER xxx</span><br><span class="line"></span><br><span class="line">ADD ansible /srv/ansible</span><br><span class="line">WORKDIR /srv/ansible</span><br><span class="line"></span><br><span class="line">RUN ansible-playbook web-app.yaml -c local</span><br><span class="line"></span><br><span class="line">VOLUME /srv/project/static</span><br><span class="line"></span><br><span class="line">WORKDIR /srv/project</span><br><span class="line"></span><br><span class="line">EXPOSE 8000</span><br><span class="line"></span><br><span class="line">CMD [&quot;gunicorn_django&quot;, &quot;-c&quot;, &quot;gunicorn.conf.py&quot;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-2-启动容器"><a href="#5-2-启动容器" class="headerlink" title="5.2 启动容器"></a>5.2 启动容器</h2><p>ansible可以通过docker模块来操作容器,示例如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- name: start the postgres container</span><br><span class="line">  docker:</span><br><span class="line">    image: postgres:9.4</span><br><span class="line">    name: postgres</span><br><span class="line">    public_all_ports: True</span><br><span class="line">    env:</span><br><span class="line">        POSTGRES_USER: &quot;&#123;&#123; database_user &#125;&#125;&quot;</span><br><span class="line">        POSTFRES_PASSWORD: &quot;&#123;&#123; database_password &#125;&#125;&quot;</span><br></pre></td></tr></table></figure>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -187,16 +416,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/15/ansible梳理。。。持续更新ing/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://anthonywang68.site/2019/11/15/ansible梳理。。。持续更新ing/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/15/软件开发设计部分梳理，持续更新/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">软件开发设计部分梳理，持续更新</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -216,279 +504,14 @@
 
 
 
-
-  
-    <article id="post-软件开发设计部分梳理，持续更新" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/15/软件开发设计部分梳理，持续更新/">软件开发设计部分梳理，持续更新</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/15/软件开发设计部分梳理，持续更新/" class="archive-article-date">
-  	<time datetime="2019-11-15T02:33:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们公司的研发流程是瀑布型的，这个模型中的分析、设计阶段是基于经典的结构化方法。<br>结构化设计方法的基本思路是：按照问题域，将软件逐级细化，分解为不必再分解的的模块，每个模块完成一定的功能，为一个或多个父模块服务（即接受调用），也接受一个或多个子模块的服务（即调用子模块）。模块的概念，和编程语言中的子程序或函数是对应的。</p>
-        
-          <a class="article-more-a" href="/2019/11/15/软件开发设计部分梳理，持续更新/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/15/软件开发设计部分梳理，持续更新/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysql新版本，坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/12/mysql新版本，坑/">mysql新版本，坑</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/12/mysql新版本，坑/" class="archive-article-date">
-  	<time datetime="2019-11-12T14:34:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="mysql8之坑"><a href="#mysql8之坑" class="headerlink" title="mysql8之坑"></a>mysql8之坑</h1>
-        
-          <a class="article-more-a" href="/2019/11/12/mysql新版本，坑/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/12/mysql新版本，坑/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于构建自己的知识体系的一些思考" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/02/关于构建自己的知识体系的一些思考/">关于构建自己的知识体系的一些思考</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/02/关于构建自己的知识体系的一些思考/" class="archive-article-date">
-  	<time datetime="2019-11-02T09:28:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在不断积累过程中发现，有自己的知识体系其实是很重要的，以后得多梳理知识体系，归纳一下啊</p>
-        
-          <a class="article-more-a" href="/2019/11/02/关于构建自己的知识体系的一些思考/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/02/关于构建自己的知识体系的一些思考/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-生产中实际遇到的问题排查总结-持续更新。。。。。" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/02/生产中实际遇到的问题排查总结-持续更新。。。。。/">生产中实际遇到的问题排查总结,持续更新。。。。。</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/02/生产中实际遇到的问题排查总结-持续更新。。。。。/" class="archive-article-date">
-  	<time datetime="2019-11-02T09:20:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>常见问题：</p>
-<p>1、生产系统刚开始运行阶段，系统稳定。但是运行一段时间后，发现部分时间段系统接口响应变慢。查看客户端日志经常会出现这样的错误：</p>
-<p>redis.clients.jedis.exceptions.JedisConnectionException: java.net.SocketTimeoutException: Read timed out。</p>
-<p>2、生产环境长时间的运行后，经常会有接口返回数据失败的情况，或者是从监控上发现数据库压力某一时间暴增。查看客户端日志发现这样的错误：</p>
-<p>redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool</p>
-<p>3、突然间服务不能访问，返回错误：</p>
-<p>redis.clients.jedis.exceptions.JedisDataException: MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.</p>
-<p>当然在实际生产情况中，还有各种各样的异常情况，但是在客户端普遍表现为上面几种场景</p>
-        
-          <a class="article-more-a" href="/2019/11/02/生产中实际遇到的问题排查总结-持续更新。。。。。/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/02/生产中实际遇到的问题排查总结-持续更新。。。。。/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -511,8 +534,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
