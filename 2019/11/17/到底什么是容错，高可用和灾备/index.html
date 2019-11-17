@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://anthonywang68.site">
-  <title>Archives: 2019/11 | Anthony Wang&#39;summary</title>
+  <title>到底什么是容错，高可用和灾备 | Anthony Wang&#39;summary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是一个基于Hexo搭建的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Anthony Wang&#39;summary">
-<meta property="og:url" content="https://anthonywang68.site/archives/2019/11/page/2/index.html">
+  <meta name="description" content="容错（fault tolerance）指的是， 发生故障时，系统还能继续运行。 举个比较容易理解的生活中的例子：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="到底什么是容错，高可用和灾备">
+<meta property="og:url" content="https://anthonywang68.site/2019/11/17/到底什么是容错，高可用和灾备/index.html">
 <meta property="og:site_name" content="Anthony Wang&#39;summary">
-<meta property="og:description" content="这是一个基于Hexo搭建的博客">
+<meta property="og:description" content="容错（fault tolerance）指的是， 发生故障时，系统还能继续运行。 举个比较容易理解的生活中的例子：">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-17T14:39:00.469Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anthony Wang&#39;summary">
-<meta name="twitter:description" content="这是一个基于Hexo搭建的博客">
+<meta name="twitter:title" content="到底什么是容错，高可用和灾备">
+<meta name="twitter:description" content="容错（fault tolerance）指的是， 发生故障时，系统还能继续运行。 举个比较容易理解的生活中的例子：">
   
     <link rel="alternative" href="/atom.xml" title="Anthony Wang&#39;summary" type="application/atom+xml">
   
@@ -151,106 +152,174 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-到底什么是容错，高可用和灾备" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      到底什么是容错，高可用和灾备
+    </h1>
+  
+
+        
+        <a href="/2019/11/17/到底什么是容错，高可用和灾备/" class="archive-article-date">
+  	<time datetime="2019-11-17T14:34:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-17</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://en.wikipedia.org/wiki/Fault_tolerance" target="_blank" rel="noopener">容错</a>（fault tolerance）指的是， <strong>发生故障时，系统还能继续运行。</strong></p>
+<p>举个比较容易理解的生活中的例子：</p>
+<a id="more"></a>
+
+<p>飞机有四个引擎，如果一个引擎坏了，剩下三个引擎，还能继续飞，这就是”容错”。同样的，汽车的一个轮子扎破了，剩下三个轮子，也还是勉强能行驶。</p>
+<p>容错的目的是，发生故障时，系统的运行水平可能有所下降，但是依然可用，不会完全失败。</p>
+<p><a href="https://en.wikipedia.org/wiki/High_availability" target="_blank" rel="noopener">高可用</a>（high availability）指的是，  <strong>系统能够比正常时间更久地保持一定的运行水平。</strong></p>
+<p>汽车的备胎就是一个高可用的例子。如果没有备胎，轮胎坏了，车就开不久了。备胎延长了汽车行驶的可用时间。</p>
+<p>注意，高可用不是指系统不中断（那是容错能力），而是指一旦中断能够快速恢复，即中断必须是短暂的。如果需要很长时间才能恢复可用性，就不叫高可用了。上面例子中，更换备胎就必须停车，但只要装上去，就能回到行驶状态。</p>
+<p><a href="https://en.wikipedia.org/wiki/Disaster_recovery" target="_blank" rel="noopener">灾备</a>（又称灾难恢复，disaster recovery）指的是， <strong>发生灾难时恢复业务的能力。</strong></p>
+<p>飞机是你的 IT 基础设施，飞行员是你的业务，飞行员弹射装置就是灾备措施。一旦飞机即将坠毁，你的基础设施就要没了，灾备可以让你的业务幸存下来。</p>
+<p>灾备的目的就是，保存系统的核心部分。一个好的灾备方案，就是从失败的基础设施中获取企业最宝贵的数据，然后在新的基础设施上恢复它们。注意，灾备不是为了挽救基础设置，而是为了挽救业务。</p>
+<p>总结：</p>
+<blockquote>
+<ul>
+<li>容错：发生故障时，如何让系统继续运行。</li>
+<li>高可用：系统中断时，如何尽快恢复。</li>
+<li>灾备：系统毁灭时，如何抢救数据。</li>
+</ul>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/02/关于构建自己的知识体系的一些思考/" class="archive-article-date">
-  	<time datetime="2019-11-02T09:28:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/02/关于构建自己的知识体系的一些思考/">关于构建自己的知识体系的一些思考</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://anthonywang68.site/2019/11/17/到底什么是容错，高可用和灾备/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/02/生产中实际遇到的问题排查总结-持续更新。。。。。/" class="archive-article-date">
-  	<time datetime="2019-11-02T09:20:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/15/K8S知识点梳理，持续更新ing/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">K8S知识点梳理，持续更新ing</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/02/生产中实际遇到的问题排查总结-持续更新。。。。。/">生产中实际遇到的问题排查总结,持续更新。。。。。</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/01/部署-MongoDB-集群-AWS/" class="archive-article-date">
-  	<time datetime="2019-11-01T13:31:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/01/部署-MongoDB-集群-AWS/">部署 MongoDB 集群</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/11/">&laquo; Prev</a><a class="page-number" href="/archives/2019/11/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -274,8 +343,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
