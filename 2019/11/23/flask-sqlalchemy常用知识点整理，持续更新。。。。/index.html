@@ -6,18 +6,81 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://anthonywang68.site">
-  <title>Archives: 2019 | Anthony Wang&#39;summary</title>
+  <title>flask-sqlalchemy常用知识点整理，持续更新。。。。 | Anthony Wang&#39;summary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是一个基于Hexo搭建的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Anthony Wang&#39;summary">
-<meta property="og:url" content="https://anthonywang68.site/archives/2019/page/5/index.html">
+  <meta name="description" content="SQLAlchemy是一个基于Python实现的ORM框架。该框架建立在 DB API之上，使用关系对象映射进行数据库操作，简言之便是：将类和对象转换成SQL，然后使用数据API执行SQL并获取执行结果。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flask-sqlalchemy常用知识点整理，持续更新。。。。">
+<meta property="og:url" content="https://anthonywang68.site/2019/11/23/flask-sqlalchemy常用知识点整理，持续更新。。。。/index.html">
 <meta property="og:site_name" content="Anthony Wang&#39;summary">
-<meta property="og:description" content="这是一个基于Hexo搭建的博客">
+<meta property="og:description" content="SQLAlchemy是一个基于Python实现的ORM框架。该框架建立在 DB API之上，使用关系对象映射进行数据库操作，简言之便是：将类和对象转换成SQL，然后使用数据API执行SQL并获取执行结果。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/425762/201607/425762-20160723192854919-886727948.png">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images2018.cnblogs.com/blog/1195739/201804/1195739-20180424112850654-542370594.png">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images2017.cnblogs.com/blog/1195739/201801/1195739-20180113110720754-596826159.png">
+<meta property="og:image" content="https://images2017.cnblogs.com/blog/1195739/201801/1195739-20180113110408676-339575020.png">
+<meta property="og:updated_time" content="2019-11-23T13:10:24.883Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anthony Wang&#39;summary">
-<meta name="twitter:description" content="这是一个基于Hexo搭建的博客">
+<meta name="twitter:title" content="flask-sqlalchemy常用知识点整理，持续更新。。。。">
+<meta name="twitter:description" content="SQLAlchemy是一个基于Python实现的ORM框架。该框架建立在 DB API之上，使用关系对象映射进行数据库操作，简言之便是：将类和对象转换成SQL，然后使用数据API执行SQL并获取执行结果。">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/425762/201607/425762-20160723192854919-886727948.png">
   
     <link rel="alternative" href="/atom.xml" title="Anthony Wang&#39;summary" type="application/atom+xml">
   
@@ -151,160 +214,387 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-flask-sqlalchemy常用知识点整理，持续更新。。。。" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      flask-sqlalchemy常用知识点整理，持续更新。。。。
+    </h1>
+  
+
+        
+        <a href="/2019/11/23/flask-sqlalchemy常用知识点整理，持续更新。。。。/" class="archive-article-date">
+  	<time datetime="2019-11-23T13:09:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SQLAlchemy是一个基于Python实现的ORM框架。该框架建立在 DB API之上，使用关系对象映射进行数据库操作，简言之便是：将类和对象转换成SQL，然后使用数据API执行SQL并获取执行结果。</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`pip3 install sqlalchemy`</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://images2015.cnblogs.com/blog/425762/201607/425762-20160723192854919-886727948.png" alt="img"></p>
+<p>组成部分：</p>
+<ul>
+<li>Engine，框架的引擎</li>
+<li>Connection Pooling ，数据库连接池</li>
+<li>Dialect，选择连接数据库的DB API种类</li>
+<li>Schema/Types，架构和类型</li>
+<li>SQL Exprression Language，SQL表达式语言</li>
+</ul>
+<p>SQLAlchemy本身无法操作数据库，其本质上是依赖pymysql.MySQLdb,mssql等第三方插件，Dialect用于和数据API进行交流，根据配置文件的不同调用不同的数据库API，从而实现对数据库的操作，如：</p>
+<p>SQLAlchemy用一个字符串表示连接信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;数据库类型+数据库驱动名称://用户名:口令@机器地址:端口号/数据库名&apos;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`MySQL``-``Python``  ``mysql``+``mysqldb:``/``/``:@[:]``/````  ` `pymysql``  ``mysql``+``pymysql:``/``/``:@``/``[?]``  ` `MySQL``-``Connector``  ``mysql``+``mysqlconnector:``/``/``:@[:]``/````  ` `cx_Oracle``  ``oracle``+``cx_oracle:``/``/``user:``pass``@host:port``/``dbname[?key``=``value&amp;key``=``value...]``  ` `更多：http:``/``/``docs.sqlalchemy.org``/``en``/``latest``/``dialects``/``index.html`</span><br></pre></td></tr></table></figure>
+
+<h2 id="底层处理"><a href="#底层处理" class="headerlink" title="底层处理"></a>底层处理</h2><p>使用 Engine/ConnectionPooling/Dialect 进行数据库操作，Engine使用ConnectionPooling连接数据库，然后再通过Dialect执行SQL语句。</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"># auth : pangguoping</span><br><span class="line">from sqlalchemy import create_engine</span><br><span class="line"></span><br><span class="line">engine = create_engine(&quot;mysql+pymysql://root:123@127.0.0.1:3306/t1&quot;, max_overflow=5)</span><br><span class="line"></span><br><span class="line"># 执行SQL</span><br><span class="line"># cur = engine.execute(</span><br><span class="line">#     &quot;INSERT INTO hosts (host, color_id) VALUES (&apos;1.1.1.22&apos;, 3)&quot;</span><br><span class="line"># )</span><br><span class="line"></span><br><span class="line"># 新插入行自增ID</span><br><span class="line"># cur.lastrowid</span><br><span class="line"></span><br><span class="line"># 执行SQL</span><br><span class="line"># cur = engine.execute(</span><br><span class="line">#     &quot;INSERT INTO hosts (host, color_id) VALUES(%s, %s)&quot;,[(&apos;1.1.1.22&apos;, 3),(&apos;1.1.1.221&apos;, 3),]</span><br><span class="line"># )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 执行SQL</span><br><span class="line"># cur = engine.execute(</span><br><span class="line">#     &quot;INSERT INTO hosts (host, color_id) VALUES (%(host)s, %(color_id)s)&quot;,</span><br><span class="line">#     host=&apos;1.1.1.99&apos;, color_id=3</span><br><span class="line"># )</span><br><span class="line"></span><br><span class="line"># 执行SQL</span><br><span class="line"># cur = engine.execute(&apos;select * from hosts&apos;)</span><br><span class="line"># 获取第一行数据</span><br><span class="line"># cur.fetchone()</span><br><span class="line"># 获取第n行数据</span><br><span class="line"># cur.fetchmany(3)</span><br><span class="line"># 获取所有数据</span><br><span class="line"># cur.fetchall()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>说白了就是使用pymysql的方法一样.</p>
+<p><a href="https://www.cnblogs.com/huchong/p/8274510.html#_labelTop" target="_blank" rel="noopener">回到顶部(go to top)</a></p>
+<h1 id="二-使用"><a href="#二-使用" class="headerlink" title="二. 使用"></a>二. 使用</h1><h2 id="1-执行原生SQL语句"><a href="#1-执行原生SQL语句" class="headerlink" title="1. 执行原生SQL语句"></a>1. 执行原生SQL语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`import` `time``import` `threading``import` `sqlalchemy``from` `sqlalchemy ``import` `create_engine``from` `sqlalchemy.engine.base ``import` `Engine`` ` `engine ``=` `create_engine(``  ``&quot;mysql+pymysql://root:123@127.0.0.1:3306/t1?charset=utf8&quot;``,``  ``max_overflow``=``0``, ``# 超过连接池大小外最多创建的连接``  ``pool_size``=``5``, ``# 连接池大小``  ``pool_timeout``=``30``, ``# 池中没有线程时，最多等待的时间，超时报错，默认30秒``  ``pool_recycle``=``-``1` `# 多久之后对线程池中的线程进行一次连接的回收（重置），-1代表永远不回收，即一直被重用``)`` ` ` ` `def` `task(arg):``  ``conn ``=` `engine.raw_connection()　　``#拿到的是一个原生的pymysql连接对象``  ``cursor ``=` `conn.cursor()``  ``cursor.execute(``    ``&quot;select * from t1&quot;``  ``)``  ``result ``=` `cursor.fetchall()``  ``cursor.close()``  ``conn.close()`` ` ` ` `for` `i ``in` `range``(``20``):``  ``t ``=` `threading.Thread(target``=``task, args``=``(i,))``  ``t.start()`</span><br></pre></td></tr></table></figure>
+
+<p>　　</p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> View Code</p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> View Code</p>
+<p>注意: 查看连接，进程cmd，mysql中&gt;输入 show status like ‘Threads%’;</p>
+<h2 id="2-ORM"><a href="#2-ORM" class="headerlink" title="2. ORM"></a>2. ORM</h2><h3 id="a-创建数据库表"><a href="#a-创建数据库表" class="headerlink" title="a. 创建数据库表"></a>a. 创建数据库表</h3><h4 id="创建单表"><a href="#创建单表" class="headerlink" title="创建单表"></a>创建单表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`import` `datetime``from` `sqlalchemy ``import` `create_engine``from` `sqlalchemy.ext.declarative ``import` `declarative_base``from` `sqlalchemy ``import` `Column, Integer, String, Text, ForeignKey, DateTime, UniqueConstraint, Index` `Base ``=` `declarative_base()  ``# 创建对象的基类:` `# 定义User对象:``class` `Users(Base):``  ``# 表的名字:``  ``__tablename__ ``=` `&apos;users&apos;` `  ``# 表的结构:``  ``id` `=` `Column(Integer, primary_key``=``True``)``  ``name ``=` `Column(String(``32``), index``=``True``, nullable``=``False``,default``=``&apos;xx&apos;``)  ``# index指定是否是索引，nullable是否能为空``  ``email ``=` `Column(String(``32``), unique``=``True``)  ``# 指定唯一``  ``ctime ``=` `Column(DateTime, default``=``datetime.datetime.now) ``#注意，此处设置时datetime.datetime.now若加了括号，则时间永远是程序启动时的时间，后面创建数据时，不会变化``  ``extra ``=` `Column(Text, nullable``=``True``)` `  ``__table_args__ ``=` `(``    ``UniqueConstraint(``&apos;id&apos;``, ``&apos;name&apos;``, name``=``&apos;uix_id_name&apos;``), ``# 联合唯一索引``    ``Index(``&apos;ix_id_name&apos;``, ``&apos;name&apos;``, ``&apos;email&apos;``), ``#给name和email创建普通索引，索引名为ix_id_name``  ``)` `def` `init_db():``  ``&quot;&quot;&quot;``  ``根据类创建数据库表``  ``:return:``  ``&quot;&quot;&quot;``  ``# 初始化数据库连接:``  ``engine ``=` `create_engine(``    ``&quot;mysql+pymysql://root:123@127.0.0.1:3306/s6?charset=utf8&quot;``,``    ``max_overflow``=``0``, ``# 超过连接池大小外最多创建的连接``    ``pool_size``=``5``, ``# 连接池大小``    ``pool_timeout``=``30``, ``# 池中没有线程最多等待的时间，否则报错``    ``pool_recycle``=``-``1` `# 多久之后对线程池中的线程进行一次连接的回收（重置）``  ``)` `  ``Base.metadata.create_all(engine) ``#找到所有继承了Base的类，按照其结构建表` `def` `drop_db():``  ``&quot;&quot;&quot;``  ``根据类删除数据库表``  ``:return:``  ``&quot;&quot;&quot;``  ``engine ``=` `create_engine(``    ``&quot;mysql+pymysql://root:123@127.0.0.1:3306/s6?charset=utf8&quot;``,``    ``max_overflow``=``0``, ``# 超过连接池大小外最多创建的连接``    ``pool_size``=``5``, ``# 连接池大小``    ``pool_timeout``=``30``, ``# 池中没有线程最多等待的时间，否则报错``    ``pool_recycle``=``-``1` `# 多久之后对线程池中的线程进行一次连接的回收（重置）``  ``)` `  ``Base.metadata.drop_all(engine)` `if` `__name__ ``=``=` `&apos;__main__&apos;``:``  ``drop_db()``  ``init_db()`</span><br></pre></td></tr></table></figure>
+
+<p>　　</p>
+<p>默认建的表的引擎是MyISAM，如果要设置成InnoDB（支持事务），该怎么设置呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__table_args__ = &#123;</span><br><span class="line">    &apos;mysql_engine&apos;: &apos;InnoDB&apos;,   # 指定表的引擎</span><br><span class="line">    &apos;mysql_charset&apos;: &apos;utf8&apos;     # 指定表的编码格式</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="FK，M2M关系的创建"><a href="#FK，M2M关系的创建" class="headerlink" title="FK，M2M关系的创建"></a>FK，M2M关系的创建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`from` `sqlalchemy ``import` `create_engine``from` `sqlalchemy.ext.declarative ``import` `declarative_base``from` `sqlalchemy ``import` `Column, Integer, String, Text, ForeignKey, DateTime,UniqueConstraint, Index``from` `sqlalchemy.orm ``import` `relationship``Base ``=` `declarative_base()  ``# 创建对象的基类:` `# ##################### 一对多示例 #########################``class` `Hobby(Base):``  ``__tablename__ ``=` `&apos;hobby&apos;``  ``id` `=` `Column(Integer, primary_key``=``True``)``  ``caption ``=` `Column(String(``50``), default``=``&apos;篮球&apos;``)` `class` `Person(Base):``  ``__tablename__ ``=` `&apos;person&apos;``  ``nid ``=` `Column(Integer, primary_key``=``True``)``  ``name ``=` `Column(String(``32``), index``=``True``, nullable``=``True``)``  ``hobby_id ``=` `Column(Integer, ForeignKey(``&quot;hobby.id&quot;``)) ``#建FK关系` `  ``# 与生成表结构无关，仅用于查询方便``  ``hobby ``=` `relationship(``&quot;Hobby&quot;``, backref``=``&apos;pers&apos;``)  ``#反向关联的名字` `# ##################### 多对多示例 #########################``# 这里多对多需要自己建第三张表，并绑定关系``class` `Server2Group(Base): ``  ``__tablename__ ``=` `&apos;server2group&apos;``  ``id` `=` `Column(Integer, primary_key``=``True``, autoincrement``=``True``) ``#autoincrement 设置自增``  ``server_id ``=` `Column(Integer, ForeignKey(``&apos;server.id&apos;``))``  ``group_id ``=` `Column(Integer, ForeignKey(``&apos;group.id&apos;``))` `class` `Group(Base):``  ``__tablename__ ``=` `&apos;group&apos;``  ``id` `=` `Column(Integer, primary_key``=``True``)``  ``name ``=` `Column(String(``64``), unique``=``True``, nullable``=``False``)` `  ``# 与生成表结构无关，仅用于查询方便``  ``servers ``=` `relationship(``&apos;Server&apos;``, secondary``=``&apos;server2group&apos;``, backref``=``&apos;groups&apos;``)  ``#反向关联的名字` `class` `Server(Base):``  ``__tablename__ ``=` `&apos;server&apos;` `  ``id` `=` `Column(Integer, primary_key``=``True``, autoincrement``=``True``)``  ``hostname ``=` `Column(String(``64``), unique``=``True``, nullable``=``False``)` `def` `init_db():``  ``&quot;&quot;&quot;``  ``根据类创建数据库表``  ``:return:``  ``&quot;&quot;&quot;``  ``engine ``=` `create_engine(``    ``&quot;mysql+pymysql://root:123@127.0.0.1:3306/userinfo?charset=utf8&quot;``,``    ``max_overflow``=``0``, ``# 超过连接池大小外最多创建的连接``    ``pool_size``=``5``, ``# 连接池大小``    ``pool_timeout``=``30``, ``# 池中没有线程最多等待的时间，否则报错``    ``pool_recycle``=``-``1` `# 多久之后对线程池中的线程进行一次连接的回收（重置）``  ``)` `  ``Base.metadata.create_all(engine)` `def` `drop_db():``  ``&quot;&quot;&quot;``  ``根据类删除数据库表``  ``:return:``  ``&quot;&quot;&quot;``  ``engine ``=` `create_engine(``    ``&quot;mysql+pymysql://root:123@127.0.0.1:3306/userinfo?charset=utf8&quot;``,``    ``max_overflow``=``0``, ``# 超过连接池大小外最多创建的连接``    ``pool_size``=``5``, ``# 连接池大小``    ``pool_timeout``=``30``, ``# 池中没有线程最多等待的时间，否则报错``    ``pool_recycle``=``-``1` `# 多久之后对线程池中的线程进行一次连接的回收（重置）``  ``)` `  ``Base.metadata.drop_all(engine)` `if` `__name__ ``=``=` `&apos;__main__&apos;``:``  ``drop_db()``  ``init_db()`</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>SQLALchemy不同于Django的ORM，当创建多对多关联事，不会自动创建第三张表，需要我们自己定义关系表，进行关联</strong></p>
+<h3 id="b-操作数据库表"><a href="#b-操作数据库表" class="headerlink" title="b. 操作数据库表"></a>b. 操作数据库表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`#!/usr/bin/env python``# -*- coding:utf-8 -*-``from` `sqlalchemy.orm ``import` `sessionmaker``from` `sqlalchemy ``import` `create_engine``from` `models ``import` `Users`` ` `engine ``=` `create_engine(``&quot;mysql+pymysql://root:123@127.0.0.1:3306/s6&quot;``, max_overflow``=``0``, pool_size``=``5``)``Session ``=` `sessionmaker(bind``=``engine)  ``#创建Session类`` ` `# 每次执行数据库操作时，都需要创建一个session``session ``=` `Session()  ``# 创建session对象:`` ` `# ############# 执行ORM操作 #############``# 创建新User对象``obj1 ``=` `Users(name``=``&quot;alex1&quot;``)  ``# 添加到session:``session.add(obj1)``# 提交即保存到数据库:``session.commit()``# 关闭session``session.close()`</span><br></pre></td></tr></table></figure>
+
+<p>　</p>
+<h3 id="c-通过原生SQL语句执行"><a href="#c-通过原生SQL语句执行" class="headerlink" title="c.通过原生SQL语句执行"></a>c.通过原生SQL语句执行</h3><p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> View Code</p>
+<p>　</p>
+<h3 id="d-基本增删改查示例"><a href="#d-基本增删改查示例" class="headerlink" title="d.基本增删改查示例"></a>d.基本增删改查示例</h3><p><a href="https://www.keakon.net/2012/12/03/SQLAlchemy使用经验" target="_blank" rel="noopener">https://www.keakon.net/2012/12/03/SQLAlchemy使用经验</a></p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">import threading</span><br><span class="line"></span><br><span class="line">from sqlalchemy.ext.declarative import declarative_base</span><br><span class="line">from sqlalchemy import Column, Integer, String, ForeignKey, UniqueConstraint, Index</span><br><span class="line">from sqlalchemy.orm import sessionmaker, relationship</span><br><span class="line">from sqlalchemy import create_engine</span><br><span class="line">from sqlalchemy.sql import text</span><br><span class="line"></span><br><span class="line">from db import Users, Hosts</span><br><span class="line"></span><br><span class="line">engine = create_engine(&quot;mysql+pymysql://root:123@127.0.0.1:3306/s6&quot;, max_overflow=0, pool_size=5)</span><br><span class="line">Session = sessionmaker(bind=engine)</span><br><span class="line"></span><br><span class="line">session = Session()</span><br><span class="line"></span><br><span class="line"># ################ 添加 ################</span><br><span class="line"></span><br><span class="line">obj1 = Users(name=&quot;hc&quot;)</span><br><span class="line">session.add(obj1)   #添加一个对象</span><br><span class="line"></span><br><span class="line">session.add_all([</span><br><span class="line">    Users(name=&quot;hc&quot;),</span><br><span class="line">    Users(name=&quot;alex&quot;),</span><br><span class="line">    Hosts(name=&quot;c1.com&quot;),</span><br><span class="line">])      #添加多个对象</span><br><span class="line">session.commit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># ################ 删除 ################</span><br><span class="line"></span><br><span class="line"># filter是where条件，最后调用one()或first()返回唯一行，如果调用all()则返回所有行</span><br><span class="line">session.query(Users).filter(Users.id &gt; 2).delete()  #删除Users表中id大于2的数据</span><br><span class="line">session.commit()</span><br><span class="line"></span><br><span class="line"># ################ 修改 ################</span><br><span class="line"></span><br><span class="line">session.query(Users).filter(Users.id &gt; 0).update(&#123;&quot;name&quot; : &quot;099&quot;&#125;)  # 将Users表中id&gt;0的数据，把name字段改为099</span><br><span class="line"># 更新user表中id大于2的name列，在原字符串后边增加099</span><br><span class="line">session.query(Users).filter(Users.id &gt; 0).update(&#123;Users.name: Users.name + &quot;099&quot;&#125;, synchronize_session=False)    #synchronize_session设置为False即执行字符串拼接</span><br><span class="line"># 更新user表中id大于2的num列，使最终值在原来数值基础上加1</span><br><span class="line">session.query(Users).filter(Users.id &gt; 0).update(&#123;&quot;age&quot;: Users.age + 1&#125;, synchronize_session=&quot;evaluate&quot;)    #synchronize_session设置为evaluate即执行四则运算</span><br><span class="line"></span><br><span class="line">session.commit()</span><br><span class="line"></span><br><span class="line"># ################ 查询 ################</span><br><span class="line"></span><br><span class="line">r1 = session.query(Users).all()</span><br><span class="line">r2 = session.query(Users.name.label(&apos;xx&apos;), Users.age).all()     #label 取别名的，即在查询结果中，显示name的别名&apos;xx&apos;</span><br><span class="line">r3 = session.query(Users).filter(Users.name == &quot;alex&quot;).one()    # one()返回唯一行,类似于django的get,如果返回数据为多个则报错</span><br><span class="line">r3 = session.query(Users).filter(Users.name == &quot;alex&quot;).all()    # all()获取所有数据</span><br><span class="line">r4 = session.query(Users).filter_by(name=&apos;alex&apos;).all()          # 注意filter和filter_by后面括号内条件的写法</span><br><span class="line">r5 = session.query(Users).filter_by(name=&apos;alex&apos;).first()        # first()获取返回数据的第一行</span><br><span class="line">r6 = session.query(Users).filter(text(&quot;id&lt;:value and name=:name&quot;)).params(value=224, name=&apos;fred&apos;).order_by(Users.id).all()  </span><br><span class="line">#order_by后面还可以.desc()降序排列，默认为.asc()升序排列</span><br><span class="line"># text(自定义条件，:的功能类似%s占位)，params中进行传参</span><br><span class="line">r7 = session.query(Users).from_statement(text(&quot;SELECT * FROM Hosts where name=:name&quot;)).params(name=&apos;ed&apos;).all()</span><br><span class="line"># text中还能从另一个表中查询，前面要用from_statement，而不是filter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">session.close()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>当我们使用in_查询时，如果进行删除会更新，会出现如下错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">InvalidRequestError: Could not evaluate current criteria in Python. Specify &apos;fetch&apos; or False for the synchronize_session parameter.</span><br></pre></td></tr></table></figure>
+
+<p>解决办法：加上 synchronize_session=False</p>
+<p><a href="https://segmentfault.com/q/1010000000130368" target="_blank" rel="noopener">https://segmentfault.com/q/1010000000130368</a></p>
+<p>　　</p>
+<h3 id="e-基于relationship操作ForeignKey"><a href="#e-基于relationship操作ForeignKey" class="headerlink" title="e.基于relationship操作ForeignKey"></a>e.基于relationship操作ForeignKey</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`#!/usr/bin/env python``# -*- coding:utf-8 -*-``import` `time``import` `threading` `from` `sqlalchemy.ext.declarative ``import` `declarative_base``from` `sqlalchemy ``import` `Column, Integer, String, ForeignKey, UniqueConstraint, Index``from` `sqlalchemy.orm ``import` `sessionmaker, relationship``from` `sqlalchemy ``import` `create_engine``from` `sqlalchemy.sql ``import` `text``from` `sqlalchemy.engine.result ``import` `ResultProxy``from` `db ``import` `Users, Hosts, Hobby, Person` `engine ``=` `create_engine(``&quot;mysql+pymysql://root:123@127.0.0.1:3306/s6?charset=utf8&quot;``, max_overflow``=``0``, pool_size``=``5``)``Session ``=` `sessionmaker(bind``=``engine)``session ``=` `Session()``# 添加``&quot;&quot;&quot;``session.add_all([``  ``Hobby(caption=&apos;乒乓球&apos;),``  ``Hobby(caption=&apos;羽毛球&apos;),``  ``Person(name=&apos;张三&apos;, hobby_id=3),``  ``Person(name=&apos;李四&apos;, hobby_id=4),``])` `person = Person(name=&apos;张九&apos;, hobby=Hobby(caption=&apos;姑娘&apos;))``session.add(person)` `hb = Hobby(caption=&apos;人妖&apos;)``hb.pers = [Person(name=&apos;文飞&apos;), Person(name=&apos;博雅&apos;)]``session.add(hb)   # 会同时创建3条数据(1条hobby的数据，2条person的数据)` `session.commit()``&quot;&quot;&quot;` `# 使用relationship正向查询``&quot;&quot;&quot;``v = session.query(Person).first()``print(v.name)``print(v.hobby.caption)``&quot;&quot;&quot;` `# 使用relationship反向查询``&quot;&quot;&quot;``v = session.query(Hobby).first()``print(v.caption)``print(v.pers)``&quot;&quot;&quot;` `session.close()`</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://images2018.cnblogs.com/blog/1195739/201804/1195739-20180424112850654-542370594.png" alt="img"></p>
+<h3 id="f-基于relationship操作m2m"><a href="#f-基于relationship操作m2m" class="headerlink" title="f.基于relationship操作m2m"></a>f.基于relationship操作m2m</h3><p><img src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="img"></p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">import time</span><br><span class="line">import threading</span><br><span class="line"></span><br><span class="line">from sqlalchemy.ext.declarative import declarative_base</span><br><span class="line">from sqlalchemy import Column, Integer, String, ForeignKey, UniqueConstraint, Index</span><br><span class="line">from sqlalchemy.orm import sessionmaker, relationship</span><br><span class="line">from sqlalchemy import create_engine</span><br><span class="line">from sqlalchemy.sql import text</span><br><span class="line">from sqlalchemy.engine.result import ResultProxy</span><br><span class="line">from db import Users, Hosts, Hobby, Person, Group, Server, Server2Group</span><br><span class="line"></span><br><span class="line">engine = create_engine(&quot;mysql+pymysql://root:123@127.0.0.1:3306/s6?charset=utf8&quot;, max_overflow=0, pool_size=5)</span><br><span class="line">Session = sessionmaker(bind=engine)</span><br><span class="line">session = Session()</span><br><span class="line"># 添加</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">session.add_all([</span><br><span class="line">    Server(hostname=&apos;c1.com&apos;),</span><br><span class="line">    Server(hostname=&apos;c2.com&apos;),</span><br><span class="line">    Group(name=&apos;A组&apos;),</span><br><span class="line">    Group(name=&apos;B组&apos;),</span><br><span class="line">])</span><br><span class="line">session.commit()</span><br><span class="line"></span><br><span class="line">s2g = Server2Group(server_id=1, group_id=1)</span><br><span class="line">session.add(s2g)</span><br><span class="line">session.commit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">gp = Group(name=&apos;C组&apos;)</span><br><span class="line">gp.servers = [Server(hostname=&apos;c3.com&apos;),Server(hostname=&apos;c4.com&apos;)]</span><br><span class="line">session.add(gp)</span><br><span class="line">session.commit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ser = Server(hostname=&apos;c6.com&apos;)</span><br><span class="line">ser.groups = [Group(name=&apos;F组&apos;),Group(name=&apos;G组&apos;)]</span><br><span class="line">session.add(ser)</span><br><span class="line">session.commit()</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 使用relationship正向查询</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">v = session.query(Group).first()</span><br><span class="line">print(v.name)</span><br><span class="line">print(v.servers)</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line"># 使用relationship反向查询</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">v = session.query(Server).first()</span><br><span class="line">print(v.hostname)</span><br><span class="line">print(v.groups)</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">session.close()</span><br><span class="line"></span><br><span class="line">基于relationship操作m2m</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h3 id="g-进阶操作"><a href="#g-进阶操作" class="headerlink" title="g.进阶操作"></a>g.进阶操作</h3><p><strong>in_、notin_、and、or、like、limit、排序、分组、连表、组合</strong></p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">#　条件</span><br><span class="line">ret = session.query(Users).filter_by(name=&apos;alex&apos;).all() #</span><br><span class="line">ret = session.query(Users).filter(Users.id &gt; 1, Users.name == &apos;eric&apos;).all() # 且的关系</span><br><span class="line">ret = session.query(Users).filter(Users.id.between(1, 3), Users.name == &apos;eric&apos;).all()</span><br><span class="line">ret = session.query(Users).filter(Users.id.in_([1,3,4])).all()</span><br><span class="line">ret = session.query(Users).filter(~Users.id.in_([1,3,4])).all() # ~表示非。就是not in的意思</span><br><span class="line">ret = session.query(Users).filter(Users.id.in_(session.query(Users.id).filter_by(name=&apos;eric&apos;))).all() # 联表查询</span><br><span class="line">from sqlalchemy import and_, or_   # 且和or的关系</span><br><span class="line">ret = session.query(Users).filter(and_(Users.id &gt; 3, Users.name == &apos;eric&apos;)).all() # 条件以and方式排列</span><br><span class="line">ret = session.query(Users).filter(or_(Users.id &lt; 2, Users.name == &apos;eric&apos;)).all() # 条件以or方式排列</span><br><span class="line">ret = session.query(Users).filter(</span><br><span class="line">    or_( #这部分表示括号中的条件都以or的形式匹配</span><br><span class="line">        Users.id &lt; 2, # 或者 or User.id &lt; 2</span><br><span class="line">        and_(Users.name == &apos;eric&apos;, Users.id &gt; 3),# 表示括号中这部分进行and匹配</span><br><span class="line">        Users.extra != &quot;&quot;</span><br><span class="line">    )).all()</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"># 通配符</span><br><span class="line">ret = session.query(Users).filter(Users.name.like(&apos;e%&apos;)).all()</span><br><span class="line">ret = session.query(Users).filter(~Users.name.like(&apos;e%&apos;)).all() # 表示not like</span><br><span class="line"> </span><br><span class="line"># 限制 limit用法</span><br><span class="line">ret = session.query(Users)[1:2] # 等于limit ，具体功能需要自己测试</span><br><span class="line"> </span><br><span class="line"># 排序</span><br><span class="line">ret = session.query(Users).order_by(Users.name.desc()).all()</span><br><span class="line">ret = session.query(Users).order_by(Users.name.desc(), Users.id.asc()).all() # 按照name从大到小排列，如果name相同，按照id从小到大排列</span><br><span class="line"> </span><br><span class="line"># 分组</span><br><span class="line">from sqlalchemy.sql import func</span><br><span class="line"> </span><br><span class="line">ret = session.query(Users).group_by(Users.extra).all()</span><br><span class="line">ret = session.query(</span><br><span class="line">    func.max(Users.id),</span><br><span class="line">    func.sum(Users.id),</span><br><span class="line">    func.min(Users.id)).group_by(Users.name).all()</span><br><span class="line"> </span><br><span class="line">ret = session.query(</span><br><span class="line">    func.max(Users.id),</span><br><span class="line">    func.sum(Users.id),</span><br><span class="line">    func.min(Users.id)).group_by(Users.name).having(func.min(Users.id) &gt;2).all() # having对聚合的内容再次进行过滤</span><br><span class="line"> </span><br><span class="line"># 连表</span><br><span class="line"> </span><br><span class="line">ret = session.query(Users, Favor).filter(Users.id == Favor.nid).all()</span><br><span class="line"> </span><br><span class="line">ret = session.query(Person).join(Favor).all()</span><br><span class="line"># 默认是inner join</span><br><span class="line">ret = session.query(Person).join(Favor, isouter=True).all() # isouter表示是left join</span><br><span class="line"> </span><br><span class="line"># 组合</span><br><span class="line">q1 = session.query(Users.name).filter(Users.id &gt; 2)</span><br><span class="line">q2 = session.query(Favor.caption).filter(Favor.nid &lt; 2)</span><br><span class="line">ret = q1.union(q2).all() #union默认会去重</span><br><span class="line"> </span><br><span class="line">q1 = session.query(Users.name).filter(Users.id &gt; 2)</span><br><span class="line">q2 = session.query(Favor.caption).filter(Favor.nid &lt; 2)</span><br><span class="line">ret = q1.union_all(q2).all() # union_all不去重</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p> <strong>去重</strong></p>
+<p><a href="https://segmentfault.com/a/1190000006949536" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006949536</a></p>
+<p> <strong>关联子查询</strong></p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> View Code</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">子查询：</span><br><span class="line">    session.query(Users).filter(Users.id.in_(session.query(Users.id).filter_by(name=&apos;eric&apos;))).all()</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    select * from users where id in (select id from xxx)</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    subqry = session.query(func.count(Server.id).label(&quot;sid&quot;)).filter(Server.id == Group.id).correlate(Group).as_scalar()</span><br><span class="line">    #第一步：  session.query(func.count(Server.id).label(&quot;sid&quot;)).filter(Server.id == Group.id)</span><br><span class="line">    #这句的sql语句为 select count(id) as sid from server where server.id = group.id      如果直接运行，则会报错</span><br><span class="line">    # 第二步：.correlate(Group).as_scalar() ==&gt; 代表此时不执行查询操作，将其当作条件，在group表中查询时，才执行查询</span><br><span class="line">    </span><br><span class="line">            </span><br><span class="line">    result = session.query(Group.name, subqry)</span><br><span class="line">    # sql语句为：select group.name  subqry  from group</span><br><span class="line">    #第三步：将subqry替换为上面的条件，则此句的SQL为：</span><br><span class="line">    #    select group.name,(select count(id) as sid from server where server.id = group.id) as xx  from group</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class User(db.Model):</span><br><span class="line">    __tablename__ = &quot;user&quot;</span><br><span class="line">    id = db.Column(db.Integer, primary_key=True)  </span><br><span class="line">    name = db.Column(db.String(100), unique=True, nullable=False)  </span><br><span class="line">    pwd = db.Column(db.String(100), nullable=False) </span><br><span class="line">    role_id = db.Column(db.Integer, default=0) </span><br><span class="line">    email = db.Column(db.String(100), nullable=True)  </span><br><span class="line">    addtime = db.Column(db.DateTime, index=True, default=datetime.now)  </span><br><span class="line">    is_active = db.Column(db.Boolean, default=True) </span><br><span class="line">    uid = db.Column(db.String(24), nullable=False, default=uuid, unique=True, server_default=uuid())</span><br><span class="line"></span><br><span class="line">class Userlog(db.Model):</span><br><span class="line">    __tablename__ = &quot;userlog&quot;</span><br><span class="line">    id = db.Column(db.Integer, primary_key=True) </span><br><span class="line">    user_id = db.Column(db.Integer, default=0) db.ForeignKey(&apos;user.id&apos;)</span><br><span class="line">    ip = db.Column(db.String(100)) </span><br><span class="line">    addtime = db.Column(db.DateTime, index=True, default=datetime.now)</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>orm语句</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">subqry = db.session.query(Userlog).order_by(Userlog.id.desc()).subquery()</span><br><span class="line">        s = aliased(Userlog,subqry)</span><br><span class="line">        rs = db.session.query(User, s.ip.label(&apos;last_ip&apos;), s.addtime.label(&apos;last_time&apos;)).outerjoin(s,</span><br><span class="line">                                                                                                   User.id == s.user_id).group_by(</span><br><span class="line">            s.user_id)</span><br><span class="line">print rs</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>对应的sql语句</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT user.id AS user_id, user.name AS user_name, user.pwd AS user_pwd, user.role_id AS user_role_id, user.email AS user_email, user.addtime AS user_addtime, user.is_active AS user_is_active, user.uid AS user_uid, anon_1.ip AS last_ip, anon_1.addtime AS last_time </span><br><span class="line">FROM user LEFT OUTER JOIN (SELECT userlog.id AS id, userlog.user_id AS user_id, userlog.ip AS ip, userlog.addtime AS addtime </span><br><span class="line">FROM userlog ORDER BY userlog.id DESC) AS anon_1 ON user.id = anon_1.user_id GROUP BY anon_1.user_id</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="http://www.cnblogs.com/huchong/p/8275434.html" target="_blank" rel="noopener">点击</a></p>
+<p>1.多条件组合，可以用and_，or_实现。最外层时，and_可以省略，默认用逗号分开条件。</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.session.query(User).filter(</span><br><span class="line">        and_(</span><br><span class="line">            or_(User.name==name1,User.name==name2),</span><br><span class="line">            or_(User.status==1,User.status==2)</span><br><span class="line">        ),</span><br><span class="line">        User.active==1</span><br><span class="line">    ).first()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>2.动态组合条件。针对不同的场景，可能需要不同的查询条件，类似动态的拼接SQL 语句。</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">if filter_type == 1:</span><br><span class="line">    search = and_(GameRoom.status ==1,or_(</span><br><span class="line">        and_(GameRoom.white_user_id == user_id,</span><br><span class="line">             GameRoom.active_player == 1),</span><br><span class="line">        and_(GameRoom.black_user_id == user_id,</span><br><span class="line">             GameRoom.active_player == 0)))</span><br><span class="line">elif filter_type == 2:</span><br><span class="line">    search = and_(GameRoom.status ==1,or_(</span><br><span class="line">        and_(GameRoom.white_user_id == user_id,</span><br><span class="line">             GameRoom.active_player == 0),</span><br><span class="line">        and_(GameRoom.black_user_id == user_id,</span><br><span class="line">             GameRoom.active_player == 1)))</span><br><span class="line">elif filter_type == 3:</span><br><span class="line">    search = GameRoom.create_by == user_id</span><br><span class="line"></span><br><span class="line">db.session.query(GameRoom).filter(search).all()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>3.关联查询。对应SQL的join和left join等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session.query(User, Address).filter(User.id == Address.user_id).all()</span><br><span class="line">session.query(User).join(User.addresses).all()</span><br><span class="line">session.query(User).outerjoin(User.addresses).all()</span><br></pre></td></tr></table></figure>
+
+<p>4.使用别名用aliased，aliased在orm包中。当要对同一个表使用多次关联时，可能需要用到别名。同时，如果查询的结果有多个同名的字段，可以使用label重命名。</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">black_user = orm.aliased(User)</span><br><span class="line">white_user = orm.aliased(User)</span><br><span class="line">db.session.query(</span><br><span class="line">            GameRoom,</span><br><span class="line">            black_user.score.label(&quot;black_score&quot;),</span><br><span class="line">            white_user.score.label(&quot;white_score&quot;)</span><br><span class="line">            ).outerjoin(black_user,GameRoom.black_user_id==black_user.user_id).outerjoin(</span><br><span class="line">                white_user,GameRoom.white_user_id==white_user.user_id).filter(</span><br><span class="line">                    GameRoom.id==room_id</span><br><span class="line">            ).all()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>5.聚合查询和使用数据库函数。func可以调用各种聚合函数，和当前数据库支持的其它函数。</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session.query(User.name, func.count(&apos;*&apos;).label(&quot;user_count&quot;)).group_by(User.name).all()</span><br><span class="line"></span><br><span class="line">session.query(User.name, func.sum(User.id).label(&quot;user_id_sum&quot;)).filter(func.to_days(User.create_date)==func.to_days(func.now())).group_by(User.name).all()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>6.子查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stmt = db.session.query(Address.user_id, func.count(&apos;*&apos;).label(&quot;address_count&quot;)).group_by(Address.user_id).subquery()</span><br><span class="line">db.session.query(User, stmt.c.address_count).outerjoin((stmt, User.id == stmt.c.user_id)).order_by(User.id).all()</span><br></pre></td></tr></table></figure>
+
+<p>7.直接运行SQL语句查询。如果查询实在太复杂，觉得用SQLAlchemy查询方式很难实现，或者要通过存储过程实现查询，可以让SQLAlchemy直接运行SQL语句返回结果。</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sql =&quot;&quot;&quot;select b.user_id,b.user_name,b.icon,b.score,a.add_score from</span><br><span class="line">    (select user_id, sum(score_new - score_old) as add_score from user_score_log</span><br><span class="line">    where year(create_date)=year(now()) and month(create_date)=month(now())</span><br><span class="line">    group by user_id) a join users b on a.user_id=b.user_id</span><br><span class="line">    order by a.add_score desc limit 50&quot;&quot;&quot;</span><br><span class="line">list_top = db.session.execute(sql).fetchall()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>8.分页查询。sqlalchemy中分页用到pagination，先不说性能怎么样，使用起来是真的非常方便。</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pagination = GameMessage.query.filter(GameMessage.game_id==game_id).\</span><br><span class="line">    order_by(GameMessage.id.desc()).\</span><br><span class="line">    paginate(page, per_page=20, error_out=True)</span><br><span class="line">pages = pagination.pages</span><br><span class="line">total = pagination.total</span><br><span class="line">items = pagination.items</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h3 id="h-session对象如何实现线程安全？"><a href="#h-session对象如何实现线程安全？" class="headerlink" title="h.session对象如何实现线程安全？"></a>h.session对象如何实现线程安全？</h3><p>session有两种创建方式</p>
+<p><strong>方式一：</strong></p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">from sqlalchemy.orm import sessionmaker</span><br><span class="line">from sqlalchemy import create_engine</span><br><span class="line"></span><br><span class="line">engine = create_engine(</span><br><span class="line">    &quot;mysql+pymysql://root:123@47.93.4.198:3306/s6?charset=utf8&quot;,</span><br><span class="line">    max_overflow=0,  # 超过连接池大小外最多创建的连接</span><br><span class="line">    pool_size=5,  # 连接池大小</span><br><span class="line">    pool_timeout=30,  # 池中没有线程最多等待的时间，否则报错</span><br><span class="line">    pool_recycle=-1  # 多久之后对线程池中的线程进行一次连接的回收（重置）</span><br><span class="line">)</span><br><span class="line">Session = sessionmaker(bind=engine)</span><br><span class="line"></span><br><span class="line"># 方式一：</span><br><span class="line"># 由于无法提供线程共享功能，所有在开发时要注意，在每个线程中自己创建 session。</span><br><span class="line">#  from sqlalchemy.orm.session import Session</span><br><span class="line">#         具有操作数据库的：&apos;close&apos;, &apos;commit&apos;, &apos;connection&apos;, &apos;delete&apos;, &apos;execute&apos;, &apos;expire&apos;,.....</span><br><span class="line">session = Session()     # 创建普通的session</span><br><span class="line">print(&apos;原生session&apos;,session)</span><br><span class="line"># 操作数据库</span><br><span class="line">session.close()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于无法提供线程共享功能，所有在开发时要注意，在每个线程中自己创建 session解决办法如下：</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="img"></p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">import time</span><br><span class="line">import threading</span><br><span class="line"></span><br><span class="line">from sqlalchemy.ext.declarative import declarative_base</span><br><span class="line">from sqlalchemy import Column, Integer, String, ForeignKey, UniqueConstraint, Index</span><br><span class="line">from sqlalchemy.orm import sessionmaker, relationship</span><br><span class="line">from sqlalchemy import create_engine</span><br><span class="line">from db import Users</span><br><span class="line"></span><br><span class="line">engine = create_engine(&quot;mysql+pymysql://root:123@127.0.0.1:3306/s6&quot;, max_overflow=0, pool_size=5)</span><br><span class="line">Session = sessionmaker(bind=engine)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def task(arg):</span><br><span class="line">    session = Session()</span><br><span class="line"></span><br><span class="line">    obj1 = Users(name=&quot;alex1&quot;)</span><br><span class="line">    session.add(obj1)</span><br><span class="line"></span><br><span class="line">    session.commit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for i in range(10):</span><br><span class="line">    t = threading.Thread(target=task, args=(i,))</span><br><span class="line">    t.start()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><strong>方式二（推荐）：</strong></p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">from sqlalchemy.orm import sessionmaker</span><br><span class="line">from sqlalchemy import create_engine</span><br><span class="line">from sqlalchemy.orm import scoped_session</span><br><span class="line"></span><br><span class="line">engine = create_engine(</span><br><span class="line">    &quot;mysql+pymysql://root:123@47.93.4.198:3306/s6?charset=utf8&quot;,</span><br><span class="line">    max_overflow=0,  # 超过连接池大小外最多创建的连接</span><br><span class="line">    pool_size=5,  # 连接池大小</span><br><span class="line">    pool_timeout=30,  # 池中没有线程最多等待的时间，否则报错</span><br><span class="line">    pool_recycle=-1  # 多久之后对线程池中的线程进行一次连接的回收（重置）</span><br><span class="line">)</span><br><span class="line">Session = sessionmaker(bind=engine)</span><br><span class="line"></span><br><span class="line"># 方式二：支持线程安全，自动为每个线程创建一个session，单线程时，只创建一个</span><br><span class="line">#               - threading.Local</span><br><span class="line">#               - 唯一标识</span><br><span class="line"># ScopedSession对象</span><br><span class="line">#       self.registry(), 加括号 创建session</span><br><span class="line">#       self.registry(), 加括号 创建session</span><br><span class="line">#       self.registry(), 加括号 创建session</span><br><span class="line">from greenlet import getcurrent as get_ident #本地线程的唯一标识的函数，加括号则执行函数</span><br><span class="line">session = scoped_session(Session,get_ident)</span><br><span class="line"># session.add</span><br><span class="line"># 操作数据库</span><br><span class="line">session.remove()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">支持线程安全，自动为每个线程创建一个session，单线程时，只创建一个</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="I-sqlalchemy-utils给SqlAlchemy提供choice功能"><a href="#I-sqlalchemy-utils给SqlAlchemy提供choice功能" class="headerlink" title="I.sqlalchemy-utils给SqlAlchemy提供choice功能"></a>I.sqlalchemy-utils给SqlAlchemy提供choice功能</h3><p><strong>SqlAlchemy本身没有chocie,需要安装这个才能提供choice功能</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install sqlalchemy-utils</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="img"></p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">from sqlalchemy.ext.declarative import declarative_base</span><br><span class="line">from sqlalchemy import Column,Integer,String</span><br><span class="line">from sqlalchemy_utils import ChoiceType</span><br><span class="line">from sqlalchemy import create_engine</span><br><span class="line"></span><br><span class="line">Base = declarative_base()</span><br><span class="line">class User(Base):</span><br><span class="line">    __tablename__ = &apos;users&apos;</span><br><span class="line">    type_choices=(</span><br><span class="line">        (1,&apos;北京&apos;),</span><br><span class="line">        (2,&apos;上海&apos;),</span><br><span class="line">        )</span><br><span class="line">    id = Column(Integer, primary_key=True)  #必须要有主键</span><br><span class="line">    name =Column(String(64))</span><br><span class="line">    types=Column(ChoiceType(type_choices,Integer()))    # 注意：Integer后面要有括号</span><br><span class="line"></span><br><span class="line">    __table_args__ = &#123;</span><br><span class="line">        &apos;mysql_engine&apos;: &apos;InnoDB&apos;,</span><br><span class="line">        &apos;mysql_charset&apos;: &apos;utf8&apos;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">def init_db():</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    根据类创建数据库表</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    engine = create_engine(</span><br><span class="line">        &quot;mysql+pymysql://root:123@127.0.0.1:3306/db1?charset=utf8&quot;,</span><br><span class="line">        max_overflow=0,  # 超过连接池大小外最多创建的连接</span><br><span class="line">        pool_size=5,  # 连接池大小</span><br><span class="line">        pool_timeout=30,  # 池中没有线程最多等待的时间，否则报错</span><br><span class="line">        pool_recycle=-1  # 多久之后对线程池中的线程进行一次连接的回收（重置）</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    Base.metadata.create_all(engine)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def drop_db():</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    根据类删除数据库表</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    engine = create_engine(</span><br><span class="line">        &quot;mysql+pymysql://root:123@127.0.0.1:3306/db1?charset=utf8&quot;,</span><br><span class="line">        max_overflow=0,  # 超过连接池大小外最多创建的连接</span><br><span class="line">        pool_size=5,  # 连接池大小</span><br><span class="line">        pool_timeout=30,  # 池中没有线程最多等待的时间，否则报错</span><br><span class="line">        pool_recycle=-1  # 多久之后对线程池中的线程进行一次连接的回收（重置）</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    Base.metadata.drop_all(engine)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    drop_db()</span><br><span class="line">    init_db()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="img"></p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"># __author__ = &quot;HuChong&quot;</span><br><span class="line"># Date: 2018/1/12</span><br><span class="line"></span><br><span class="line">from sqlalchemy.orm import sessionmaker</span><br><span class="line">from sqlalchemy import create_engine</span><br><span class="line">from ru import User</span><br><span class="line"></span><br><span class="line">engine = create_engine(&quot;mysql+pymysql://root:123@127.0.0.1:3306/db1&quot;, max_overflow=0, pool_size=5)</span><br><span class="line">Session = sessionmaker(bind=engine)</span><br><span class="line"></span><br><span class="line">session = Session()</span><br><span class="line"></span><br><span class="line">obj1 = User(name=&quot;xz&quot;,types=1)</span><br><span class="line">obj2 = User(name=&quot;zz&quot;,types=2)</span><br><span class="line">session.add_all([obj1,obj2])</span><br><span class="line">session.commit()</span><br><span class="line">session.close()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="img"></p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"># __author__ = &quot;HuChong&quot;</span><br><span class="line"># Date: 2018/1/12</span><br><span class="line"></span><br><span class="line">from sqlalchemy.orm import sessionmaker</span><br><span class="line">from sqlalchemy import create_engine</span><br><span class="line">from ru import User</span><br><span class="line"></span><br><span class="line">engine = create_engine(&quot;mysql+pymysql://root:123@127.0.0.1:3306/db1&quot;, max_overflow=0, pool_size=5)</span><br><span class="line">Session = sessionmaker(bind=engine)</span><br><span class="line"></span><br><span class="line">session = Session()</span><br><span class="line"></span><br><span class="line">result_list=session.query(User).all()</span><br><span class="line">print(result_list)</span><br><span class="line">for item in result_list:</span><br><span class="line">    print(item.types)</span><br><span class="line">    print(item.types.code,item.types.value)</span><br><span class="line"></span><br><span class="line">session.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#######打印结果如下########</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">[&lt;ru.User object at 0x0386D770&gt;, &lt;ru.User object at 0x0386D7D0&gt;]</span><br><span class="line">Choice(code=1, value=北京)</span><br><span class="line">1 北京</span><br><span class="line">Choice(code=2, value=上海)</span><br><span class="line">2 上海</span><br><span class="line">&apos;&apos;&apos;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="https://www.cnblogs.com/huchong/p/8274510.html#_labelTop" target="_blank" rel="noopener">回到顶部(go to top)</a></p>
+<h1 id="三、Flask-SQLAlchemy及Flask-Migrate组件"><a href="#三、Flask-SQLAlchemy及Flask-Migrate组件" class="headerlink" title="三、Flask-SQLAlchemy及Flask-Migrate组件"></a>三、Flask-SQLAlchemy及Flask-Migrate组件</h1><h2 id="1-Flask-SQLAlchemy"><a href="#1-Flask-SQLAlchemy" class="headerlink" title="1.Flask-SQLAlchemy"></a>1.Flask-SQLAlchemy</h2><p>　　用于将Flask和SQLAlchemy联系起来，使用之前需要装下面这个模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-sqlalchemy</span><br></pre></td></tr></table></figure>
+
+<p>如果使用Flask-sqlalchemy组件，则在使用时有一点变化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 1. 引入Flask-SQLAlchemy</span><br><span class="line">from flask_sqlalchemy import SQLAlchemy</span><br><span class="line">db = SQLAlchemy()    #实例化SQLAlchemy对象</span><br><span class="line"># 2. 注册 Flask-SQLAlchemy</span><br><span class="line">    # SQLAlchemy(app)</span><br><span class="line">    # 由于这个对象在其他地方想要使用，所有用以下方式注册 </span><br><span class="line">    db.init_app(app) #读取配置文件，配置文件中写以前在create_engine里面的链接数据</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#settings.py中，加上配置</span><br></pre></td></tr></table></figure>
+
+<p>SQLALCHEMY_DATABASE_URI = “mysql+pymysql://root:<a href="mailto:123@47.93.4.198" target="_blank" rel="noopener">123@47.93.4.198</a>:3306/s6?charset=utf8”<br>SQLALCHEMY_POOL_SIZE = 2<br>SQLALCHEMY_POOL_TIMEOUT = 30<br>SQLALCHEMY_POOL_RECYCLE = -1</p>
+<p># 追踪对象的修改并且发送信号<br>SQLALCHEMY_TRACK_MODIFICATIONS = False</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 3. 导入models中的表</span><br><span class="line">from .models import *</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">from sqlalchemy import Column, Integer, String, Text, ForeignKey, DateTime, UniqueConstraint, Index</span><br><span class="line">from app import db</span><br><span class="line"></span><br><span class="line"># 4. 写类继承db.Model</span><br><span class="line">class Users(db.Model):  #再不是继承Base，而且继承db.Model</span><br><span class="line">    __tablename__ = &apos;users&apos;</span><br><span class="line"></span><br><span class="line">    id = Column(Integer, primary_key=True)</span><br><span class="line">    name = Column(String(32), index=True, nullable=False)</span><br><span class="line">    pwd = Column(String(32))</span><br><span class="line"></span><br><span class="line">    __table_args__ = &#123;</span><br><span class="line">        &apos;mysql_engine&apos;: &apos;InnoDB&apos;,   # 指定表的引擎</span><br><span class="line">        &apos;mysql_charset&apos;: &apos;utf8&apos;     # 指定表的编码格式</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Group(db.Model):</span><br><span class="line">    __tablename__ = &apos;group&apos;</span><br><span class="line"></span><br><span class="line">    id = Column(Integer, primary_key=True)</span><br><span class="line">    name = Column(String(32), index=True, nullable=False)</span><br><span class="line"></span><br><span class="line">    __table_args__ = &#123;</span><br><span class="line">        &apos;mysql_engine&apos;: &apos;InnoDB&apos;,</span><br><span class="line">        &apos;mysql_charset&apos;: &apos;utf8&apos;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 5. 创建和删除表</span><br><span class="line">  #  以后执行db.create_all()</span><br><span class="line">  #  以后执行db.drop_all()</span><br><span class="line">但是这样不好，我们引入 Flask-Migrate</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Flask-Migrate"><a href="#2-Flask-Migrate" class="headerlink" title="2.Flask-Migrate"></a>2.Flask-Migrate</h2><p>可以通过类似Django里的命令，进行数据迁移，创建表，删除表，更新表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">安装  pip install Flask-Migrate</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 5.1 导入</span><br><span class="line">from flask_migrate import Migrate, MigrateCommand</span><br><span class="line">from app import create_app, db</span><br><span class="line"></span><br><span class="line">app = create_app()</span><br><span class="line">manager = Manager(app)</span><br><span class="line"># 5.2 创建migrate实例</span><br><span class="line">migrate = Migrate(app, db)</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#执行命令：</span><br><span class="line">    初次：python manage.py db init</span><br><span class="line">    </span><br><span class="line">    python manage.py db migrate</span><br><span class="line">    python manage.py db upgrade</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">以后执行SQL时：</span><br><span class="line">    方式一：</span><br><span class="line">        result = db.session.query(models.User.id,models.User.name).all()</span><br><span class="line">        db.session.remove()</span><br><span class="line">    方式二：</span><br><span class="line">        result = models.Users.query.all()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h2 id="3-代码规范之生成requestments-txt文件"><a href="#3-代码规范之生成requestments-txt文件" class="headerlink" title="3.代码规范之生成requestments.txt文件"></a>3.代码规范之生成requestments.txt文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip  freeze  # 获取环境中所有安装的模块以及其对应的版本</span><br><span class="line">        </span><br><span class="line">pip  freeze &gt; requirements.txt  # 生成对应的文本文件</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://images2017.cnblogs.com/blog/1195739/201801/1195739-20180113110720754-596826159.png" alt="img"></p>
+<p>由于获取的是所有，我们还得自己手动在文本里删除一些不必要的，所有这个方法不好，我们使用下面的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pipreqs</span><br></pre></td></tr></table></figure>
+
+<p>首先安装模块，安装完成以后，我们就可以在终端，执行pipreqs命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 获取当前所在程序目录中涉及到的所有模块，并自动生成 requirements.txt 且写入内容。</span><br><span class="line"> pipreqs ./</span><br></pre></td></tr></table></figure>
+
+<p>建议在Linux系统下使用，windows环境下会报错</p>
+<p><img src="https://images2017.cnblogs.com/blog/1195739/201801/1195739-20180113110408676-339575020.png" alt="img"></p>
+<p>以后使用别人的程序，进入程序目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">安装requirements.txt依赖</span><br><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>会自动安装文件里，所有对应版本模块</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/24/基于centos7-nginx-uwsgi-python3-django部署/" class="archive-article-date">
-  	<time datetime="2019-09-24T07:11:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/24/基于centos7-nginx-uwsgi-python3-django部署/">基于centos7+nginx+uwsgi+python3+django部署</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://anthonywang68.site/2019/11/23/flask-sqlalchemy常用知识点整理，持续更新。。。。/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/23/如何使用Nginx和uWSGI或Gunicorn在Ubuntu上部署Flask-Web应用/" class="archive-article-date">
-  	<time datetime="2019-09-23T00:22:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/23/SQLAlchemy是一个基于Python实现的ORM框架。该框架建立在-DB-API之上，使用关系对象映射进行数据库操作，简言之便是：将类和对象转换成SQL，然后使用数据API执行SQL并获取执行结果。/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SQLAlchemy是一个基于Python实现的ORM框架。该框架建立在 DB API之上，使用关系对象映射进行数据库操作，简言之便是：将类和对象转换成SQL，然后使用数据API执行SQL并获取执行结果。</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/23/如何使用Nginx和uWSGI或Gunicorn在Ubuntu上部署Flask-Web应用/">如何使用Nginx和uWSGI或Gunicorn在Ubuntu上部署Flask Web应用</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/22/Gunicorn-nginx部署项目流程/" class="archive-article-date">
-  	<time datetime="2019-09-22T13:18:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/22/Gunicorn-nginx部署项目流程/">Gunicorn+nginx部署项目流程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/22/终端cmd窗口，使用命令创建django项目以及超级管理员/" class="archive-article-date">
-  	<time datetime="2019-09-21T16:26:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/22/终端cmd窗口，使用命令创建django项目以及超级管理员/">终端cmd窗口，使用命令创建django项目以及超级管理员</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/20/redis实践笔记，持续更新/" class="archive-article-date">
-  	<time datetime="2019-09-20T14:24:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/20/redis实践笔记，持续更新/">redis实践笔记，持续更新</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/page/4/">&laquo; Prev</a><a class="page-number" href="/archives/2019/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/3/">3</a><a class="page-number" href="/archives/2019/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/2019/page/6/">6</a><a class="page-number" href="/archives/2019/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/11/">11</a><a class="extend next" rel="next" href="/archives/2019/page/6/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -328,8 +618,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
