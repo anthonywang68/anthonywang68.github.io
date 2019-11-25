@@ -153,6 +153,73 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-深浅拷贝总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/06/深浅拷贝总结/">深浅拷贝总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/06/深浅拷贝总结/" class="archive-article-date">
+  	<time datetime="2019-09-06T01:13:09.608Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 浅拷贝import copyl=[1,2,[3,4]]qian=copy.copy(l)l[0]=666l[2].append(8888)print(l,qian)[666, 2, [3, 4, 8888]] [1, 2, [3, 4, 8888]]</span><br><span class="line"># 深拷贝deep=copy.deepcopy(l)l[0]=666l[2].append(12)#print(l,deep)[666, 2, [3, 4, 12]] [1, 2, [3, 4]]</span><br></pre></td></tr></table></figure>
+
+<h2 id="浅拷贝copy"><a href="#浅拷贝copy" class="headerlink" title="浅拷贝copy"></a>浅拷贝copy</h2><p>在terminal直接演示，比较容易理解</p>
+        
+          <a class="article-more-a" href="/2019/09/06/深浅拷贝总结/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/06/深浅拷贝总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python-add-little-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

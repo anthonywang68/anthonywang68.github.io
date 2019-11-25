@@ -153,6 +153,73 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-并发，未完待续整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/06/并发，未完待续整理/">并发，未完待续整理</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/06/并发，未完待续整理/" class="archive-article-date">
+  	<time datetime="2019-09-06T02:12:30.270Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>狭义定义：进程是正在运行的程序的实例（an instance of a computer program that is being executed）。</p>
+<p>广义定义：进程是一个具有一定独立功能的程序关于某个数据集合的一次运行活动。它是<a href="https://baike.baidu.com/item/操作系统/192" target="_blank" rel="noopener">操作系统</a>动态执行的<a href="https://baike.baidu.com/item/基本单元" target="_blank" rel="noopener">基本单元</a>，在传统的<a href="https://baike.baidu.com/item/操作系统" target="_blank" rel="noopener">操作系统</a>中，进程既是基本的<a href="https://baike.baidu.com/item/分配单元" target="_blank" rel="noopener">分配单元</a>，也是基本的执行单元。</p>
+<p><strong>注意：同一个程序执行两次，就会在操作系统中出现两个进程，所以我们可以同时运行一个软件，分别做不同的事情也不会混乱</strong></p>
+        
+          <a class="article-more-a" href="/2019/09/06/并发，未完待续整理/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/06/并发，未完待续整理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-网络编程和计算机系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -408,73 +475,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/06/函数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-深浅拷贝总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/06/深浅拷贝总结/">深浅拷贝总结</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/06/深浅拷贝总结/" class="archive-article-date">
-  	<time datetime="2019-09-06T01:13:09.608Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 浅拷贝import copyl=[1,2,[3,4]]qian=copy.copy(l)l[0]=666l[2].append(8888)print(l,qian)[666, 2, [3, 4, 8888]] [1, 2, [3, 4, 8888]]</span><br><span class="line"># 深拷贝deep=copy.deepcopy(l)l[0]=666l[2].append(12)#print(l,deep)[666, 2, [3, 4, 12]] [1, 2, [3, 4]]</span><br></pre></td></tr></table></figure>
-
-<h2 id="浅拷贝copy"><a href="#浅拷贝copy" class="headerlink" title="浅拷贝copy"></a>浅拷贝copy</h2><p>在terminal直接演示，比较容易理解</p>
-        
-          <a class="article-more-a" href="/2019/09/06/深浅拷贝总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/06/深浅拷贝总结/">展开全文 >></a>
         </p>
       
 
