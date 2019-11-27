@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://anthonywang68.site">
-  <title>Archives: 2019 | Anthony Wang&#39;summary</title>
+  <title>go 单元测试 | Anthony Wang&#39;summary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是一个基于Hexo搭建的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Anthony Wang&#39;summary">
-<meta property="og:url" content="https://anthonywang68.site/archives/2019/page/2/index.html">
+  <meta name="description" content="用 GoLand 新建项目的时候，我们选择 Go Modules(vgo) ，填写我们的项目地址和项目名称，我们命名为 GinHello 。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="go 单元测试">
+<meta property="og:url" content="https://anthonywang68.site/2019/11/27/go-单元测试/index.html">
 <meta property="og:site_name" content="Anthony Wang&#39;summary">
-<meta property="og:description" content="这是一个基于Hexo搭建的博客">
+<meta property="og:description" content="用 GoLand 新建项目的时候，我们选择 Go Modules(vgo) ，填写我们的项目地址和项目名称，我们命名为 GinHello 。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://island-hexo.oss-cn-beijing.aliyuncs.com/gin_create_new_project.jpg">
+<meta property="og:updated_time" content="2019-11-27T13:09:40.827Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anthony Wang&#39;summary">
-<meta name="twitter:description" content="这是一个基于Hexo搭建的博客">
+<meta name="twitter:title" content="go 单元测试">
+<meta name="twitter:description" content="用 GoLand 新建项目的时候，我们选择 Go Modules(vgo) ，填写我们的项目地址和项目名称，我们命名为 GinHello 。">
+<meta name="twitter:image" content="https://island-hexo.oss-cn-beijing.aliyuncs.com/gin_create_new_project.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Anthony Wang&#39;summary" type="application/atom+xml">
   
@@ -151,160 +154,201 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-go-单元测试" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      go 单元测试
+    </h1>
+  
+
+        
+        <a href="/2019/11/27/go-单元测试/" class="archive-article-date">
+  	<time datetime="2019-11-27T13:08:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用 <code>GoLand</code> 新建项目的时候，我们选择 <code>Go Modules(vgo)</code> ，填写我们的项目地址和项目名称，我们命名为 <code>GinHello</code> 。</p>
+<a id="more"></a>
+
+
+
+<p><img src="https://island-hexo.oss-cn-beijing.aliyuncs.com/gin_create_new_project.jpg" alt="新建项目">新建项目</p>
+<p>点击 <code>Create</code> ,此时 <code>Goland</code> 为我们生成了项目目录，<code>Go</code> 项目的目录永远是那么的简单，比 <code>Java</code> 的 <code>Maven</code> 或者 <code>Gradle</code> 生成的项目目录简单多了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GinHello||-go.mod</span><br></pre></td></tr></table></figure>
+
+<p>对，就是一个文件 ，一个 <code>Go module</code> 文件。<code>go mod</code> 是 <code>Go</code> 官方引入的一个依赖管理工具。</p>
+<h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><p>通过 <code>go mod</code> 文件进行依赖的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require github.com/gin-gonic/gin v1.4.0</span><br></pre></td></tr></table></figure>
+
+<p>我们把上面的依赖进行添加到 <code>go module</code> 中， <code>goLand</code> 会自动帮我们进行依赖的下载和管理。</p>
+<h2 id="Hello-Gin"><a href="#Hello-Gin" class="headerlink" title="Hello Gin"></a>Hello Gin</h2><p>当完成依赖的添加，就可以开始写代码了。</p>
+<p>新建一个 <code>main.go</code> 文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package mainimport (	&quot;github.com/gin-gonic/gin&quot;)func main() &#123;	router := gin.Default()	router.Run()&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Gin</code> 只需要两行代码就可以把我们的服务跑起来。</p>
+<p>我们只要点击运行，项目便会启动一个 <code>8080</code> 端口，打开浏览器 <code>localhost:8080</code> 我们便可以看到页面上提示出 <code>404 page not found</code> ，这是因为我们的根路由上并没有返回任何结果。同时我们可以在控制台上看到一些打印信息，其中就包括我们刚刚访问根路由的端口。</p>
+<h2 id="产生接口"><a href="#产生接口" class="headerlink" title="产生接口"></a>产生接口</h2><p>项目已经启动了，那么如何返回一个接口呢？</p>
+<p>通过 <code>router</code> 的 <code>Handle</code> 进行配置我们返回的参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// 省略代码	// 添加 Get 请求路由	router.GET(&quot;/&quot;, func(context *gin.Context) &#123;		context.String(http.StatusOK, &quot;hello gin&quot;)	&#125;)	// 省略代码</span><br></pre></td></tr></table></figure>
+
+<p>此时我们重启项目，重新访问页面 <code>localhost:8080</code>，此刻的页面上已经显示了 <code>hello gin</code>。</p>
+<p>同样，我们还可以进行 <code>POST</code>,<code>PUT</code>,<code>DELETE</code>等请求方式。</p>
+<h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><p>单元测试是项目不能缺少的模块，也是保障项目可以正常运行的重要依赖。下面就对　Gin 进行单元测试。</p>
+<p>为了方便单元测试，我们首先要对我们的项目进行一下抽取。</p>
+<p>新建立一个文件夹叫做 <code>initRouter</code></p>
+<p>建立 <code>go</code> 文件 <code>initRouter.go</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package initRouterimport (	&quot;github.com/gin-gonic/gin&quot;	&quot;net/http&quot;)func SetupRouter() *gin.Engine &#123;	router := gin.Default()	// 添加 Get 请求路由	router.GET(&quot;/&quot;, func(context *gin.Context) &#123;		context.String(http.StatusOK, &quot;hello gin&quot;)	&#125;)	return router&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同时修改 <code>main.go</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package mainimport (	&quot;GinHello/initRouter&quot;)func main() &#123;	router := initRouter.SetupRouter()	_ = router.Run()&#125;</span><br></pre></td></tr></table></figure>
+
+<p>完成了项目测试的初步建立。</p>
+<p>建立 <code>test</code> 目录, <code>golang</code> 的单元测试都是以 <code>_test</code> 结尾，建立 <code>index_test.go</code> 文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package testimport (	&quot;GinHello/initRouter&quot;	&quot;github.com/stretchr/testify/assert&quot;	&quot;net/http&quot;	&quot;net/http/httptest&quot;	&quot;testing&quot;)func TestIndexGetRouter(t *testing.T) &#123;	router := initRouter.SetupRouter()	w := httptest.NewRecorder()	req, _ := http.NewRequest(http.MethodGet, &quot;/&quot;, nil)	router.ServeHTTP(w, req)	assert.Equal(t, http.StatusOK, w.Code)	assert.Equal(t, &quot;hello gin&quot;, w.Body.String())&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过 <code>assert</code> 进行断言，来判断返回状态码和返回值是否与代码中的值一致。</p>
+<p>此时的项目目录为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GinHello||-initRouter|  |-initRouter.go||-test|  |-index_test.go||-main.go|-go.mod|-go.sum</span><br></pre></td></tr></table></figure>
+
+<p>运行单元测试，控制台打印出单元测试结果。</p>
+<blockquote>
+<p>— PASS: TestIndexGetRouter (0.02s)<br>PASS</p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/19/所谓的浏览器兼容性问题/" class="archive-article-date">
-  	<time datetime="2019-11-19T11:33:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/19/所谓的浏览器兼容性问题/">所谓的浏览器兼容性问题</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://anthonywang68.site/2019/11/27/go-单元测试/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/17/到底什么是容错，高可用和灾备/" class="archive-article-date">
-  	<time datetime="2019-11-17T14:34:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/25/alembic用法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">alembic用法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/17/到底什么是容错，高可用和灾备/">到底什么是容错，高可用和灾备</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/15/K8S知识点梳理，持续更新ing/" class="archive-article-date">
-  	<time datetime="2019-11-15T14:49:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/15/K8S知识点梳理，持续更新ing/">K8S知识点梳理，持续更新ing</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/15/ansible梳理。。。持续更新ing/" class="archive-article-date">
-  	<time datetime="2019-11-15T14:41:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/15/ansible梳理。。。持续更新ing/">ansible梳理。。。持续更新ing</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/15/软件开发设计部分梳理，持续更新/" class="archive-article-date">
-  	<time datetime="2019-11-15T02:33:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/15/软件开发设计部分梳理，持续更新/">软件开发设计部分梳理，持续更新</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/">&laquo; Prev</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2019/page/3/">3</a><a class="page-number" href="/archives/2019/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/12/">12</a><a class="extend next" rel="next" href="/archives/2019/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -328,8 +372,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
