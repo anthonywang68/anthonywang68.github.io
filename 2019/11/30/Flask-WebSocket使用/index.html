@@ -6,18 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://anthonywang68.site">
-  <title>Archives | Anthony Wang&#39;summary</title>
+  <title>Flask WebSocket使用 | Anthony Wang&#39;summary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是一个基于Hexo搭建的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Anthony Wang&#39;summary">
-<meta property="og:url" content="https://anthonywang68.site/archives/page/12/index.html">
+  <meta name="description" content="原文链接：http://blog.miguelgrinberg.com/post/easy-websockets-with-flask-and-gevent  以下是部分翻译，入门学习一下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask WebSocket使用">
+<meta property="og:url" content="https://anthonywang68.site/2019/11/30/Flask-WebSocket使用/index.html">
 <meta property="og:site_name" content="Anthony Wang&#39;summary">
-<meta property="og:description" content="这是一个基于Hexo搭建的博客">
+<meta property="og:description" content="原文链接：http://blog.miguelgrinberg.com/post/easy-websockets-with-flask-and-gevent  以下是部分翻译，入门学习一下">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://blog.miguelgrinberg.com/static/images/flask-socketio.png">
+<meta property="og:updated_time" content="2019-11-30T12:14:08.333Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anthony Wang&#39;summary">
-<meta name="twitter:description" content="这是一个基于Hexo搭建的博客">
+<meta name="twitter:title" content="Flask WebSocket使用">
+<meta name="twitter:description" content="原文链接：http://blog.miguelgrinberg.com/post/easy-websockets-with-flask-and-gevent  以下是部分翻译，入门学习一下">
+<meta name="twitter:image" content="https://common.cnblogs.com/images/copycode.gif">
   
     <link rel="alternative" href="/atom.xml" title="Anthony Wang&#39;summary" type="application/atom+xml">
   
@@ -151,106 +158,246 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Flask-WebSocket使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Flask WebSocket使用
+    </h1>
+  
+
+        
+        <a href="/2019/11/30/Flask-WebSocket使用/" class="archive-article-date">
+  	<time datetime="2019-11-30T12:11:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 原文链接：<a href="http://blog.miguelgrinberg.com/post/easy-websockets-with-flask-and-gevent" target="_blank" rel="noopener">http://blog.miguelgrinberg.com/post/easy-websockets-with-flask-and-gevent</a> </p>
+<p>以下是部分翻译，入门学习一下</p>
+<a id="more"></a>
+
+
+
+<h2 id="Flask-SocketIO-服务器端代码"><a href="#Flask-SocketIO-服务器端代码" class="headerlink" title="Flask-SocketIO 服务器端代码"></a>Flask-SocketIO 服务器端代码</h2><p>Installation of Flask-SocketIO is very simple:</p>
+<p>使用pip安装Flask-SocketIO</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install flask-socketio</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Note that Flask-SocketIO depends on gevent, so at this time it can only run on Python 2.x. Support for Python 3 is coming for gevent, so the situation is likely to improve in the near future. (Update: Flask-SocketIO version 1.0 is fully compatible with Python 2.7 and 3.3+, see bottom of the article for more information).</p>
+<p>目前的最新状态是，Flask-SocketIO版本v1.0 可以运行在Python 2.7和 Python 3.3+上</p>
+<p>Below is an example Flask application that implements Flask-SocketIO:</p>
+<p>以下是一个实现了Flask-SocketIO的简单Flask应用程序</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask, render_template</span><br><span class="line">from flask.ext.socketio import SocketIO, emit</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config[&apos;SECRET_KEY&apos;] = &apos;secret!&apos;</span><br><span class="line">socketio = SocketIO(app)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def index():</span><br><span class="line">    return render_template(&apos;index.html&apos;)</span><br><span class="line"></span><br><span class="line">@socketio.on(&apos;my event&apos;, namespace=&apos;/test&apos;)</span><br><span class="line">def test_message(message):</span><br><span class="line">    emit(&apos;my response&apos;, &#123;&apos;data&apos;: message[&apos;data&apos;]&#125;)</span><br><span class="line"></span><br><span class="line">@socketio.on(&apos;my broadcast event&apos;, namespace=&apos;/test&apos;)</span><br><span class="line">def test_message(message):</span><br><span class="line">    emit(&apos;my response&apos;, &#123;&apos;data&apos;: message[&apos;data&apos;]&#125;, broadcast=True)</span><br><span class="line"></span><br><span class="line">@socketio.on(&apos;connect&apos;, namespace=&apos;/test&apos;)</span><br><span class="line">def test_connect():</span><br><span class="line">    emit(&apos;my response&apos;, &#123;&apos;data&apos;: &apos;Connected&apos;&#125;)</span><br><span class="line"></span><br><span class="line">@socketio.on(&apos;disconnect&apos;, namespace=&apos;/test&apos;)</span><br><span class="line">def test_disconnect():</span><br><span class="line">    print(&apos;Client disconnected&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    socketio.run(app)</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>The extension is initialized in the usual way, but to simplify the start up of the server a custom<code>run()</code> method is provided by the extension. This method starts gevent, the only supported web server. Using gunicorn with a gevent worker should also work. The <code>run()</code> method takes optional<code>host</code> and <code>port</code> arguments, but by default it will listen on <code>localhost:5000</code> like Flask’s development web server.</p>
+<p>拓展（即socketio）的初始化方式与一般的初始化一样（即 socketio = SocketIO(app) ），在SocketIO的程序里，通过调用成员函数run()来启动服务器（即 socketio.run(app) ），该方法启动了gevent（Python里一个提供并发支持的模块，通过管理切换greelet实现的<strong>协程</strong>来实现并发）。使用gunicorn和gevent worker也可以。run()函数有可选参数host、argument等，默认按Flask实现的服务器一样，监听localhost:5000。</p>
+<p>The only traditional route in this application is <code>/</code>, which serves <code>index.html</code>, a web document that contains the client implementation of this example.</p>
+<p>To receive WebSocket messages from the client the application defines event handlers using the<code>socketio.on</code> decorator.</p>
+<p>The first argument to the decorator is the event name. Event names <code>&#39;connect&#39;</code>, <code>&#39;disconnect&#39;</code>,<code>&#39;message&#39;</code> and <code>&#39;json&#39;</code> are special events generated by SocketIO. Any other event names are considered custom events.</p>
+<p>The <code>&#39;connect&#39;</code> and <code>&#39;disconnect&#39;</code> events are self-explanatory. The <code>&#39;message&#39;</code> event delivers a payload of type string, and the <code>&#39;json&#39;</code> and custom events deliver a JSON payload, in the form of a Python dictionary.</p>
+<p>在上文代码中，该应用的路由只有/，访问时返回网页index.html，包括了该例子中的<strong>客户端实现代码</strong>。</p>
+<p>修饰符的第一个参数是<em>事件名</em>，’connect’, ‘disconnect’, ‘message’, ‘json’ 等特殊事件名是由SocketIO规定的事件，其他的事件名是自定义事件。</p>
+<p>‘connect’ <em>和</em> ‘disconnect’事件不必多说，<em>‘message’</em> 事件发送一段字符串类型的内容，’json’ 事件和自定义事件发送一段JSON内容，形式为Python的dictionary类型</p>
+<p>Events can be defined inside a namespace by adding the <code>namespace</code> optional argument to the<code>socketio.on</code> decorator. Namespaces allow a client to open multiple connections to the server that are multiplexed on a single socket. When a namespace is not specified the events are attached to the default global namespace.</p>
+<p>通过在socketio.on修饰符中增加namespace可选参数，可以在一个命名空间内定义一个事件。命名空间允许一个客户端在一个socket连接上多路复用打开多个与服务器的链接。当一个事件没有指明命名空间，则事件关联到默认的全局命名空间中。</p>
+<p>To send events a Flask server can use the <code>send()</code> and <code>emit()</code> functions provided by Flask-SocketIO. The <code>send()</code> function sends a standard message of string or JSON type to the client. The <code>emit()</code> function sends a message under a custom event name.</p>
+<p>Flask-SocketIO提供给Flask服务器send()和emit()两个函数来发送事件。send()函数发送一个字符串或JSON类型的标准消息给客户端，emit()函数发送一个在自定义事件名之下的消息给客户端——例如代码中的 emit(‘my response’, {‘data’: message[‘data’]}) 就是发送了一条’my response’事件的消息，消息内容主体为 {‘data’: message[‘data’]} </p>
+<p>Messages are sent to the connected client by default, but when including the <code>broadcast=True</code>optional argument all clients connected to the namespace receive the message.</p>
+<p>消息默认发送给已连接（且此时通信的这一）的客户端，但是如果包括了可选参数及取值broadcast=True，则消息被发送给所有连接到该名字空间的客户端</p>
+<h2 id><a href="#" class="headerlink" title=" "></a> </h2><hr>
+<h2 id="-1"><a href="#-1" class="headerlink" title=" "></a> </h2><h2 id="-2"><a href="#-2" class="headerlink" title=" "></a> </h2><h2 id="A-SocketIO-Client"><a href="#A-SocketIO-Client" class="headerlink" title="A SocketIO Client"></a>A SocketIO Client</h2><h2 id="SocketIO-客户端代码"><a href="#SocketIO-客户端代码" class="headerlink" title="SocketIO 客户端代码"></a>SocketIO 客户端代码</h2><p>Ready to try your hand at some Javascript? The <code>index.html</code> page used by the example server contains a little client application that uses jQuery and SocketIO. The relevant code is shown below:</p>
+<p>服务器端例子中的index.html页包含了一个使用jQuery和SocketIO的客户端程序例子，示例代码网址：<a href="https://github.com/miguelgrinberg/Flask-SocketIO/blob/master/example/templates/index.html。**要使用jQuery和SocketIO需要先引用其js文件，否则会报错" target="_blank" rel="noopener">https://github.com/miguelgrinberg/Flask-SocketIO/blob/master/example/templates/index.html。**要使用jQuery和SocketIO需要先引用其js文件，否则会报错</a>**</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;//code.jquery.com/jquery-1.4.2.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>相应代码如下：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function()&#123;</span><br><span class="line">    var socket = io.connect(&apos;http://&apos; + document.domain + &apos;:&apos; + location.port + &apos;/test&apos;);</span><br><span class="line">    socket.on(&apos;my response&apos;, function(msg) &#123;</span><br><span class="line">        $(&apos;#log&apos;).append(&apos;&lt;p&gt;Received: &apos; + msg.data + &apos;&lt;/p&gt;&apos;);</span><br><span class="line">    &#125;);</span><br><span class="line">    $(&apos;form#emit&apos;).submit(function(event) &#123;</span><br><span class="line">        socket.emit(&apos;my event&apos;, &#123;data: $(&apos;#emit_data&apos;).val()&#125;);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;);</span><br><span class="line">    $(&apos;form#broadcast&apos;).submit(function(event) &#123;</span><br><span class="line">        socket.emit(&apos;my broadcast event&apos;, &#123;data: $(&apos;#broadcast_data&apos;).val()&#125;);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>The <code>socket</code> variable is initialized with a SocketIO connection to the server. Note how the namespace <code>/test</code> is specified in the connection URL. To connect without using a namespace it is sufficient to call <code>io.connect()</code> without any arguments.</p>
+<p>变量socket的初始化建立了一个和服务器的SocketIO连接，在连接URL中指定命名空间/test的方式是 io.connect(‘http://‘ + document.domain + ‘:’ + location.port + <strong>‘/test’</strong>) 。如果要建立连接而不指明命名空间则在调用io.connect()函数时不使用任何参数。</p>
+<p>The <code>socket.on()</code> syntax is used in the client side to define an event handler. In this example a custom event with name <code>&#39;my response&#39;</code> is handled by adding the <code>data</code> attribute of the message payload to the contents of a page element with id <code>log</code>. This element is defined in the HTML portion of the page.</p>
+<p>客户端使用的socket.on()定义了一个事件的Handler，本例中对一个自定义的事件’my response’的处理是将消息内容中的data属性值添加到id为log的页面元素中。log元素的定义在网页的HTML部分。</p>
+<p>The next two blocks override the behavior of two form submit buttons so that instead of submitting a form over HTTP they trigger the execution of a callback function.</p>
+<p>For the form with id <code>emit</code> the submit handler emits a message to the server with name <code>&#39;my event&#39;</code> that includes a JSON payload with a <code>data</code> attribute set to the value of the text field in that form.</p>
+<p>The second form, with id <code>broadcast</code> does the same thing, but sends the data under a different event name called <code>&#39;my broadcast event&#39;</code>.</p>
+<p>接下来两块重写了两个表单提交按钮的响应内容，不再执行默认的提交HTTP表单，而是触发了（服务器端）事件的响应函数。</p>
+<p>id为emit的表单的提交handler向服务器发出了一个名为’my event’ 的事件消息，消息内容形式为JSON，包含了一个data属性，其值被设为表单内文字域的值。</p>
+<p>第二个id为broadcast的表单做了类似的事，但是它发送的数据是在事件’my broadcast event’下的。</p>
+<p>If you now go back to the server code you can review the handlers for these two custom events. For <code>&#39;my event&#39;</code> the server just echoes the payload back to the client in a message sent under event name <code>&#39;my response&#39;</code>, which is handled by showing the payload in the page. The event named <code>&#39;my broadcast event&#39;</code> does something similar, but instead of echoing back to the client alone it broadcasts the message to all connected clients, also under the <code>&#39;my response&#39;</code> event.</p>
+<p>此时可以返回服务器端代码查看两个自定义事件对应的handler。对于’my event’事件，服务器只是把发来的消息原封不动返回给客户端，消息在事件’my response’之下，这样会触发客户端的’my response’事件，将消息显示在网页页面上；’my broadcast event’ 事件的处理过程类似，但是与将消息返回给客户端不同的是，它将消息广播给了已连接的客户端，当然该消息还是在事件’my response’下。</p>
+<p>You can view the complete HTML document in the <a href="https://github.com/miguelgrinberg/Flask-SocketIO/blob/master/example/templates/index.html" target="_blank" rel="noopener">GitHub repository</a>.</p>
+<p>​                      完整的HTML代码内容见↗</p>
+<h2 id="Running-the-Example"><a href="#Running-the-Example" class="headerlink" title="Running the Example"></a>Running the Example</h2><h2 id="运行示例"><a href="#运行示例" class="headerlink" title="运行示例"></a>运行示例</h2><p>To run this example you first need to download the code from GitHub. For this you have two options:</p>
+<ul>
+<li><a href="https://github.com/miguelgrinberg/Flask-SocketIO" target="_blank" rel="noopener">Clone the repository</a> with git</li>
+<li><a href="https://github.com/miguelgrinberg/Flask-SocketIO/archive/master.zip" target="_blank" rel="noopener">Download the project</a> as a zip file.</li>
+</ul>
+<p>The example application is in the <code>example</code> directory, so <code>cd</code> to it to begin.</p>
+<p><strong>1.</strong>首先要从git上clone<a href="https://github.com/miguelgrinberg/Flask-SocketIO" target="_blank" rel="noopener">仓库</a>，或者下载工程的<a href="https://github.com/miguelgrinberg/Flask-SocketIO/archive/master.zip" target="_blank" rel="noopener">zip文件</a>，示例程序在example文件夹下</p>
+<p>To keep your global Python interpreter clean it is a good idea to make a virtual environment:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ virtualenv venv</span><br><span class="line">$ . venv/bin/activate</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.</strong> 为了保证全局Python环境干净，最好创建一个虚拟环境↑（此步可以忽略）</p>
+<p>Then you need to install the dependencies:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(venv) $ pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.</strong>使用pip下载安装必要的依赖组件↑</p>
+<p>Finally you can run the application:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(venv) $ python app.py</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.</strong>运行服务器程序↑</p>
+<p>Now open your web browser and navigate to <code>http://localhost:5000</code> and you will get a page with two forms as shown in the following screenshot:</p>
+<p><img src="http://blog.miguelgrinberg.com/static/images/flask-socketio.png" alt="img"></p>
+<p><strong>5.</strong>打开浏览器，访问<code>http://localhost:5000，查看测试网页</code></p>
+<p>Any text you submit from any of the two text fields will be sent to the server over the SocketIO connection, and the server will echo it back to the client, which will append the message to the “Receive” part of the page, where you can already see the message sent by the <code>&#39;connect&#39;</code> event handler from the server.</p>
+<p>Things get much more interesting if you connect a second browser to the application. In my case I’m testing this with Firefox and Chrome, but any two browsers that you run on your machine will do. If you prefer to access the server from multiple machines you can do that too, but you first need to change the start up command to <code>socketio.run(app, host=&#39;0.0.0.0&#39;)</code> so that the server listens on the public network interface.</p>
+<p>With two or more clients when you submit a text from the form on the left only the client that submitted the message gets the echoed response. If you submit from the form on the right the server broadcasts the message to all connected clients, so all get the reply.</p>
+<p>If a client disconnects (for example if you close the browser window) the server will detect it a few seconds later and send a disconnect event to the application. The console will print a message to that effect.</p>
+<h2 id="Final-Words"><a href="#Final-Words" class="headerlink" title="Final Words"></a>Final Words</h2><p>For a more complete description of this extension please read the <a href="http://flask-socketio.readthedocs.org/en/latest/" target="_blank" rel="noopener">documentation</a>. If you want to make improvements to it feel free to fork it and then submit a pull request.</p>
+<p>更多完整介绍查看<a href="http://flask-socketio.readthedocs.org/en/latest/" target="_blank" rel="noopener">文档</a>，以下就不翻了</p>
+<p>I hope you make cool applications with this extension. I can tell you that I had a lot of fun implementing this extension.</p>
+<p>If you make something with it feel free to post links in the comments below.</p>
+<p>UPDATE: Flask-SocketIO version 0.3 adds support for <em>rooms</em>. This enables targeting subsets of connected users without having to use the broadcast option that sends to everyone.</p>
+<p>UPDATE #2: Flask-SocketIO version 1.0 adds support for Python 3.3+, and offers the choice to use gevent or eventlet as web server, as well as the standard Flask server. When using the Flask server the bi-directional channel is emulated using the HTTP long-polling technique.</p>
+<p>Miguel</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/06/python/" class="archive-article-date">
-  	<time datetime="2019-09-06T00:47:25.041Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/06/python/">python</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://anthonywang68.site/2019/11/30/Flask-WebSocket使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/05/部署/" class="archive-article-date">
-  	<time datetime="2019-09-05T11:48:35.528Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/28/心跳包机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">心跳包机制</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/05/部署/">部署</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/04/go-1/" class="archive-article-date">
-  	<time datetime="2019-09-04T12:08:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/04/go-1/">go</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/11/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/10/">10</a><a class="page-number" href="/archives/page/11/">11</a><span class="page-number current">12</span>
-    </nav>
   
 
 
@@ -274,8 +421,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
